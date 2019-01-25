@@ -1,0 +1,36 @@
+{
+  "name": "wine",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-native-fontawesome": "0.0.4",
+    "apisauce": "^1.0.0",
+    "pouchdb-react-native": "^7.0.0-beta-1",
+    "react": "16.6.0-alpha.8af6728",
+    "react-native": "0.57.4",
+    "react-native-easy-grid": "^0.2.0",
+    "react-native-fetch": "^2.0.0",
+    "react-native-fontawesome": "^6.0.0",
+    "react-native-navbar": "^2.1.0",
+    "react-native-responsive-screen": "^1.1.10",
+    "react-native-router-flux": "^4.0.6",
+    "react-native-simple-router": "^0.12.0",
+    "react-native-svg": "^8.0.8",
+    "react-navigation": "^2.18.2"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.49.1",
+    "react-test-renderer": "16.6.0-alpha.8af6728"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
