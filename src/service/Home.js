@@ -34,6 +34,7 @@ export default class Home extends Component {
                 vertical={true}
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
+              
             >
                 <View style={styles.container}>
                     <View style={styles.icon}>
@@ -45,8 +46,7 @@ export default class Home extends Component {
                         <View style={styles.first}>
                             <View style={styles.firstButton}>
                                 <ImageBackground source={require('../img/icon1.png')} style={{ height: hp('20%'),marginTop: 20,paddingTop: 20}}>
-                                    <TouchableOpacity style={{ height: hp('30%')}} onPress={this.second_onPressButton}>
-
+                                    <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Fullwinelist')}>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
@@ -84,7 +84,7 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
     container : {
-        backgroundColor: '#000000',
+        backgroundColor: '#000000'
     },
     icon: {
         width:wp('35%'),

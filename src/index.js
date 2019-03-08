@@ -7,10 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button, AsyncStorage, Alert,ScrollView} from 'react-native';
+import {StyleSheet, Text, View, Button, AsyncStorage, Alert,ScrollView} from 'react-native';
 import Home from './service/Home';
 import Glass from './service/Glass';
+import Fullwinelist from './service/Fullwinelist.js';
 import GlassDetail from './service/GlassDetail';
+import FullwinelistDetail from './service/FullwinelistDetail.js';
 import ChampagneBest from './service/ChampagneBest';
 import ChampagneBestDetail from './service/ChampagneBestDetail';
 
@@ -29,6 +31,8 @@ export default class Index extends Component {
 
 const AppStackNavigator = createStackNavigator ({
     Home: Home,
+    Fullwinelist: Fullwinelist,
+    FullwinelistDetail: FullwinelistDetail,
     Glass : Glass,
     GlassDetail: GlassDetail,
     ChampagneBest : ChampagneBest,
