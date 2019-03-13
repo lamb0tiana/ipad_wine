@@ -4,34 +4,53 @@ import {
     Text,
     TouchableOpacity,
     View,
-    Image, ImageBackground,
-    Button, ScrollView
+    ImageBackground,
+    ScrollView
 } from 'react-native';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
 
 export default class GlassDetail extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isHidden: false,
+            count: this.props.navigation.state.params.JSON_ListView_Clicked_Item
+        };
+    }
+
+    onPressPlus = () => {
+        this.setState({
+            count: this.state.count+1
+        })
+    }
+
+    onPressMoin = () => {
+        this.setState({
+            count: this.state.count-1
+        })
+    }
+
+
 
     static navigationOptions = ({navigation}) => ({
         headerLeft:
             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
-                <View style={{marginLeft:2,paddingLeft:2,marginTop: 12,marginBottom: 10}}>
-                    <ImageBackground source={require('../img/retour.png')} style={{ height: hp('6%'),width:wp('10.5%')}}>
+                <View style={{marginLeft:3,paddingLeft:3,marginTop: 12,marginBottom: 10}}>
+                    <ImageBackground source={require('../img/retour.png')} style={{ height: hp('5.5%'),width:wp('10%')}}>
                         <TouchableOpacity style={{ height: hp('10%')}} onPress={() => navigation.navigate('Glass')}>
-
                         </TouchableOpacity>
                     </ImageBackground>
-
                 </View>
             </View>,
         headerRight:
             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
-                <View style={{backgroundColor:'#009343',marginLeft:2,marginTop:10,marginRight:2,marginBottom:10,padding:10,flexDirection: 'row',justifyContent: 'space-between'}}>
-                    <Text style={{color:'#fff',marginRight: 5}}>My Selection</Text>
+                <View style={{backgroundColor:'#CECECE',marginLeft:2,marginTop:10,marginRight:2,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <Text style={{color:'#fff',marginRight: 5,backgroundColor:'#54b84a',padding:3}}>My Selection</Text>
                     <View
                         style={{width:wp('10%'),backgroundColor:'#f1592a',color:'#fff'}}
                     >
-                        <Text style={{color:'#fff',textAlign: 'center'}}>31</Text>
+                        <Text style={{color:'#fff',textAlign: 'center',padding:3}}>31</Text>
                     </View>
                 </View>
             </View>,
@@ -39,8 +58,37 @@ export default class GlassDetail extends Component {
             backgroundColor: '#333130',
         },
     });
+    plus_onPressButton(){
 
+        this.setState({
+           isHidden:true,
+       })
+    }
     render() {
+        const onPressMoinButton = () => {
+            if (this.state.count !== 0) {
+                return <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('3%'),width:wp('5.2%')}}>
+                            <TouchableOpacity style={{ height: hp('5%')}} onPress={this.onPressMoin}>
+                            </TouchableOpacity>
+                        </ImageBackground>;
+            }
+        }
+
+        const onPressMoinPlus = () => {
+            if (this.state.count !== 0) {
+                return <TouchableOpacity style={{ height: hp('5%')}} onPress={this.onPressPlus}>
+                    <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('3%'),width:wp('5.2%')}}>
+                    </ImageBackground>
+                </TouchableOpacity>
+            }
+            else return <TouchableOpacity style={{ height: hp('5%'), paddingRight: wp('5%')}} onPress={this.onPressPlus}>
+                <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('3%'),width:wp('5.2%')}}>
+                </ImageBackground>
+            </TouchableOpacity>;
+        }
+
+        const { navigate } = this.props.navigation;
+
         return (
             <ScrollView style={{backgroundColor:'black',width:wp('100%')}}>
                 <View style={styles.container}>
@@ -56,80 +104,87 @@ export default class GlassDetail extends Component {
                             borderBottomWidth:2
                         }}
                     >
-                        <Text style={{color:'#ffffff',fontSize: 20}}>
-                            BERECHE Le cran Premier Cru
+                        <Text style={{color:'#ffffff',fontSize: 20, fontFamily:"american-typewriter"}}>
+                            LAURENT-PIERRET Brut
                         </Text>
                     </View>
                     <View style={styles.row}>
                         <View style={styles.border_one}>
                             <ImageBackground source={require('../img/icon1.png')} style={{ height: hp('20%'),marginTop: 20,paddingTop: 20}}>
-
                             </ImageBackground>
                         </View>
                         <View style={styles.border_two}>
-                            <View style={styles.border}>
+                            
                                 <View style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
-                                    <View style={{ borderWidth: 2, borderColor:'gray',marginRight:0, backgroundColor:'#f1592a',paddingRight:0}}>
-                                        <Text style={{ color:'#ffffff',padding: 5}}>N.V</Text>
+                                    <View style={{ borderWidth: 2, borderColor:'#808080',marginRight:0, backgroundColor:'#ed4622',paddingRight:0}}>
+                                        <Text style={{ color:'#ffffff',padding: 4}}>N V</Text>
                                     </View>
-                                    <View style={{ borderWidth: 2, borderColor:'gray',marginRight:0,paddingRight:0,marginLeft:2, backgroundColor:'black'}}>
-                                        <Text style={{ color:'#ffffff',padding: 5}}>CHAMPAGNE</Text>
+                                    <View style={{ borderWidth: 2, borderColor:'#808080',marginRight:0,paddingRight:0,marginLeft:1, backgroundColor:'black', }}>
+                                        <Text style={{ fontSize: 12, fontFamily: "Nimbus-Sans-D-OT-Bold_32747", color:'#ffffff',padding:4, paddingTop: 7}}>CHAMPAGNE</Text>
                                     </View>
-                                    <View style={{ width:wp('5%'),marginLeft:2, height:hp('5%'),padding:7}}>
-                                        <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('2.8%'),width:wp('5%')}}>
-
-                                        </ImageBackground>
+                                    <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('20%'),paddingRight:wp('4%'), height:hp('5%'),padding:7}}>
+                                            {onPressMoinButton()}
+                                            <Text value={this.state.count}
+                                                  onChangeText={count => this.setState({ count })}
+                                                  style={[styles.countText]}>
+                                                {this.state.count !== 0 ? this.state.count: null}
+                                            </Text>
+                                            {onPressMoinPlus()}
                                     </View>
                                 </View>
                                 <View style={{marginTop:6,flexDirection: 'row',justifyContent: 'space-between' }}>
-                                    <View style={{ borderWidth: 2, borderColor:'gray',marginRight:0, backgroundColor:'#f1592a',paddingRight:0}}>
+                                    <View style={{ borderWidth: 2, borderColor:'#808080',marginRight:0, backgroundColor:'#ed4622',paddingRight:0}}>
                                         <Text style={{ color:'#ffffff',padding: 5}}>N/A</Text>
                                     </View>
-                                    <View style={{ borderWidth: 2, borderColor:'gray',marginRight:0,marginLeft:2, backgroundColor:'#f1592a',paddingRight:0}}>
+                                    <View style={{ borderWidth: 2, borderColor:'#808080',marginRight:0,marginLeft:2, backgroundColor:'#ed4622',paddingRight:0}}>
                                         <Text style={{ color:'#ffffff',padding: 5}}>0.75L</Text>
                                     </View>
-                                    <View style={{ borderWidth: 2, borderColor:'gray',marginRight:0,paddingRight:0,marginLeft:5, backgroundColor:'black'}}>
+                                    <View style={{ borderWidth: 2, borderColor:'#808080',marginRight:0,paddingRight:0,marginLeft:5, backgroundColor:'#4d4e4e'}}>
                                         <Text style={{ color:'#ffffff',padding: 5}}>RMB 1630</Text>
                                     </View>
                                 </View>
                                 <View style={{marginTop:10}}>
-                                    <Text style={{color:'#ffffff'}}>
+                                    <Text style={{color:'#ffffff', fontSize: 12, fontFamily: "american-typewriter"}}>
                                         France
                                     </Text>
-                                    <Text style={{color:'#ffffff'}}>
+                                    <Text style={styles.descVine}>
                                         Reims, Champagne
                                     </Text>
                                 </View>
                                 <View style={{marginTop:10}}>
-                                    <Text style={{color:'#ffffff'}}>
-                                        GRAPS
+                                    <Text style={{color:'#ffffff', fontSize: 12, fontFamily: "Nimbus-Sans-D-OT-Bold_32747"}}>
+                                        GRAPES
                                     </Text>
-                                    <Text style={{color:'#ffffff'}}>
+                                    <Text style={styles.descVine}>
                                         Chardonnay, Pinot Noir
                                     </Text>
                                 </View>
-                                <View style={{ width:wp('5%'),marginLeft:2, height:hp('5%'),padding:7}}>
-                                    <ImageBackground source={require('../img/glass1.png')} style={{ height: hp('2.8%'),width:wp('5%')}}>
-
+                                <View style={{height:hp('5%'),paddingTop:7,flexDirection: 'row'}}>
+                                    <ImageBackground source={require('../img/new-glass.png')} style={{ height: hp('3.5%'),width:wp('5%')}}>
+                                    </ImageBackground>
+                                    <Text style={{marginLeft:2,paddingTop:3, color:'#ee4922',fontSize: 10, fontFamily:"AvrileSans-Regular"}}>
+                                        BY GLASS 
+                                    </Text>
+                                </View>
+                                <View style={{paddingLeft:'45%', flexDirection: 'row',height:hp('5%'), paddingTop:7, marginRight:0, position:'relative', paddingRight:3}}>
+                                    <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 10,fontFamily:"AvrileSans-Regular"}}>
+                                        15CL/100RMB 
+                                    </Text>
+                                    <ImageBackground source={require('../img/circle-plus.png')} style={{marginLeft:4, height: hp('2.8%'),width:wp('5.2%')}}>
+                                        <TouchableOpacity style={{ height: hp('5%')}} onPress={this.plus_onPressButton.bind(this)}>
+                                        </TouchableOpacity>
                                     </ImageBackground>
                                 </View>
-                            </View>
                         </View>
                     </View>
                     <View style={{marginLeft:10}}>
-                        <Text style={{color:'#f1592a',marginBottom:10}}>
+                        <Text style={{color:'#f1592a', fontFamily: "american-typewriter", fontSize:20}}>
                             DESCRIPTION
                         </Text>
-                        <Text style={{color:'#ffffff'}}>
-                            Simple HTML5-compliant drag'n'drop zone for files built with React.js. ... Warning: On most recent browsers versions, the files given by onDrop won't have ... was aborted'); reader.onerror = () => console.log
+                        <Text style={{alignSelf: 'flex-end', color:'#ffffff', fontFamily: "Nimbus-Sans-D-OT-Bold_32747",fontSize: 10, justifyContent:'space-between', lineHeight:15, textAlign:'auto'}}>
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
                         </Text>
-                        <View>
-                            <ImageBackground source={require('../img/glass1.png')} style={{ height: 20}}>
-
-                            </ImageBackground>
-                        </View>
                     </View>
-
                 </View>
             </ScrollView>
         );
@@ -141,8 +196,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-        width:wp('100%'),
-
+        width:wp('100%')
     },
     welcome: {
         fontSize: 20,
@@ -156,7 +210,7 @@ const styles = StyleSheet.create({
         width:wp('15%'),
     },
     row: {
-        marginBottom: 50,
+        marginBottom: 20,
         marginRight:5,
         marginLeft:5,
         flexDirection: 'row',
@@ -181,6 +235,13 @@ const styles = StyleSheet.create({
         marginLeft:5,
         marginRight:20,
         paddingRight:20,
+    },
+    countText: {
+        color: '#ffffff'
+    },
+    descVine: {
+        color:'#bbbebf', 
+        fontSize: 10, 
+        fontFamily:"AvrileSans-Regular"
     }
-
 });

@@ -33,9 +33,7 @@ export default class Home extends Component {
                 horizontal={true}
                 vertical={true}
                 showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-              
-            >
+                showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <View style={styles.icon}>
                         <ImageBackground source={require('../img/Entete.png')} style={{ width: wp('30%'),height: hp('10%')}}>
@@ -45,29 +43,28 @@ export default class Home extends Component {
                     <View style={styles.row}>
                         <View style={styles.first}>
                             <View style={styles.firstButton}>
-                                <ImageBackground source={require('../img/icon1.png')} style={{ height: hp('20%'),marginTop: 20,paddingTop: 20}}>
+                                <ImageBackground source={require('../img/icon1.png')} style={{ height: hp('25%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Fullwinelist')}>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
                             <View style={styles.secondButton}>
-                                <ImageBackground source={require('../img/icon2.png')} style={{ height: hp('20%'),marginTop: 20,paddingTop: 20}}>
+                                <ImageBackground source={require('../img/icon2.png')} style={{ height: hp('25%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Glass')}>
-                                        <Text>wine2</Text>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
                         </View>
                         <View style={styles.second}>
                             <View style={styles.thirdButton}>
-                                <ImageBackground source={require('../img/icon3.png')} style={{ height: hp('20%'), marginTop: 20,paddingTop: 20}}>
+                                <ImageBackground source={require('../img/icon3.png')} style={{ height: hp('25%'), marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={this.third_onPressButton}>
                                         <Text>wine3</Text>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
                             <View style={styles.fourthButton}>
-                                <ImageBackground source={require('../img/icon4.png')} style={{ height: hp('20%'),marginTop: 20,paddingTop: 20}}>
+                                <ImageBackground source={require('../img/icon4.png')} style={{ height: hp('25%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('ChampagneBest')}>
                                         <Text>wine4</Text>
                                     </TouchableOpacity>
@@ -106,7 +103,7 @@ const styles = StyleSheet.create({
         marginRight: 3,
         width: wp('45%'),
         height: hp('30%'),
-        borderColor:'#009343',
+        borderColor:'#00a54f',
         borderWidth: 5,
         color:'#f1592a',
 
@@ -114,7 +111,7 @@ const styles = StyleSheet.create({
     secondButton:{
         width: wp('45%'),
         height: hp('30%'),
-        borderColor:'#009343',
+        borderColor:'#00a54f',
         borderWidth: 5,
         color:'#f1592a',
     },
@@ -128,14 +125,14 @@ const styles = StyleSheet.create({
         marginRight: 3,
         width: wp('45%'),
         height: hp('30%'),
-        borderColor:'#009343',
+        borderColor:'#00a54f',
         borderWidth: 5,
         color:'#f1592a',
     },
     fourthButton:{
         width: wp('45%'),
         height: hp('30%'),
-        borderColor:'#009343',
+        borderColor:'#dbbb6a',
         borderWidth: 5,
         color:'white',
     }

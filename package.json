@@ -17,6 +17,7 @@
     "react-native-easy-grid": "^0.2.0",
     "react-native-fetch": "^2.0.0",
     "react-native-fontawesome": "^6.0.0",
+    "react-native-global-font": "^1.0.2",
     "react-native-navbar": "^2.1.0",
     "react-native-responsive-screen": "^1.1.10",
     "react-native-router-flux": "^4.0.6",
@@ -32,5 +33,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
   }
 }

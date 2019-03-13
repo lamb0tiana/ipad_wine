@@ -15,6 +15,7 @@ import GlassDetail from './service/GlassDetail';
 import FullwinelistDetail from './service/FullwinelistDetail.js';
 import ChampagneBest from './service/ChampagneBest';
 import ChampagneBestDetail from './service/ChampagneBestDetail';
+import Test from './service/Test';
 
 import { createStackNavigator } from 'react-navigation';
 
@@ -36,8 +37,9 @@ const AppStackNavigator = createStackNavigator ({
     Glass : Glass,
     GlassDetail: GlassDetail,
     ChampagneBest : ChampagneBest,
-    ChampagneBestDetail : ChampagneBestDetail
-});
+    ChampagneBestDetail : ChampagneBestDetail,
+    Test : Test,
+  });
 
 const styles = StyleSheet.create({
   container: {

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,27 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		E6A508E75E03468BBBD1C9DB /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 474284F2F0F2441391953235 /* libRNSVG.a */; };
+		94E76827A8474AE1A629D059 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EB6D3B66D249F9A49CAFFD /* libRNSVG-tvOS.a */; };
+		828631393BB8444A8A4ED1A9 /* American Presidents SAMPLE Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1896F9C894964B3E9968F9F3 /* American Presidents SAMPLE Normal.ttf */; };
+		497711183E604450A9D9F569 /* American Presidents SAMPLE Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0040F98DF96494C8676DF7D /* American Presidents SAMPLE Normal.ttf */; };
+		EA580032C037485B8796BA34 /* American-Presidents-SAMPLE-Normal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032C174A4B614D7887EEE654 /* American-Presidents-SAMPLE-Normal.ttf */; };
+		2AAAB726D5694669A677766A /* American-Typewriter-Medium-BT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E921324B2D69464AAC624AFA /* American-Typewriter-Medium-BT.ttf */; };
+		6DFE38D469E04A76859ACA66 /* ufonts.com_american-typewriter-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0050C21AC0D4317BDF858B1 /* ufonts.com_american-typewriter-bold.ttf */; };
+		9551F5818F16454F8478C9D7 /* ufonts.com_american-typewriter-condensed-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5E3F7A40E564A22BC9AC743 /* ufonts.com_american-typewriter-condensed-bold.ttf */; };
+		C36624C6217B4DF0B1DEB34C /* ufonts.com_american-typewriter-condensed-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F960300BB44969C75CDCD /* ufonts.com_american-typewriter-condensed-light.ttf */; };
+		822414FABE6341459FFF37C3 /* ufonts.com_american-typewriter-condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E55457B0C94C4DD48F2FDDD8 /* ufonts.com_american-typewriter-condensed.ttf */; };
+		7A967B0A93714147B1C245A9 /* ufonts.com_american-typewriter-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 035300D6B12944F6A79286DD /* ufonts.com_american-typewriter-light.ttf */; };
+		727772CA35C04213ACC01507 /* ufonts.com_american-typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F355547F26E43DA977190E6 /* ufonts.com_american-typewriter.ttf */; };
+		3648E9A0D265410DA7946F2C /* american-typewriter-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A8B070074694913B7CA6F03 /* american-typewriter-bold.ttf */; };
+		095402B381C4457282AF10BB /* american-typewriter-condensed-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 710967F58F6B41DEA730130A /* american-typewriter-condensed-bold.ttf */; };
+		25C50D99611A493CB6D61B0E /* american-typewriter-condensed-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A259B0A9B2E4A5B803409B9 /* american-typewriter-condensed-light.ttf */; };
+		64A04F9E7214425494C70E98 /* american-typewriter-condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC1AEE50430849EEAF1A4257 /* american-typewriter-condensed.ttf */; };
+		DD61E207FF26438AA57E874A /* american-typewriter-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D22014D80D27445EA649D27C /* american-typewriter-light.ttf */; };
+		DBB01CD593104BC881BC33F8 /* american-typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956E0F5B02E140F0A9A9DBBF /* american-typewriter.ttf */; };
+		EF2E17B751084FCD9BD46E44 /* Nimbus-Sans-D-OT-Bold_32747.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21244D0E56B848E7B9F9B78A /* Nimbus-Sans-D-OT-Bold_32747.ttf */; };
+		D44C45C383CC45D2AC5C74AB /* Nimbus-Sans-D-OT-Light_32752.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA6480857DD4D4FB1F1EDC9 /* Nimbus-Sans-D-OT-Light_32752.ttf */; };
+		92B0CCFE45454F6DB262C0C1 /* AvrileSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3049F55B7474406EB3F26B05 /* AvrileSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +363,28 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		2E27B23C8C92407A88F6591E /* RNSVG.xcodeproj */ = {isa = PBXFileReference; name = "RNSVG.xcodeproj"; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		474284F2F0F2441391953235 /* libRNSVG.a */ = {isa = PBXFileReference; name = "libRNSVG.a"; path = "libRNSVG.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		95EB6D3B66D249F9A49CAFFD /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; name = "libRNSVG-tvOS.a"; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1896F9C894964B3E9968F9F3 /* American Presidents SAMPLE Normal.ttf */ = {isa = PBXFileReference; name = "American Presidents SAMPLE Normal.ttf"; path = "../src/assets/fonts/American Presidents SAMPLE Normal.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B0040F98DF96494C8676DF7D /* American Presidents SAMPLE Normal.ttf */ = {isa = PBXFileReference; name = "American Presidents SAMPLE Normal.ttf"; path = "../assets/fonts/American Presidents SAMPLE Normal.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		032C174A4B614D7887EEE654 /* American-Presidents-SAMPLE-Normal.ttf */ = {isa = PBXFileReference; name = "American-Presidents-SAMPLE-Normal.ttf"; path = "../assets/fonts/American-Presidents-SAMPLE-Normal.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E921324B2D69464AAC624AFA /* American-Typewriter-Medium-BT.ttf */ = {isa = PBXFileReference; name = "American-Typewriter-Medium-BT.ttf"; path = "../assets/fonts/American-Typewriter-Medium-BT.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C0050C21AC0D4317BDF858B1 /* ufonts.com_american-typewriter-bold.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter-bold.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B5E3F7A40E564A22BC9AC743 /* ufonts.com_american-typewriter-condensed-bold.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter-condensed-bold.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter-condensed-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8C9F960300BB44969C75CDCD /* ufonts.com_american-typewriter-condensed-light.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter-condensed-light.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter-condensed-light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E55457B0C94C4DD48F2FDDD8 /* ufonts.com_american-typewriter-condensed.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter-condensed.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter-condensed.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		035300D6B12944F6A79286DD /* ufonts.com_american-typewriter-light.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter-light.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter-light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9F355547F26E43DA977190E6 /* ufonts.com_american-typewriter.ttf */ = {isa = PBXFileReference; name = "ufonts.com_american-typewriter.ttf"; path = "../assets/fonts/ufonts.com_american-typewriter.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6A8B070074694913B7CA6F03 /* american-typewriter-bold.ttf */ = {isa = PBXFileReference; name = "american-typewriter-bold.ttf"; path = "../assets/fonts/american-typewriter-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		710967F58F6B41DEA730130A /* american-typewriter-condensed-bold.ttf */ = {isa = PBXFileReference; name = "american-typewriter-condensed-bold.ttf"; path = "../assets/fonts/american-typewriter-condensed-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9A259B0A9B2E4A5B803409B9 /* american-typewriter-condensed-light.ttf */ = {isa = PBXFileReference; name = "american-typewriter-condensed-light.ttf"; path = "../assets/fonts/american-typewriter-condensed-light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC1AEE50430849EEAF1A4257 /* american-typewriter-condensed.ttf */ = {isa = PBXFileReference; name = "american-typewriter-condensed.ttf"; path = "../assets/fonts/american-typewriter-condensed.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D22014D80D27445EA649D27C /* american-typewriter-light.ttf */ = {isa = PBXFileReference; name = "american-typewriter-light.ttf"; path = "../assets/fonts/american-typewriter-light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		956E0F5B02E140F0A9A9DBBF /* american-typewriter.ttf */ = {isa = PBXFileReference; name = "american-typewriter.ttf"; path = "../assets/fonts/american-typewriter.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		21244D0E56B848E7B9F9B78A /* Nimbus-Sans-D-OT-Bold_32747.ttf */ = {isa = PBXFileReference; name = "Nimbus-Sans-D-OT-Bold_32747.ttf"; path = "../assets/fonts/Nimbus-Sans-D-OT-Bold_32747.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0DA6480857DD4D4FB1F1EDC9 /* Nimbus-Sans-D-OT-Light_32752.ttf */ = {isa = PBXFileReference; name = "Nimbus-Sans-D-OT-Light_32752.ttf"; path = "../assets/fonts/Nimbus-Sans-D-OT-Light_32752.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3049F55B7474406EB3F26B05 /* AvrileSans-Regular.ttf */ = {isa = PBXFileReference; name = "AvrileSans-Regular.ttf"; path = "../assets/fonts/AvrileSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +412,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				E6A508E75E03468BBBD1C9DB /* libRNSVG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +428,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				94E76827A8474AE1A629D059 /* libRNSVG-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +600,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				2E27B23C8C92407A88F6591E /* RNSVG.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -577,6 +622,7 @@
 				00E356EF1AD99517003FC87E /* wineTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				F600B88FC0ED44169BAE6D28 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -602,6 +648,33 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		F600B88FC0ED44169BAE6D28 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				1896F9C894964B3E9968F9F3 /* American Presidents SAMPLE Normal.ttf */,
+				B0040F98DF96494C8676DF7D /* American Presidents SAMPLE Normal.ttf */,
+				032C174A4B614D7887EEE654 /* American-Presidents-SAMPLE-Normal.ttf */,
+				E921324B2D69464AAC624AFA /* American-Typewriter-Medium-BT.ttf */,
+				C0050C21AC0D4317BDF858B1 /* ufonts.com_american-typewriter-bold.ttf */,
+				B5E3F7A40E564A22BC9AC743 /* ufonts.com_american-typewriter-condensed-bold.ttf */,
+				8C9F960300BB44969C75CDCD /* ufonts.com_american-typewriter-condensed-light.ttf */,
+				E55457B0C94C4DD48F2FDDD8 /* ufonts.com_american-typewriter-condensed.ttf */,
+				035300D6B12944F6A79286DD /* ufonts.com_american-typewriter-light.ttf */,
+				9F355547F26E43DA977190E6 /* ufonts.com_american-typewriter.ttf */,
+				6A8B070074694913B7CA6F03 /* american-typewriter-bold.ttf */,
+				710967F58F6B41DEA730130A /* american-typewriter-condensed-bold.ttf */,
+				9A259B0A9B2E4A5B803409B9 /* american-typewriter-condensed-light.ttf */,
+				BC1AEE50430849EEAF1A4257 /* american-typewriter-condensed.ttf */,
+				D22014D80D27445EA649D27C /* american-typewriter-light.ttf */,
+				956E0F5B02E140F0A9A9DBBF /* american-typewriter.ttf */,
+				21244D0E56B848E7B9F9B78A /* Nimbus-Sans-D-OT-Bold_32747.ttf */,
+				0DA6480857DD4D4FB1F1EDC9 /* Nimbus-Sans-D-OT-Light_32752.ttf */,
+				3049F55B7474406EB3F26B05 /* AvrileSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -684,7 +757,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -1049,6 +1122,25 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				828631393BB8444A8A4ED1A9 /* American Presidents SAMPLE Normal.ttf in Resources */,
+				497711183E604450A9D9F569 /* American Presidents SAMPLE Normal.ttf in Resources */,
+				EA580032C037485B8796BA34 /* American-Presidents-SAMPLE-Normal.ttf in Resources */,
+				2AAAB726D5694669A677766A /* American-Typewriter-Medium-BT.ttf in Resources */,
+				6DFE38D469E04A76859ACA66 /* ufonts.com_american-typewriter-bold.ttf in Resources */,
+				9551F5818F16454F8478C9D7 /* ufonts.com_american-typewriter-condensed-bold.ttf in Resources */,
+				C36624C6217B4DF0B1DEB34C /* ufonts.com_american-typewriter-condensed-light.ttf in Resources */,
+				822414FABE6341459FFF37C3 /* ufonts.com_american-typewriter-condensed.ttf in Resources */,
+				7A967B0A93714147B1C245A9 /* ufonts.com_american-typewriter-light.ttf in Resources */,
+				727772CA35C04213ACC01507 /* ufonts.com_american-typewriter.ttf in Resources */,
+				3648E9A0D265410DA7946F2C /* american-typewriter-bold.ttf in Resources */,
+				095402B381C4457282AF10BB /* american-typewriter-condensed-bold.ttf in Resources */,
+				25C50D99611A493CB6D61B0E /* american-typewriter-condensed-light.ttf in Resources */,
+				64A04F9E7214425494C70E98 /* american-typewriter-condensed.ttf in Resources */,
+				DD61E207FF26438AA57E874A /* american-typewriter-light.ttf in Resources */,
+				DBB01CD593104BC881BC33F8 /* american-typewriter.ttf in Resources */,
+				EF2E17B751084FCD9BD46E44 /* Nimbus-Sans-D-OT-Bold_32747.ttf in Resources */,
+				D44C45C383CC45D2AC5C74AB /* Nimbus-Sans-D-OT-Light_32752.ttf in Resources */,
+				92B0CCFE45454F6DB262C0C1 /* AvrileSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1273,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wine.app/wine";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1199,6 +1300,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wine.app/wine";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1218,6 +1328,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = wine;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1236,6 +1350,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = wine;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1262,6 +1380,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1288,6 +1415,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Release;
 		};
@@ -1313,6 +1449,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wine-tvOS.app/wine-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Debug;
 		};
@@ -1338,6 +1483,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wine-tvOS.app/wine-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+				);
 			};
 			name = Release;
 		};
