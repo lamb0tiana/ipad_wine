@@ -10,10 +10,33 @@ import {
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
 
+    var SQLite = require('react-native-sqlite-storage')
+    var db = SQLite.openDatabase({name:'test.db', createFromLocation:'~/db/db_wine.db'})
 export default class Glass extends Component {
     constructor(props) {
         super(props)
-        this.state = { count:0 }
+        this.state = { 
+            count:0,
+            label:""
+         };
+
+         db.transaction((tx)=>{
+             tx.executeSql('SELECT label FROM wine', [], (tx, results)=> {
+                 console.log("Query completed");
+
+                 //Get rows with web SQL Database spec compliance.
+
+                 var len = results.rows.length;
+                 if(len > 0){
+                    for(let i = 0; i < len; i++){
+                        let row = results.rows.item(i);
+                        console.log('Record: ${row.label}');
+                        this.setState({label: row.label});
+                    }
+                 }
+                 
+             })
+         })
     }
 
     onPressPlus = () => {
@@ -101,7 +124,7 @@ export default class Glass extends Component {
                         <View style={{marginLeft:10,color:'#ee4723'}}>
                             <View style={{borderColor:'#bd1e2c',borderLeftWidth: 10}}>
                                 <Text style={{fontSize: 17, fontFamily:"american-typewriter", color:'#bd1e2c',marginLeft:3}}>
-                                    RED
+                                    RED {'mety io e'+this.state.label}
                                 </Text>
                             </View>
                             <Text style={styles.listPaysPremier}>
