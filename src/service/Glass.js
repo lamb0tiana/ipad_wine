@@ -252,9 +252,11 @@ export default class Glass extends Component {
                             </View>
                             <View style={{color:'#00ADEF',borderTopWidth: 4,borderColor:'#00ADEF',fontSize: 17}}>
                                 <View style={{borderColor:'#00ADEF',borderLeftWidth: 10,marginBottom:3,marginTop:4}}>
-                                    <Text style={{color:'#00ADEF',marginLeft:3, fontSize: 17, fontFamily:"american-typewriter"}}>
+                                <TouchableOpacity style={{ height: hp('10%')}} onPress={() => this.props.navigation.navigate('MmbSommelier')}>
+                                    <Text style={{color:'blue',marginLeft:3}}>
                                         BY GLASS
                                     </Text>
+                                </TouchableOpacity>
                                 </View>
                                 <View style={{borderColor:'#00ADEF',borderLeftWidth: 10,marginBottom:3}}>
                                     <Text style={{color:'#00ADEF',marginLeft:3, fontSize: 17, fontFamily:"american-typewriter"}}>
