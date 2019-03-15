@@ -165,11 +165,9 @@ export default class ChampagneBest extends Component {
                             </View>
                             <View style={{color:'blue',borderTopWidth: 4,borderColor:'blue',fontSize: 17}}>
                                 <View style={{borderColor:'blue',borderLeftWidth: 10,marginBottom:3,marginTop:4}}>
-                                <TouchableOpacity style={{ height: hp('10%')}} onPress={() => this.props.navigation.navigate('MmbSommelier')}>
                                     <Text style={{color:'blue',marginLeft:3}}>
                                         BY GLASS
                                     </Text>
-                                </TouchableOpacity>
                                 </View>
                                 <View style={{borderColor:'blue',borderLeftWidth: 10,marginBottom:3}}>
                                     <Text style={{color:'blue',marginLeft:3}}>
