@@ -15,7 +15,6 @@ import GlassDetail from './service/GlassDetail';
 import FullwinelistDetail from './service/FullwinelistDetail.js';
 import ChampagneBest from './service/ChampagneBest';
 import ChampagneBestDetail from './service/ChampagneBestDetail';
-import MmbSommelier from './service/MmbSommelier';
 import Test from './service/Test';
 
 import { createStackNavigator } from 'react-navigation';
@@ -40,7 +39,6 @@ const AppStackNavigator = createStackNavigator ({
     ChampagneBest : ChampagneBest,
     ChampagneBestDetail : ChampagneBestDetail,
     Test : Test,
-    MmbSommelier : MmbSommelier
   });
 
 const styles = StyleSheet.create({
