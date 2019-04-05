@@ -50,7 +50,7 @@ export default class Home extends Component {
                             </View>
                             <View style={styles.secondButton}>
                                 <ImageBackground source={require('../img/icon2.png')} style={{ height: 1.08*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
-                                    <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Test')}>
+                                    <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Glasslist')}>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
