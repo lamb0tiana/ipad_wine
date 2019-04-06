@@ -8,14 +8,16 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, AsyncStorage, Alert,ScrollView} from 'react-native';
+import Start from './service/Start';
 import Home from './service/Home';
-import Glass from './service/Glass';
-import Fullwinelist from './service/Fullwinelist.js';
-import GlassDetail from './service/GlassDetail';
-import FullwinelistDetail from './service/FullwinelistDetail.js';
-import ChampagneBest from './service/ChampagneBest';
-import ChampagneBestDetail from './service/ChampagneBestDetail';
-import MmbSommelier from './service/MmbSommelier';
+import Fullwinelist from './service/Fullwinelist';
+import Glasslist from './service/Glasslist';
+import Halfofflist from './service/Halfofflist';
+import Bestoflist from './service/Bestoflist';
+import WineDetail from './service/WineDetail';
+import Sommelier from './service/Sommelier';
+import Selectlist from './service/Selectlist';
+import Update from './service/Update';
 import Test from './service/Test';
 
 import { createStackNavigator } from 'react-navigation';
@@ -32,15 +34,18 @@ export default class Index extends Component {
 }
 
 const AppStackNavigator = createStackNavigator ({
+    Start: Start,
     Home: Home,
     Fullwinelist: Fullwinelist,
-    FullwinelistDetail: FullwinelistDetail,
-    Glass : Glass,
-    GlassDetail: GlassDetail,
-    ChampagneBest : ChampagneBest,
-    ChampagneBestDetail : ChampagneBestDetail,
+    Glasslist : Glasslist,
+    Halfofflist: Halfofflist,
+    Bestoflist: Bestoflist,
+    WineDetail: WineDetail,
+    Sommelier: Sommelier,
+    Selectlist: Selectlist,
+    Update: Update,
     Test : Test,
-    MmbSommelier : MmbSommelier
+
   });
 
 const styles = StyleSheet.create({

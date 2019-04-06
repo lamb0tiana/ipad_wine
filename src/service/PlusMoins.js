@@ -1,0 +1,165 @@
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    ImageBackground,
+
+} from 'react-native';
+import {heightPercentageToDP as hp,
+    widthPercentageToDP as wp,} from "react-native-responsive-screen";
+
+    export default class PlusMoins extends Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                count: 0,
+                number:0
+            }
+
+            this.init();
+            
+        }
+
+        init(){
+            var selected = this.getSelected(this.props.id);
+            this.state.number = this.props.refresh;
+            if(selected){
+                this.state.count = selected.count;
+            }else{
+                this.state.count = 0;
+            }
+         
+            this.props.computeSelectionCount();
+        }
+
+        
+
+        componentDidMount() {
+            this.selected = this.getSelected(this.props.id);
+        }
+
+        getSelected(id){
+            return global.Selected.filter(el => (el.id == id && el.type == 'byglass'))[0];
+        }
+
+        onPressMoin = (id) => {
+            this.setState({count: this.state.count - 1})
+        }
+
+
+        onPressPlus = (id) => {
+            this.setState({count: this.state.count + 1});
+         }
+
+
+         componentWillReceiveProps(nextProps){
+                if(this.props.refresh != nextProps.refresh)
+                    {
+                        // console.log('making update');
+                        this.init();
+                    }
+             
+         }         
+        onPressMoinView = (id) => {
+            if (this.state.count >0) { 
+                return <TouchableOpacity onPress={this.onPressMoin.bind(this, id)}>
+                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('2%'),width:wp('2.6%'), marginLeft: 18}}>
+                    </ImageBackground>
+                </TouchableOpacity>
+            }
+            
+        }
+
+        onPressPlusView = (id) => {
+
+            if (this.state.count == 0) {
+                return <TouchableOpacity style={{ paddingLeft: wp('6%'), paddingTop: -20}} onPress={this.onPressPlus.bind(this, id)} >
+                    <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'),marginRight: 13}}>
+                    </ImageBackground>
+                </TouchableOpacity>
+            }
+            else return <TouchableOpacity style={{ paddingLeft: wp('2.6%')}} onPress={this.onPressPlus.bind(this, id)}>
+                <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%')}}>
+                </ImageBackground>
+            </TouchableOpacity>;
+        }
+    
+
+        componentDidUpdate(prevProps,prevState) {
+
+            if(prevState.count == this.state.count )
+                    return;
+           
+            if(this.selected != undefined){
+                 this.selected.count = this.state.count;
+            }else{
+                var itemToInsert = {};
+                itemToInsert.id = this.props.id;
+                itemToInsert.type = "byglass";
+                itemToInsert.count = this.state.count;
+                global.Selected.push(itemToInsert);
+                this.selected = itemToInsert;  
+                console.log('Plus Moins');
+                console.log(global.Selected);          
+            }
+                this.props.computeSelectionCount();
+          }
+
+        render() {
+          return (
+            <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('20%'),height:wp('8.5%'),paddingRight:wp('6.5%'),paddingTop:15}}>
+                                            
+                {this.onPressMoinView(this.props.id)}
+                                                  { this.state.count > 0 ?
+                                                    <Text 
+                                                        style={[styles.countText]}>
+                                                    {this.state.count}
+                                                  </Text>: null}
+                {this.onPressPlusView(this.props.id)}
+
+          </View>
+
+          )
+        };
+
+
+    }
+
+const styles = StyleSheet.create({
+    body:{
+        backgroundColor: 'black',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+        width:wp('90%'),
+        marginLeft:wp('5%'),
+        marginTop:wp('3%')
+    },
+    text: {
+        color:"white",
+        fontSize:20,
+        marginBottom: hp("2.8%"),
+        letterSpacing: 1.6
+    },
+    image:{
+        height: hp("40%"),
+        width: wp("99%"),
+        resizeMode: 'contain',
+        marginLeft: -50, 
+        marginTop:40,
+        marginBottom:35
+    },
+    imageicon:{
+            height: hp("4%"), width: wp("6%"), alignSelf: 'flex-end'
+    },
+    countText: {
+        color: '#ffffff',
+        textAlign: 'center',
+        paddingLeft:wp('2.5%'),
+        fontSize: 22
+    }
+});
+    
