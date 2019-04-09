@@ -1110,7 +1110,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1212,7 +1212,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1314,7 +1314,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1416,7 +1416,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1518,7 +1518,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1621,7 +1621,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1724,7 +1724,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1827,7 +1827,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -1930,7 +1930,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2033,7 +2033,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2136,7 +2136,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2244,7 +2244,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2345,7 +2345,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2447,7 +2447,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2549,7 +2549,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2651,7 +2651,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2753,7 +2753,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2855,7 +2855,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -2957,7 +2957,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3059,7 +3059,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3161,7 +3161,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3263,7 +3263,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3370,7 +3370,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3477,7 +3477,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3579,7 +3579,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3681,7 +3681,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{
@@ -3783,7 +3783,7 @@ export default class Fullwinelist extends Component {
                                 <View key={item.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                     <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh(), onGoBack: () => navigation.state.params.refresh()
+                                            JSON_ListView_Clicked_Item: this.state.count, JSON_Id_Clicked_Item: item.id, onGoBack: () => this.refresh()
                                         })}>
                                             <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                                 <View style={{

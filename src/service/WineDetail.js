@@ -12,6 +12,7 @@ import {heightPercentageToDP as hp,
 
     let SQLite = require('react-native-sqlite-storage')
     let db = SQLite.openDatabase({name:'mmb_ipad.db', createFromLocation:'~/database/mmb_ipad.db'})
+    let _ = require('lodash')
 export default class WineDetail extends Component {
     constructor(props) {
         super(props);
@@ -24,11 +25,17 @@ export default class WineDetail extends Component {
             mySelectionCount: 0,
             count:0
         };
+
+
         this.computeSelectionCount();
         db.transaction(tx => {
             tx.executeSql('SELECT * FROM ipad_wines WHERE id = ?', [this.state.id], (tx, results) => {
             var len = results.rows.length;
             if (len > 0) {
+                let countryObject = _.find(global.Countries, c => c.id == results.rows.item(0).country_id);
+                (countryObject) ? results.rows.item(0).country = countryObject.name : results.rows.item(0).country ='' ;
+                let regionOject =  _.find(global.Regions, r => r.id == results.rows.item(0).region_id);
+                (regionOject) ? results.rows.item(0).region = regionOject.name : results.rows.item(0).region ='' ;
                 this.setState({
                     DataWineDetail: results.rows.item(0),
                 });
@@ -36,7 +43,7 @@ export default class WineDetail extends Component {
                 this.setState({
                     DataWineDetail: '',
                 });
-                console.log('wine data', DataWineDetail)
+              
             }
             }
         );
@@ -272,24 +279,24 @@ export default class WineDetail extends Component {
                                 {this.state.DataWineDetail.byglass === 1 ? <View style={{marginTop:6,flexDirection: 'row' }}>
                                     <View style={{ borderWidth: 4, borderColor:'#808080',marginRight: wp("1%"), backgroundColor:'#ed4622',paddingRight:0, 
                                     width: wp("8,34375%"), height:  0.64*wp("8,34375%"),  justifyContent: 'center', alignItems: 'center'}}>
-                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 22}}>14,5%</Text>
+                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 22}}>{this.state.DataWineDetail.alcohol === null ? this.state.DataWineDetail.alcohol : 'N/A'}</Text>
                                     </View>
                                     <View style={{ borderWidth: 4, borderColor:'#808080', backgroundColor:'#ed4622', width: wp("8,34375%"),height:  0.64*wp("8,34375%"),
                                      justifyContent: 'center', alignItems: 'center'}}>
-                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 22}}>0.75L</Text>
+                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 22}}>{this.state.DataWineDetail.volume}L</Text>
                                     </View>
                                     <View style={{ borderWidth: 4, borderColor:'#808080', marginLeft: 12, backgroundColor:'#4d4e4e',
                                     justifyContent: 'center', alignItems: 'center', height:  0.64*wp("8,34375%"), width: wp('17.1875%')}}>
-                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 29}}>RMB 1630</Text>
+                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 29}}>RMB {this.state.DataWineDetail.price}</Text>
                                     </View>
                                 </View>:null}
                                 {this.state.DataWineDetail.byglass===1? <View>
                                     <View style={{marginTop: wp('1.82%')}}>
                                         <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "american-typewriter"}}>
-                                            France
+                                        {this.state.DataWineDetail.country}
                                         </Text>
                                         <Text style={styles.descVine}>
-                                            Reims, Champagne
+                                        {this.state.DataWineDetail.region}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
@@ -304,10 +311,10 @@ export default class WineDetail extends Component {
                                 :<View>  
                                     <View style={{marginTop: wp('1.82%')}}>
                                         <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "american-typewriter"}}>
-                                            France
+                                            {this.state.DataWineDetail.country}
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                            Reims, Champagne {this.state.DataWineDetail.name}
+                                        {this.state.DataWineDetail.region}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>

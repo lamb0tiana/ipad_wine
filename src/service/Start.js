@@ -38,9 +38,8 @@ export default class Start extends Component {
             });
           });
 
-
-
-
+        
+          
         db.transaction(tx => {
             tx.executeSql('SELECT * FROM ipad_regions where id in (select region_id from ipad_wines where available =1)', [], (tx, results) => {
               for (let i = 0; i < results.rows.length; ++i) {
