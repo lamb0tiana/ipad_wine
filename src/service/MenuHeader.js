@@ -31,8 +31,17 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-        { dm._countryIndexName[this.props.viewType]['RED'].map( tb => {
-            return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
+        { dm._countryIndexName[this.props.viewType]['RED'].map( (tb, i) => {
+            return       <TouchableOpacity 
+                                key={'Red'+i}
+                                onPress = {() => {
+                                        try{
+                                            this.props.reference.scrollToIndex(tb[0]);  
+                                        }catch(e){
+                                            return;
+                                        }
+                                    }}
+                                    >
                    <Text style={styles.listPaysPremier}>
                            {tb[1]}
                    </Text>
@@ -50,8 +59,16 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-            { dm._countryIndexName[this.props.viewType]['WHITE'].map(tb => {
-            return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}} >
+            { dm._countryIndexName[this.props.viewType]['WHITE'].map((tb, i) => {
+            return       <TouchableOpacity 
+                                key={i}
+                                onPress = {() => {
+                                    try{
+                                        this.props.reference.scrollToIndex(tb[0]);  
+                                    }catch(e){
+                                        return;
+                                    }
+                                }} >
                    <Text style={styles.listPaysPremier}>
                            {tb[1]}
                    </Text>
@@ -69,8 +86,16 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm._countryIndexName[this.props.viewType]['CHAMPAGNE'].map(tb => {
-                        return       <TouchableOpacity  onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
+                { dm._countryIndexName[this.props.viewType]['CHAMPAGNE'].map((tb,i) => {
+                        return       <TouchableOpacity  
+                                            key={i}
+                                            onPress = {() => {
+                                                try{
+                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                }catch(e){
+                                                    return;
+                                                }
+                                            }}>
                             <Text style={styles.listPaysPremier}>
                                     {tb[1]}
                             </Text>
@@ -88,8 +113,16 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm._countryIndexName[this.props.viewType]['ROSE'].map(tb => {
-                        return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
+                { dm._countryIndexName[this.props.viewType]['ROSE'].map((tb, i) => {
+                        return       <TouchableOpacity 
+                                            key= {i}
+                                            onPress = {() => {
+                                                try{
+                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                }catch(e){
+                                                    return;
+                                                }
+                                            }}>
                             <Text style={styles.listPaysPremier}>
                                     {tb[1]}
                             </Text>
@@ -108,8 +141,16 @@ export default class MenuHeader extends React.Component {
                         </Text>
                     </View>
                 </View>
-                { dm._countryIndexName[this.props.viewType]['SWEET'].map(tb => {
-                        return       <TouchableOpacity  onPress = {() => {this.props.reference.scrollToIndex(tb[0])}} >
+                { dm._countryIndexName[this.props.viewType]['SWEET'].map((tb,i) => {
+                        return       <TouchableOpacity  
+                                            key= {i}
+                                            onPress = {() => {
+                                                try{
+                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                }catch(e){
+                                                    return;
+                                                }
+                                            }} >
                             <Text style={styles.listPaysPremier}>
                                     {tb[1]}
                             </Text>

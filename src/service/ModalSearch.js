@@ -72,14 +72,13 @@ export default class ModalSearch extends Component {
 
             filterGrapeCount: this.props.req.grapes.length,
             filterRegionCount:this.props.req.region_id.length,
-            filterResultCount: 0,
+            hideCountryList: false,
 
             //Data value
             name:'',
             region:'',
             price:0,
             icon:'',
-            mySelectionCount: 0
         }; 
 
 
@@ -289,6 +288,7 @@ export default class ModalSearch extends Component {
                         <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
                         </ImageBackground>
                     </View>
+                { this.state.hideCountryList ? null :
                     <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap'}}>
                         {
                             dm.country.map(( country, i ) =>
@@ -303,6 +303,7 @@ export default class ModalSearch extends Component {
                             ))
                         }
                     </View>
+                }
                
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
                         <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
@@ -428,6 +429,12 @@ this.state.statusC ? <View>
                                         style={{height: 40, width:wp('50%'), backgroundColor:'#333333'}} 
                                         onChangeText={(word) => this.setState({keyWordSearch: word})}
                                         value={this.state.keyWordSearch}
+                                        onFocus ={ () => {
+                                            this.setState({hideCountryList:true});
+                                        }}
+                                        onBlur = { () => {
+                                            this.setState({hideCountryList:false});
+                                        }}
                                         />
                                 </View>
                             <View style={styles.search1}>

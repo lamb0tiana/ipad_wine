@@ -17,6 +17,7 @@ import {heightPercentageToDP as hp,
 import DataManager  from './DataManager';
 import ModalSearch from "./ModalSearch";
 
+
 let dm = DataManager.getInstance();
 
 
@@ -29,6 +30,7 @@ export default class TestRecyclerFull extends React.Component {
 
         this.scrollViewRef = null;
         global.Referer ='Fullwinelist';
+    
         this.view = 'full';
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
@@ -104,6 +106,7 @@ export default class TestRecyclerFull extends React.Component {
         this.props.navigation.setParams({
             filterCount: result[1],
             });
+
         this.toggleModal();
     }
 

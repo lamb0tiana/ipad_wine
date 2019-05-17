@@ -15,14 +15,10 @@ export default class DataManager {
     data = {};
     country = {};
     region = {};
-    fullDataLength = 0;
-    byGlassDataLength = 0;
-    halfOffDataLength = 0;
-    bestDataLength = 0;
 
     sourceData = 'local';
-    mapWineIdGrapeName = null;
     emitter = null;
+    
     constructor(){
         this.emitter = new EventEmitter();
         console.log('launch data manager constructor !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
@@ -138,11 +134,16 @@ export default class DataManager {
                     }
                 }
 
-                if(toAdd && req['name'].length > 0 ){
-                    if( item.data.name.indexOf(req['name']) == -1 && item.data.grape.indexOf(req['name']) == -1
-                        &&  item.data.country.indexOf(req['name']) == -1 &&  item.data.region.indexOf(req['name']) == -1 
+                if(toAdd && req['name'].length > 0 ){ 
+                    if( item.data.name.indexOf(req['name']) == -1 && 
+                          item.data.country.indexOf(req['name']) == -1 &&  item.data.region.indexOf(req['name']) == -1 
                         && item.data.info.indexOf(req['name']) == -1)
                                 toAdd = false;
+
+                    if(item.data.grape){
+                        if(item.data.grape.indexOf(req['name']) > -1)
+                            toAdd = true;
+                    }
                 }
 
                 if(toAdd){
@@ -446,64 +447,9 @@ export default class DataManager {
 
 
 
-    countryNamesIn(type){       
-        var result = Object.getOwnPropertyNames(this.data[type]);
-        result = result.map(e => this.countryById(e));
-        return result.sort();
-    }
-
-    
-
-    filterDataTypeForView(view, type){
-        var keys = Object.getOwnPropertyNames(this.data[type]);
-        var res = {};
-        res = _.clone(this.data[type]);
-        keys.forEach(key => {
-            if(view == 'byglass'){
-                res[key] = _.filter(this.data[type][key], e => e.byglass == 1);
-            }
-            if(view == 'promotion'){
-                res[key] = _.filter(this.data[type][key], e => e.promotion == 1);
-            }
-            if(view == 'best'){
-                res[key] = _.filter(this.data[type][key], e => e.best == 1);
-            }
-        });
-        return res;
-    }
-
-    async filterDataViewByGlass(){
-        let jsonData = await this.getDataFromSource();
-        var dataByglass = _.filter(jsonData.ipad_wines, e => e.available == '1' && e.byglass == '1');
-        this.byGlassDataLength = dataByglass.length;
-    }
-
-    async filterDataViewHalfOff(){
-        let jsonData = await this.getDataFromSource();
-        var dataHalfoff = _.filter(jsonData.ipad_wines, e => e.available == '1' && e.promotion == '1');
-        this.halfOffDataLength = dataHalfoff.length;
-    }
-
-    async filterDataViewBestOf(){
-        let jsonData = await this.getDataFromSource();
-        var dataBest = _.filter(jsonData.ipad_wines, e => e.available == '1' && e.best == '1');
-        this.bestDataLength = dataBest.length;
-    }
-
-
-    sortFunction(a,b){
-        if(this.countryById(a) < this.countryById(b)){
-                return -1;
-        }else if(this.countryById(a) > this.countryById(b)){
-                return 1;
-        }
-        return 0;
-    }
-
     async organizeData(){
         let jsonData = await this.getDataFromSource();
         this.data = _.filter(jsonData.ipad_wines, e => e.available == '1');
-        this.fullDataLength = this.data.length;
         this.data = _.groupBy(this.data, 'type');
         var keys = Object.getOwnPropertyNames(this.data);
         keys.forEach(key => {
@@ -527,7 +473,6 @@ export default class DataManager {
         dataJoin.forEach(e => {
             mapDataArray.push([e.wine_id, mapGrape.get(e.grape_id)]);
         });
-        this.mapWineIdGrapeName = new Map(mapDataArray);
 
         dataGrape = null;
         dataJoin = null;
@@ -563,53 +508,7 @@ export default class DataManager {
     }
 
 
-    countryById(id){
-        var res = _.find(this.country, c => c.id == id);
-        if(res){
-            return res.name;
-        }else{
-            throw 'DataManager: Contry of id '+id+' not found ';
-        }
-    }
 
-    formatCountryName(name){
-        var res = name.toLowerCase();
-        return res.replace(' ','');
-    }
-    countryByName(name){
-        var res = _.find(this.country, c => c.name == name);
-        if(res){
-            return res.id;
-        }else{
-            throw 'DataManager: Contry of name '+name+' not found ';
-        }
-    }
-
-    regionById(id){
-        var res = _.find(this.region, c => c.id == id);
-        if(res){
-            return res.name;
-        }else{
-            throw 'DataManager: Contry of id '+id+' not found ';
-        }
-    }
-
-    fullRegionDetailDisplay(region_id, top_region_id){
-          return  top_region_id ? this.regionById(top_region_id)+', '+this.regionById(region_id) : this.regionById(region_id);
-    }
-
-    regionByName(name){
-        var res = _.find(this.region, c => c.name == name);
-        if(res){
-            return res.id;
-        }else{
-            throw 'DataManager: Contry of name '+name+' not found ';
-        }
-    }
-
-     resolveGrapeForWineId(id){
-        return this.mapWineIdGrapeName.get(id);
-    }
 
    
 
