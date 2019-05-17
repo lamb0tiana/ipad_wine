@@ -7,6 +7,11 @@ import EventEmitter from 'events';
 export default class DataManager {
 
     static myInstance = null;
+
+    _data = [];
+    _countryIndexName = [];
+    _total =[];
+
     data = {};
     country = {};
     region = {};
@@ -34,7 +39,7 @@ export default class DataManager {
                  this.sourceData = 'downloaded';
              }
         });
-        
+        this._initData('half');
         // let dirs  = RNFetchBlob.fs.dirs;
         // var imageDir = (Platform.OS === 'ios') ? dirs.DocumentDir : '' + dirs.DocumentDir;
         // console.log('/data/user/0/com.wine/files/20190414223211.jpg');
@@ -74,6 +79,98 @@ export default class DataManager {
         var imagesToAdd =  _.difference(arrOld,arrNew);
         return _.filter(newData, n => imagesToAdd.indexOf(n.path) > -1 );
     }
+
+    async  _initData(viewType){
+
+        var s = await this.getDataFromSource();
+
+       // var viewTypes = ['full','glass','best','half'];
+
+        var c = s.ipad_countries;
+        var m = [];
+        this._total[viewType] = 0; 
+
+        var main =[];
+        main.push({type:'MenuHeader'});
+        main.push({type:'ChampagneHeader'});
+
+        c.forEach(e =>{
+            let s = [e.id,e.name];
+            m.push(s);
+        })
+
+        var dico = new Map(m);
+
+        var m = [];
+
+        var rg = s.ipad_regions;
+
+        rg.forEach( e =>{
+            let s = [e.id,e.name];
+            m.push(s);
+        })
+
+        var dicoRegion = new Map(m);
+
+        s= s.ipad_wines;
+
+        s= _.filter(s, p => p.available == '1');
+
+        s= s.map(e => {
+            e.country = dico.get(e.country_id);
+            e.region = dicoRegion.get(e.region_id);
+            e.topRegion = dicoRegion.get(e.top_region_id);
+            return e;
+        });
+
+        s = _.groupBy(s, 'type');
+        var types = ['CHAMPAGNE','RED','WHITE','ROSE','SWEET'];
+
+
+        for(var i=0; i<types.length; i++){
+            var data = s[types[i]];
+            this._countryIndexName[types[i]] = [];
+            data = _.groupBy(data, 'country');
+            var countryKey = _.keys(data);
+            countryKey = _.sortBy(countryKey);
+
+            if(i != 0){
+                main.push({type:'TypeTitle',data:types[i]});
+            }
+
+            countryKey.forEach(country =>{
+                //console.log(data[country]);return;
+                var rows = [];
+
+                if(viewType == 'full'){
+                    rows = data[country];
+                }else if(viewType == 'glass'){
+                    rows = _.filter(data[country], rw => rw.byglass == '1');
+                }else if(viewType == 'best'){
+                    rows = _.filter(data[country], rw => rw.best == '1');
+                }else if(viewType == 'half'){
+                    rows = _.filter(data[country], rw =>rw.promotion == '1');
+                }
+
+
+                if(rows.length > 0){
+
+                    this._countryIndexName[types[i]].push([main.length,country]);
+                    main.push({type:'CountryTitle',data:country});
+                        rows.forEach(row =>{
+                            main.push({type:'Row',data:row});
+                            this._total[viewType] = this._total[viewType] +1;
+                        })
+                }
+            })
+        }
+
+        this._data[viewType] = main;
+
+}
+
+
+
 
 
     getImageSource(path){

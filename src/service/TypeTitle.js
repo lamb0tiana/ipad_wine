@@ -10,7 +10,7 @@ import {heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
 
-export default class CountryTitle extends Component {
+export default class TypeTitle extends Component {
 
     constructor(props) {
         super(props);
@@ -21,17 +21,18 @@ export default class CountryTitle extends Component {
 onLayout = event => {
   
     let {width, height} = event.nativeEvent.layout;
-    console.log('wsee'+width + 'hsee'+height);
+    console.log('wseeh'+width + 'hseeh'+height);//993.33
 }
 
     render() {
         return (
-            <View style={styles.container}>
-                         <Text style={{color:'#808080', fontSize: 44,fontFamily:"American Typewriter"}}>
-                            {this.props.country}
-                        </Text>   
-                        <View style={{ height: 0.1, width: '100%', backgroundColor: 'black' }} />            
+        <View style={styles.container}>
+            <View style={{marginLeft: 10,marginBottom:10, marginTop:30, marginRight: 10}} >
+                <Text style={{color:'#fff',fontSize: 46,fontFamily:"American Typewriter"}}>
+                    {this.props.type}
+                </Text>
             </View>
+        </View>
         );
     }
 

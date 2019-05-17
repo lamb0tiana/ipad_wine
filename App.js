@@ -18,13 +18,14 @@ import Sommelier from './src/service/Sommelier';
 import WineDetail from './src/service/WineDetail';
 import Selectlist from './src/service/Selectlist';
 import Update from './src/service/Update';
+import TestRecycler from './src/service/TestRecycler';
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Start
   },
   Accueil: {
-    screen: Accueil
+    screen: TestRecycler
   },
   Fullwinelist: {
     screen: Fullwinelist

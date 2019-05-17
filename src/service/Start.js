@@ -19,22 +19,9 @@ export default class Start extends Component {
     constructor(props) {
         super(props);
         global.Selected = [];
-
-        global.CountryIds = [];
-        global.Countries =[];
-        global.RegionIds = [];
-        global.Regions = [];
-        global.Grapes = [];
-        global.All = [];
-        global.Referer = '';
-
-         dm.organizeData();
-         dm.setGlobals();
-         dm.filterDataViewByGlass();
-         dm.filterDataViewHalfOff();
-         dm.filterDataViewBestOf();
       
     }
+
     static navigationOptions =
     {
         header:null

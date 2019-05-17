@@ -3,33 +3,21 @@
  A scrollable list with different item type
  */
 import React, { Component } from "react";
-import { View, Text, Dimensions, TouchableOpacity } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity,ImageBackground } from "react-native";
 import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
 import MenuHeader from './MenuHeader';
 import Row from './Row';
+import TypeTitle from './TypeTitle';
 import ChampagneHeader from './ChampagneHeader';
 import CountryTitle from './CountryTitle';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const ViewTypes = {
-    FULL: 0,
-    HALF_LEFT: 1,
-    HALF_RIGHT: 2
-};
+import DataManager  from './DataManager';
 
-let containerCount = 0;
+let dm = DataManager.getInstance();
 
-class CellContainer extends React.Component {
-    constructor(args) {
-        super(args);
-        this._containerId = containerCount++;
-    }
-    render() {
-        return <View {...this.props}>{this.props.children}<Text>Cell Id: {this._containerId}</Text></View>;
-    }
-}
 
 /***
  * To test out just copy this component and render in you root component
@@ -38,8 +26,14 @@ export default class TestRecycler extends React.Component {
     constructor(args) {
         super(args);
         
-        let { width } = Dimensions.get("window");
         this.scrollViewRef = null;
+        global.Referer ='Accueil';
+        this.view = 'half';
+
+        this.props.navigation.setParams({
+            filterCount: dm._total[this.view],
+            });
+        this.computeSelectionCount();
         
         //Create the data provider and provide method which takes in two rows of data and return if those two are different or not.
         //THIS IS VERY IMPORTANT, FORGET PERFORMANCE IF THIS IS MESSED UP
@@ -55,32 +49,10 @@ export default class TestRecycler extends React.Component {
         //NOTE: For complex lists LayoutProvider will also be complex it would then make sense to move it to a different file
         this._layoutProvider = new LayoutProvider(
             index => {
-                if (index ==0 ) {
-                    return 'MenuHeader';
-                }else if(index == 1){
-                    return 'ChampagneHeader';
-                }
-                else if(index == 2){
-                    return 'CountryTitle';
-                }
-                else {
-                    return 'Row';
-                }
+                return this.state.dataProvider.getDataForIndex(index).type;
             },
             (type, dim) => {
                 switch (type) {
-                    case ViewTypes.HALF_LEFT:
-                        dim.width = width / 2;
-                        dim.height = 160;
-                        break;
-                    case ViewTypes.HALF_RIGHT:
-                        dim.width = width / 2;
-                        dim.height = 160;
-                        break;
-                    case ViewTypes.FULL:
-                        dim.width = width;
-                        dim.height = 140;
-                        break;
                     case 'MenuHeader':
                         dim.width = 1024;
                         dim.height = 1317;
@@ -97,6 +69,10 @@ export default class TestRecycler extends React.Component {
                         dim.width = 1024;
                         dim.height = 125.334;
                         break;
+                    case 'TypeTitle':
+                        dim.width = 1024;
+                        dim.height = 101.33;
+                        break;
                     default:
                         dim.width = 0;
                         dim.height = 0;
@@ -108,17 +84,22 @@ export default class TestRecycler extends React.Component {
 
         //Since component should always render once data has changed, make data provider part of the state
         this.state = {
-            dataProvider: dataProvider.cloneWithRows(this._generateArray(300))
+            dataProvider: dataProvider.cloneWithRows(dm._data[this.view])
         };
     }
 
-    _generateArray(n) {
-        let arr = new Array(n);
-        for (let i = 0; i < n; i++) {
-            arr[i] = i;
-        }
-        return arr;
+
+    computeSelectionCount(){
+        var sel = global.Selected.reduce(function(a,r){
+            return a+ r.count;
+            }, 0);
+
+        this.props.navigation.setParams({
+            ct: sel
+        });
     }
+
+
 
     setScrollViewRef = (element) => {
         this.scrollViewRef = element;
@@ -127,27 +108,9 @@ export default class TestRecycler extends React.Component {
     _rowRenderer(type, data) {
         //You can return any view here, CellContainer has no special significance
         switch (type) {
-            case ViewTypes.HALF_LEFT:
-                return (
-                    <CellContainer style={styles.containerGridLeft}>
-                        <Text>Data: {data}</Text>
-                    </CellContainer>
-                );
-            case ViewTypes.HALF_RIGHT:
-                return (
-                    <CellContainer style={styles.containerGridRight}>
-                        <Text>Data: {data}</Text>
-                    </CellContainer>
-                );
-            case ViewTypes.FULL:
-                return (
-                    <CellContainer style={styles.container}>
-                        <Text>Data: {data}</Text>
-                    </CellContainer>
-                );
             case 'MenuHeader':
                 return (
-                    <MenuHeader>  </MenuHeader>        
+                    <MenuHeader navigation={this.props.navigation} reference={this.scrollViewRef}>  </MenuHeader>        
                 );
             case 'ChampagneHeader':
                 return (
@@ -155,24 +118,88 @@ export default class TestRecycler extends React.Component {
                 );
             case 'CountryTitle':
                 return (
-                    <CountryTitle></CountryTitle>   
+                    <CountryTitle country = {data.data}></CountryTitle>   
                 );
             case 'Row':
                 return (
-                    <Row></Row>   
+                    <Row item = {data.data} navigation={this.props.navigation} updateCount = {this.computeSelectionCount.bind(this)}></Row>   
+                );
+            case 'TypeTitle':
+                return (
+                    <TypeTitle type={data.data}></TypeTitle>   
                 );
             default:
                 return null;
         }
     }
 
+    static navigationOptions = ({navigation}) => ({
+        headerLeft:
+          <View style={{flexDirection: 'row'}}>
+            <ImageBackground source={require('../img/fond.png')} style={{ position:"absolute", height: 0.15* wp('94%') ,width:wp('94%'), left: wp("3%"), top:-40}}>
+            </ImageBackground>          
+            <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
+                <View style={{marginLeft:30,marginRight:10}}>
+                    <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => navigation.navigate('Accueil')}>
+                        </TouchableOpacity>
+                    </ImageBackground>
+                </View>
+                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
+                    <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => navigation.navigate('Accueil')}>
 
+                        </TouchableOpacity>
+                    </ImageBackground>
+                </View>
+            </View>
+            </View>,
+        headerRight:
+         <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
+            <View style={{backgroundColor:'#c3c3c4',marginRight:35,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity onPress={ () => navigation.state.params.handleThis() }>
+                    <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>Filter</Text>
+                        <View
+                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                    >
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 22}}>{navigation.getParam('filterCount')}</Text>
+                        </View>
+                    </View>
+                    </TouchableOpacity>
+            </View>
+            <View style={{backgroundColor:'#c3c3c4',marginRight:60,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Selectlist')}>
+                    <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
+                        <View
+                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                    >
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 22}}>{navigation.getParam('ct')}</Text>
+                        </View>
+                    </View>
+                    </TouchableOpacity>
+            </View>
+        </View>
+            ,
+        headerStyle: {
+            backgroundColor: 'black',
+            height:wp('11.5%'),
+        },
+    });
 
     
     render() {
         return(
-            <View style={{height: hp('100%'), width: wp('100%')}}>
-            <TouchableOpacity  onPress = {() => this.scrollViewRef.scrollToIndex(77)}>
+            <View style={{height: hp('100%'), width: wp('100%'), backgroundColor:'black'}}>
+            <TouchableOpacity  onPress = {() => {
+                        let dataProvider = new DataProvider((r1, r2) => {
+                            return r1 !== r2;
+                        });  
+                        this.setState({
+                            dataProvider: dataProvider.cloneWithRows(this._generateArray(4))
+                        });
+            }}>
             <Text >
                     test
             </Text>

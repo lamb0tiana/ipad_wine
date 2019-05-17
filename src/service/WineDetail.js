@@ -17,10 +17,8 @@ export default class WineDetail extends Component {
         this.state = {
             isHidden: false,
             label:"",
-            count: this.props.navigation.state.params.JSON_ListView_Clicked_Item,
             DataWineDetail: '',
             mySelectionCount: 0,
-            count:0,
             grape:''
         };
         
@@ -45,7 +43,6 @@ export default class WineDetail extends Component {
         this.props.navigation.setParams({
             handleThis: this.refreshHandler,
             ct: sel,
-            refresh: this.props.navigation ? this.props.navigation.state.params.onGoBack : this.refresh
         });
     }
 
@@ -143,7 +140,7 @@ export default class WineDetail extends Component {
         headerRight:
          <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
             <View style={{backgroundColor:'#c3c3c4',marginRight:70,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
-                    <TouchableOpacity onPress={ () => navigation.navigate('Selectlist', {onGoBack: () => navigation.state.params.refresh()}) }>
+                    <TouchableOpacity onPress={ () => navigation.navigate('Selectlist')}>
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                     <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
@@ -276,10 +273,10 @@ export default class WineDetail extends Component {
                                 {this.item.byglass==1? <View>
                                     <View style={{marginTop: wp('1.82%')}}>
                                         <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "American Typewriter"}}>
-                                        {this.dm.countryById(this.item.country_id)}
+                                        {this.item.country}
                                         </Text>
                                         <Text style={styles.descVine}>
-                                        {this.dm.fullRegionDetailDisplay(this.item.region_id,this.item.top_region_id)}
+                                        {this.item.topRegion+' '+this.item.region}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
@@ -287,17 +284,17 @@ export default class WineDetail extends Component {
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
-                                            {this.dm.resolveGrapeForWineId(this.item.id)}
+                                            Grape a faire
                                         </Text>
                                     </View>
                                 </View>
                                 :<View>  
                                     <View style={{marginTop: wp('1.82%')}}>
                                         <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "American Typewriter"}}>
-                                            {this.dm.countryById(this.item.country_id)}
+                                            {this.item.country}
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                        {this.dm.fullRegionDetailDisplay(this.item.region_id,this.item.top_region_id)}
+                                        {this.item.topRegion+' '+this.item.region}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>
@@ -305,7 +302,7 @@ export default class WineDetail extends Component {
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                        {this.dm.resolveGrapeForWineId(this.item.id)}
+                                        Grape a faire
                                         </Text>
                                     </View>
                                     <View style={{flexDirection: 'row', width: wp('47%'), marginTop:wp('10%') }}>

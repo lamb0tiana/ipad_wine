@@ -11,12 +11,6 @@ import {heightPercentageToDP as hp,
 
 let dm = DataManager.getInstance();
 
-global.CountryIds = [];
-global.Countries =[];
-
-dm.organizeData();
-dm.setGlobals();
-
 
 export default class MenuHeader extends React.Component {
     constructor(args) {
@@ -37,10 +31,10 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-        { dm.countryNamesIn('RED').map((country, i) => {
-            return       <TouchableOpacity key={i}>
+        { dm._countryIndexName['RED'].map( tb => {
+            return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
                    <Text style={styles.listPaysPremier}>
-                           {country}
+                           {tb[1]}
                    </Text>
                </TouchableOpacity>
         })}
@@ -56,10 +50,10 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-            { dm.countryNamesIn('WHITE').map((country, i) => {
-            return       <TouchableOpacity key={i} >
+            { dm._countryIndexName['WHITE'].map(tb => {
+            return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}} >
                    <Text style={styles.listPaysPremier}>
-                           {country}
+                           {tb[1]}
                    </Text>
                </TouchableOpacity>
                  })}                       
@@ -75,10 +69,10 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm.countryNamesIn('CHAMPAGNE').map((country, i) => {
-                        return       <TouchableOpacity key={i} >
+                { dm._countryIndexName['CHAMPAGNE'].map(tb => {
+                        return       <TouchableOpacity  onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
                             <Text style={styles.listPaysPremier}>
-                                    {country}
+                                    {tb[1]}
                             </Text>
                         </TouchableOpacity>
                  })} 
@@ -94,10 +88,10 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm.countryNamesIn('ROSE').map((country, i) => {
-                        return       <TouchableOpacity key={i} >
+                { dm._countryIndexName['ROSE'].map(tb => {
+                        return       <TouchableOpacity onPress = {() => {this.props.reference.scrollToIndex(tb[0])}}>
                             <Text style={styles.listPaysPremier}>
-                                    {country}
+                                    {tb[1]}
                             </Text>
                         </TouchableOpacity>
                  })} 
@@ -114,10 +108,10 @@ export default class MenuHeader extends React.Component {
                         </Text>
                     </View>
                 </View>
-                { dm.countryNamesIn('SWEET').map((country, i) => {
-                        return       <TouchableOpacity key={i} >
+                { dm._countryIndexName['SWEET'].map(tb => {
+                        return       <TouchableOpacity  onPress = {() => {this.props.reference.scrollToIndex(tb[0])}} >
                             <Text style={styles.listPaysPremier}>
-                                    {country}
+                                    {tb[1]}
                             </Text>
                         </TouchableOpacity>
                  })} 
