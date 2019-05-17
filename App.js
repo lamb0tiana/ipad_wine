@@ -18,26 +18,30 @@ import Sommelier from './src/service/Sommelier';
 import WineDetail from './src/service/WineDetail';
 import Selectlist from './src/service/Selectlist';
 import Update from './src/service/Update';
-import TestRecycler from './src/service/TestRecycler';
+import ModalSearch from './src/service/ModalSearch';
+import TestRecyclerBest from './src/service/TestRecyclerBest';
+import TestRecyclerFull from './src/service/TestRecyclerFull';
+import TestRecyclerGlass from './src/service/TestRecyclerGlass';
+import TestRecyclerHalf from './src/service/TestRecyclerHalf';
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: Start
   },
   Accueil: {
-    screen: TestRecycler
+    screen: Accueil
   },
   Fullwinelist: {
-    screen: Fullwinelist
+    screen: TestRecyclerFull
   },
   Byglasslist: {
-    screen: Byglasslist
+    screen: TestRecyclerGlass
   },
   Bestoflist: {
-    screen: Bestoflist
+    screen: TestRecyclerBest
   },
   Halfofflist: {
-    screen: Halfofflist
+    screen: TestRecyclerHalf
   },
   Sommelier: {
     screen: Sommelier

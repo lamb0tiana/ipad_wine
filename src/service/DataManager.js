@@ -39,6 +39,9 @@ export default class DataManager {
                  this.sourceData = 'downloaded';
              }
         });
+        this._initData('full');
+        this._initData('best');
+        this._initData('glass');
         this._initData('half');
         // let dirs  = RNFetchBlob.fs.dirs;
         // var imageDir = (Platform.OS === 'ios') ? dirs.DocumentDir : '' + dirs.DocumentDir;
@@ -80,6 +83,95 @@ export default class DataManager {
         return _.filter(newData, n => imagesToAdd.indexOf(n.path) > -1 );
     }
 
+    _search(viewType,req){
+
+        var result =[];
+        var count = 0;
+        var main = this._data[viewType];
+
+        for(var i=0; i<main.length ; i++){
+            var item = main[i];
+
+            if(item.type == 'Row'){
+                var toAdd = true;
+
+                if(req['country_id'].length > 0 ){
+                    if(req['country_id'].indexOf(item.data.country_id) == -1 )
+                        toAdd = false;
+                }
+
+                if(toAdd && req['region_id'].length > 0 ){
+                    if(req['region_id'].indexOf(item.data.region_id) == -1 )
+                        toAdd = false;
+                }
+
+                if(toAdd && req['type'].length > 0 ){
+                    if(req['type'].indexOf(item.data.type) == -1 )
+                        toAdd = false;
+                }
+
+                if(toAdd && req['grapes'].length > 0 ){
+                    if(req['grapes'].indexOf(item.data.grape) == -1 )
+                        toAdd = false;
+                }
+
+                if(toAdd && req['price'].length > 0 ){
+                    for(var j=0; j<req['price'].length; j++ ){
+                        var type = req['price'][j];
+                        if(type == 'priceRangeA'){
+                            min = 0; max= 500;
+                        }
+                        if(type == 'priceRangeB'){
+                            min = 501; max= 1000;
+                        }
+                        if(type == 'priceRangeC'){
+                            min = 1001; max= 4000;
+                        }
+                        if(type == 'priceRangeD'){
+                            min = 4001; max= Infinity;
+                        }
+
+                        if(item.data.price > max || item.data.price <min){
+                            toAdd = false;
+                            break;
+                        }
+                    }
+                }
+
+                if(toAdd && req['name'].length > 0 ){
+                    if( item.data.name.indexOf(req['name']) == -1 && item.data.grape.indexOf(req['name']) == -1
+                        &&  item.data.country.indexOf(req['name']) == -1 &&  item.data.region.indexOf(req['name']) == -1 
+                        && item.data.info.indexOf(req['name']) == -1)
+                                toAdd = false;
+                }
+
+                if(toAdd){
+                    result.push(item);
+                    count ++;
+                }
+                    
+
+            }else{
+                if(item.type =='TypeTitle' && result.length>0 && result[result.length - 1].type == 'CountryTitle')
+                result.pop();
+            
+            if(item.type == 'CountryTitle' && result.length>0 && result[result.length - 1].type == 'CountryTitle')
+                result.pop();
+    
+            result.push(item);
+            }
+
+        }
+
+        if(result[result.length - 1].type == 'CountryTitle'){
+            result.pop();
+        }
+
+        return [result, count];
+
+    }
+
+
     async  _initData(viewType){
 
         var s = await this.getDataFromSource();
@@ -112,6 +204,28 @@ export default class DataManager {
 
         var dicoRegion = new Map(m);
 
+        //dico grapes
+        m=[];
+        var wg = s.ipad_grapes;
+
+        wg.forEach( e =>{
+            let s = [e.id,e.name];
+            m.push(s);
+        })
+
+        var dicoGrape = new Map(m);
+
+        m =[];
+
+        var wg = s.ipad_winesgrapes;
+        wg.forEach( e =>{
+            let s = [e.wine_id,dicoGrape.get(e.grape_id)];
+            m.push(s);
+        })
+
+        var dicoWineGrape = new Map(m);
+        //end
+
         s= s.ipad_wines;
 
         s= _.filter(s, p => p.available == '1');
@@ -120,16 +234,17 @@ export default class DataManager {
             e.country = dico.get(e.country_id);
             e.region = dicoRegion.get(e.region_id);
             e.topRegion = dicoRegion.get(e.top_region_id);
+            e.grape = dicoWineGrape.get(e.id);
             return e;
         });
 
         s = _.groupBy(s, 'type');
         var types = ['CHAMPAGNE','RED','WHITE','ROSE','SWEET'];
 
-
+        this._countryIndexName[viewType] = [];
         for(var i=0; i<types.length; i++){
             var data = s[types[i]];
-            this._countryIndexName[types[i]] = [];
+            this._countryIndexName[viewType][types[i]] = [];
             data = _.groupBy(data, 'country');
             var countryKey = _.keys(data);
             countryKey = _.sortBy(countryKey);
@@ -155,7 +270,7 @@ export default class DataManager {
 
                 if(rows.length > 0){
 
-                    this._countryIndexName[types[i]].push([main.length,country]);
+                    this._countryIndexName[viewType][types[i]].push([main.length,country]);
                     main.push({type:'CountryTitle',data:country});
                         rows.forEach(row =>{
                             main.push({type:'Row',data:row});

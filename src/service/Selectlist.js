@@ -26,7 +26,7 @@ export default class Selectlist extends Component {
         }
 
 
-        this.computeSelectionCount();
+        
 
         var ids = global.Selected.reduce(function(a,r){
             if(a == '') {
@@ -50,7 +50,7 @@ export default class Selectlist extends Component {
 
                 this.state.FlatListSelected = global.Selected
                 console.log(global.Selected);
-                this.setState({mySelectionCount:2});
+                
         });          
         //ajouter 
 
@@ -62,9 +62,7 @@ export default class Selectlist extends Component {
 
     refresh = () => {
         console.log('refreshing');
-       this.setState({count: this.state.count +1}, () => {
-            console.log('refresh count = '+this.state.count+' this refresh '+this.state.refreshMe)
-       });
+
    }
 
 
@@ -72,7 +70,6 @@ export default class Selectlist extends Component {
         this.computeSelectionCount();
         this.props.navigation.setParams({
             ct: global.SelectionCount,
-            refresh: this.props.navigation.state.params.onGoBack,
             deleteAllSelected: this.deleteAllSelected,
         });
     }
@@ -259,7 +256,7 @@ export default class Selectlist extends Component {
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
                                                     </Text>
                                                     <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Arial"}}>
-                                                    {dm.regionById(item.data.region_id)} {item.data.vintage}
+                                                    {item.data.region} {item.data.vintage}
                                                     </Text>
                                                 </View>
 

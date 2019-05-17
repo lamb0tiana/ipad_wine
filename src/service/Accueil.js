@@ -18,6 +18,8 @@ export default class Accueil extends Component {
     constructor(props) {
         super(props);
         global.Referer = '';
+
+
     }
     second_onPressButton() {
         Alert.alert('wine22')

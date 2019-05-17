@@ -7,6 +7,12 @@ import {
 } from 'react-native';
 import DataManager  from './DataManager';
 let dm = DataManager.getInstance();
+global.Regions = [];
+global.Grapes = [];
+global.CountryIds = [];
+global.Countries = [];
+global.RegionIds = [];
+dm.setGlobals();
 import RNFetchBlob from 'rn-fetch-blob';
 
 import {heightPercentageToDP as hp,

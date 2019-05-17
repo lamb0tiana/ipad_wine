@@ -284,7 +284,7 @@ export default class WineDetail extends Component {
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
-                                            Grape a faire
+                                        {this.item.grape}
                                         </Text>
                                     </View>
                                 </View>
@@ -302,7 +302,7 @@ export default class WineDetail extends Component {
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                        Grape a faire
+                                        {this.item.grape}
                                         </Text>
                                     </View>
                                     <View style={{flexDirection: 'row', width: wp('47%'), marginTop:wp('10%') }}>
