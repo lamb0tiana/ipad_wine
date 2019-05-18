@@ -91,11 +91,18 @@ export default class DataManager {
         var target = _.uniqBy(global.Selected, 'id');
         this._plusMoinsList.forEach(p =>{
             var selected = _.find(target, t => t.id == p.id && t.type=='byglass');
-
+           
             if(selected){
                 p.ref.init();
                 if(p.ref.isMounted()){
                     p.ref.setState({refresh: p.ref.state.refresh - 1});
+                }
+            }else{
+                if(p.ref.state.count > 0){
+                    p.ref.init();
+                    if(p.ref.isMounted()){
+                        p.ref.setState({refresh: p.ref.state.refresh - 1});
+                    }
                 }
             }
         })
