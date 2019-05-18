@@ -13,10 +13,8 @@ export default class DataManager {
     _total =[];
     _plusMoinsList = [];
 
-    data = {};
     country = {};
     region = {};
-    updateCancel = false;
 
     sourceData = 'local';
     emitter = null;
@@ -56,7 +54,6 @@ export default class DataManager {
     }
 
     async _update(){
-        console.log('soo');
         var newJson = null;
         try{
             newJson = await fetch('http://mmbund.com/surgery/index.php/ipadjson');
@@ -71,8 +68,6 @@ export default class DataManager {
 
         id++;
         this.sendMessageToUi(id,'Get response from server, downloading new images...');
-
-        console.log('dum');
 
         var itemWithImageToDownload =  this.getWineWithNewImage(newJson.ipad_wines, oldJson.ipad_wines);
         var pathOfImageToDelete = this.getUnusedImagePath(newJson.ipad_wines, oldJson.ipad_wines);
@@ -113,7 +108,7 @@ export default class DataManager {
             }
         }
 
-        if(aborted || this.updateCancel){
+        if(aborted){
             //delete downloadedImage
             dowloadedImage.forEach(e =>{           
                 console.log('deleting '+e);
@@ -123,7 +118,7 @@ export default class DataManager {
 
         //console.log(newJson.ipad_wines);
 
-        if(this.updateCancel) return;
+        if(aborted) return;
 
         //must not have error
         AsyncStorage.setItem('@ipad:data', JSON.stringify(newJson) , error => {
@@ -265,13 +260,14 @@ export default class DataManager {
                 }
 
                 if(toAdd && req['name'].length > 0 ){ 
-                    if( item.data.name.indexOf(req['name']) == -1 && 
-                          item.data.country.indexOf(req['name']) == -1 &&  item.data.region.indexOf(req['name']) == -1 
-                        && item.data.info.indexOf(req['name']) == -1)
+                    if( item.data.name.toLowerCase().indexOf(req['name'].toLowerCase()) == -1 && 
+                          item.data.country.toLowerCase().indexOf(req['name'].toLowerCase()) == -1 && 
+                           item.data.region.toLowerCase().indexOf(req['name'].toLowerCase()) == -1 
+                        && item.data.info.toLowerCase().indexOf(req['name'].toLowerCase()) == -1)
                                 toAdd = false;
 
                     if(item.data.grape){
-                        if(item.data.grape.indexOf(req['name']) > -1)
+                        if(item.data.grape.toLowerCase().indexOf(req['name'].toLowerCase()) > -1)
                             toAdd = true;
                     }
                 }
@@ -472,40 +468,6 @@ export default class DataManager {
         }
     }
 
-
-
-
-    async organizeData(){
-        let jsonData = await this.getDataFromSource();
-        this.data = _.filter(jsonData.ipad_wines, e => e.available == '1');
-        this.data = _.groupBy(this.data, 'type');
-        var keys = Object.getOwnPropertyNames(this.data);
-        keys.forEach(key => {
-            this.data[key] = _.groupBy(this.data[key], 'country_id');
-        });        
-
-        let dataGrape = jsonData.ipad_grapes;
-        let dataJoin = jsonData.ipad_winesgrapes; 
-
-        let mapDataGrapeArray = [];
-        let mapDataArray = [];
-
-        let mapGrape =null;
-        let mapData = null;
-
-        dataGrape.forEach(e =>{
-            mapDataGrapeArray.push([e.id,e.name]);
-        });
-        mapGrape = new Map(mapDataGrapeArray);
-
-        dataJoin.forEach(e => {
-            mapDataArray.push([e.wine_id, mapGrape.get(e.grape_id)]);
-        });
-
-        dataGrape = null;
-        dataJoin = null;
-        jsonData = null;
-    }
 
     async wineOfIdsIn(arrayId){
         let jsonData = await this.getDataFromSource();

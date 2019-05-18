@@ -108,12 +108,12 @@ export default class WineDetail extends Component {
  
          if (this.getSelected(id,type) != undefined) {
              return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-                 <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
+                 <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
                  </ImageBackground>
              </TouchableOpacity>
          }
          else return <TouchableOpacity  onPress={this.onPressPlus.bind(this, id, type)}>
-             <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 40, marginTop: 20}}>
+             <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
              </ImageBackground>
          </TouchableOpacity>;
      }
@@ -122,7 +122,7 @@ export default class WineDetail extends Component {
          var sel = this.getSelected(id,type);
          if (sel && sel.count>0) {
              return <TouchableOpacity onPress={this.onPressMoin.bind(this, id,type)}>
-                 <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('2%'),width:wp('2.6%'), marginLeft: 20, marginTop: 20}}>
+                 <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('2%'),width:wp('2.6%'), marginLeft: 10, marginTop: 20}}>
                  </ImageBackground>
              </TouchableOpacity>
          }
@@ -356,38 +356,14 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
 
-                                    {this.item.price2 == 0 ? <View style={{flexDirection: 'row',height:hp('3,5%'), width:wp('47%'), justifyContent:"flex-end", alignItems:"center", marginBottom: 15}}>
-                                        <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%")}}>
-                                        </Text>
-                                    </View>: <View style={{flexDirection: 'row', width:wp('47%'), justifyContent:"flex-end", alignItems:"center"}}>
-                                        <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%"), marginTop: 22}}>
-                                            15CL/{this.item.price2}RMB 
-                                        </Text>
-
-
-
-
-                                            {this.onPressMoinPlus2(this.item.id,'price2')}
-                                                  { this.getSelected(this.item.id,'price2') != undefined ?
-                                                    <Text 
-                                                        style={[styles.countText]}>
-                                                    {this.getSelected(this.item.id,'price2').count}
-                                                  </Text>: null}
-                                            {this.onPressMoinPlus(this.item.id,'price2')}
-
-
-
-                                            
-
-                                    </View>}
 
                                     <View style = {{flexDirection: "row", width:wp('47%'), justifyContent: "space-between"}}>
                                     {this.item.price1 == 0 ? <View style = {{flexDirection: "row", alignItems:"center"}}>
                                             <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%")}}>
                                             </Text>
                                         </View>: <View style = {{flexDirection: "row", alignItems:"center"}}>
-                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%"), marginTop: 20}}>
-                                                7CL/{this.item.price1}RMB 
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 14,fontFamily:"AvenirNext-Regular", marginRight: 2, marginTop: 20}}>
+                                                {this.item.price1}RMB 
                                             </Text>
 
 
@@ -410,8 +386,8 @@ export default class WineDetail extends Component {
                                             <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%")}}>
                                             </Text>                                      
                                         </View>: <View style = {{flexDirection: "row", alignItems:"center"}}>
-                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%"), marginTop: 22}}>
-                                                25CL/{this.item.price3}RMB 
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 15,fontFamily:"AvenirNext-Regular", marginRight: 2, marginTop: 22}}>
+                                                15CL/{this.item.price3}RMB 
                                             </Text>
 
 
@@ -432,6 +408,63 @@ export default class WineDetail extends Component {
 
                                         </View>}
                                     </View>
+
+
+
+                                    <View style = {{flexDirection: "row", width:wp('47%'), justifyContent: "space-between"}}>
+                                    {this.item.price2 == 0 ? <View style = {{flexDirection: "row", alignItems:"center"}}>
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%")}}>
+                                            </Text>
+                                        </View>: <View style = {{flexDirection: "row", alignItems:"center"}}>
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 14,fontFamily:"AvenirNext-Regular", marginRight: 2,marginLeft:24, marginTop: 20}}>
+                                                7CL/{this.item.price2}RMB 
+                                            </Text>
+
+
+
+
+                                            {this.onPressMoinPlus2(this.item.id,'price2')}
+                                                  { this.getSelected(this.item.id,'price2') != undefined ?
+                                                    <Text 
+                                                        style={[styles.countText]}>
+                                                    {this.getSelected(this.item.id,'price2').count}
+                                                  </Text>: null}
+                                            {this.onPressMoinPlus(this.item.id,'price2')}
+
+
+
+                                            
+
+                                        </View>}
+                                    {this.item.price4 == 0 ? <View style = {{flexDirection: "row", alignItems:"center"}}>
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 18,fontFamily:"AvenirNext-Regular", marginRight: wp("3%")}}>
+                                            </Text>                                      
+                                        </View>: <View style = {{flexDirection: "row", alignItems:"center"}}>
+                                            <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 15,fontFamily:"AvenirNext-Regular", marginRight: 2, marginTop: 22}}>
+                                                25CL/{this.item.price4}RMB 
+                                            </Text>
+
+
+                                            {this.onPressMoinPlus2(this.item.id,'price4')}
+                                                  { this.getSelected(this.item.id,'price4') != undefined ?
+                                                    <Text 
+                                                        style={[styles.countText]}>
+                                                    {this.getSelected(this.item.id,'price4').count}
+                                                  </Text>: null}
+                                            {this.onPressMoinPlus(this.item.id,'price4')}
+
+
+
+
+
+
+
+
+                                        </View>}
+                                    </View>
+
+
+
                                 </View>}
                             </View>
                         </View>
@@ -501,9 +534,10 @@ const styles = StyleSheet.create({
     countText: {
         color: '#ffffff',
         textAlign: 'center',
-        paddingLeft:wp('2%'),
-        fontSize: 22,
-        marginTop: 18
+        paddingLeft:10,
+        fontSize: 17,
+        marginTop: 18,
+        borderColor:'red'
     },
     descVine: {
         color:'#bbbebf', 

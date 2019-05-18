@@ -54,8 +54,7 @@ constructor(props) {
 
         AlertIOS.prompt('Enter your password', null, (text) =>{
              if(text == 'mmbpad'){
-                console.log('on press update');
-                this.dm.updateCancel = false;
+
                 this.state.status.push({id:0, text:'Initialization'});
                 this.setState({Updating: true});
                 this.dm._update().then(e =>{

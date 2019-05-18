@@ -60,6 +60,14 @@ export default class Selectlist extends Component {
     }
 
 
+    getPrice(item){
+        var type = item.type;
+        if(type == 'byglass'){
+            return item.data.price;
+        }else{
+            return item.data[type];
+        }
+    }
 
 
     componentDidMount() {
@@ -260,7 +268,7 @@ export default class Selectlist extends Component {
                                                     <ImageBackground source={require('../img/new-glass.png')} style={{height: hp('3.1%'), width:wp('2%'),marginLeft:1, marginTop: 12, resizeMode: 'contain'}}>
                                                     </ImageBackground>
                                                 </View>:null}
-                            {item.type === 'price1' ? <View style={styles.glassContainer}>
+                            {item.type === 'price2' ? <View style={styles.glassContainer}>
                                                 
                                                     <Text style={styles.glassVolume}>
                                                     7CL
@@ -268,7 +276,7 @@ export default class Selectlist extends Component {
                                                     <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                     </ImageBackground>
                                                 </View>:null}
-                            {item.type === 'price2' ? <View style={styles.glassContainer}>
+                            {item.type === 'price3' ? <View style={styles.glassContainer}>
                                                 
                                                 <Text style={styles.glassVolume}>
                                                 15CL
@@ -276,7 +284,7 @@ export default class Selectlist extends Component {
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
-                            {item.type === 'price3' ? <View style={styles.glassContainer}>
+                            {item.type === 'price4' ? <View style={styles.glassContainer}>
                                                 
                                                 <Text style={styles.glassVolume}>
                                                 25CL
@@ -284,7 +292,7 @@ export default class Selectlist extends Component {
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
-                            {item.type === 'price4' ? <View style={styles.glassContainer}>
+                            {item.type === 'pricex' ? <View style={styles.glassContainer}>
                                                 
                                                 <Text style={styles.glassVolume}>
                                                 75CL
@@ -300,7 +308,7 @@ export default class Selectlist extends Component {
                                     
                                     <View style={{flexDirection: 'row',height:40, marginTop:10}}>
                                             <Text style={{color:'#FFFFFF', marginLeft:15,marginTop:4, fontSize: 18}}>
-                                                {item.data.price}
+                                                {this.getPrice(item)}
                                             </Text>
                                             <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain'}}>
                                             </ImageBackground>

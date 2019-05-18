@@ -229,8 +229,7 @@ export default class TestRecyclerFull extends React.Component {
 
     onFocus = (ld) => {
         if(!this.firstFocus){
-            setTimeout(function(){dm._updatePlusMoins()},5);
-            
+            dm._updatePlusMoins();     
         }
         this.firstFocus = false;
     }
