@@ -55,7 +55,7 @@ constructor(props) {
            console.log('on press update');
         this.state.status.push({id:0, text:'Initialization'});
         this.setState({ActivityIndicator_Loading: true});
-        this.dm.update(e => {
+        this.dm._update(e => {
             this.setState({ActivityIndicator_Loading: false});  
         });
         }

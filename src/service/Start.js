@@ -13,6 +13,7 @@ global.CountryIds = [];
 global.Countries = [];
 global.RegionIds = [];
 dm.setGlobals();
+dm._update();
 import RNFetchBlob from 'rn-fetch-blob';
 
 import {heightPercentageToDP as hp,
@@ -25,7 +26,7 @@ export default class Start extends Component {
     constructor(props) {
         super(props);
         global.Selected = [];
-      
+        
     }
 
     static navigationOptions =
