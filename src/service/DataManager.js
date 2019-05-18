@@ -83,16 +83,20 @@ export default class DataManager {
     _addPlusMoinsRef(id, ref){
         if(_.find(this._plusMoinsList, e => e.id == id) == undefined){
             this._plusMoinsList.push({id:id, ref:ref});
+            console.log(this._plusMoinsList.length);
         }
     }
 
     _updatePlusMoins(){
         var target = _.uniqBy(global.Selected, 'id');
         this._plusMoinsList.forEach(p =>{
-            if(_.find(target, t => t.id == p.id)){
+            var selected = _.find(target, t => t.id == p.id && t.type=='byglass');
+
+            if(selected){
                 p.ref.init();
-                p.ref.setState({refresh: p.ref.state.refresh - 1});
-                console.log('updating '+p.id);
+                if(p.ref.isMounted()){
+                    p.ref.setState({refresh: p.ref.state.refresh - 1});
+                }
             }
         })
     }
@@ -320,7 +324,6 @@ export default class DataManager {
         }else{
             result = {uri: Platform.OS === 'android' ? 'asset:/1002.jpg':path.replace('.JPG','.jpg')};
         }
-        console.log(result);
         return result;
     }
 

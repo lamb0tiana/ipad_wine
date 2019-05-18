@@ -21,11 +21,7 @@ export default class Row extends Component {
         super(props);//w =1004, h =181
         this.plusMoinsRef = null;
 
-        
         this.dm = DataManager.getInstance();
-
-
-
 
     }
 
@@ -35,7 +31,13 @@ componentDidMount() {
     }
 }
 
-    
+// componentWillReceiveProps(nextProps){
+//     if(this.props.item != nextProps.item)
+//         {
+//             // console.log('making update');
+//            console.log('xxs '+nextProps.item.id);
+//         }             
+// }     
 
 setScrollViewRef = (element) => {
     this.plusMoinsRef = element;

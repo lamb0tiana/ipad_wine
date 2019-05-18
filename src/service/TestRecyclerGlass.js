@@ -3,7 +3,7 @@
  A scrollable list with different item type
  */
 import React, { Component } from "react";
-import { View, Text, Dimensions, TouchableOpacity,ImageBackground } from "react-native";
+import { View, Text,  TouchableOpacity,ImageBackground } from "react-native";
 import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
 import MenuHeader from './MenuHeader';
 import Row from './Row';
@@ -16,6 +16,9 @@ import {heightPercentageToDP as hp,
 
 import DataManager  from './DataManager';
 import ModalSearch from "./ModalSearch";
+import { NavigationEvents } from 'react-navigation';
+let _ = require('lodash');
+
 
 let dm = DataManager.getInstance();
 
@@ -26,16 +29,21 @@ let dm = DataManager.getInstance();
 export default class TestRecyclerGlass extends React.Component {
     constructor(args) {
         super(args);
-        
+
         this.scrollViewRef = null;
-        global.Referer ='Byglasslist';
+
+        //custom parmeter for each view
+        global.Referer ='Byglasslist';   
         this.view = 'glass';
+
         this.state = {showModal:false};
+        this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
+        this.firstFocus = true;
         this.props.navigation.setParams({
             filterCount: dm._total[this.view],
             });
         this.computeSelectionCount();
-        
+        this.onSearch = this.onSearch.bind(this);
         //Create the data provider and provide method which takes in two rows of data and return if those two are different or not.
         //THIS IS VERY IMPORTANT, FORGET PERFORMANCE IF THIS IS MESSED UP
         let dataProvider = new DataProvider((r1, r2) => {
@@ -92,6 +100,21 @@ export default class TestRecyclerGlass extends React.Component {
         this.setState({showModal: !this.state.showModal})
     }
 
+    onSearch(req){
+        let dataProvider = new DataProvider((r1, r2) => {
+            return r1 !== r2;
+        });
+        this.req = req;
+        let result = dm._search(this.view, req);
+        this.setState({dataProvider: dataProvider.cloneWithRows(result[0])});
+        this.props.navigation.setParams({
+            filterCount: result[1],
+            });
+
+        this.toggleModal();
+    }
+
+
     computeSelectionCount(){
         var sel = global.Selected.reduce(function(a,r){
             return a+ r.count;
@@ -108,6 +131,11 @@ export default class TestRecyclerGlass extends React.Component {
         });
     }
 
+    componentWillUnmount(){
+        dm._plusMoinsList = null;
+        dm._plusMoinsList = []; 
+      }
+
 
     setScrollViewRef = (element) => {
         this.scrollViewRef = element;
@@ -118,7 +146,7 @@ export default class TestRecyclerGlass extends React.Component {
         switch (type) {
             case 'MenuHeader':
                 return (
-                    <MenuHeader navigation={this.props.navigation} reference={this.scrollViewRef}>  </MenuHeader>        
+                    <MenuHeader navigation={this.props.navigation} reference={this.scrollViewRef} viewType={this.view}>  </MenuHeader>        
                 );
             case 'ChampagneHeader':
                 return (
@@ -130,7 +158,10 @@ export default class TestRecyclerGlass extends React.Component {
                 );
             case 'Row':
                 return (
-                    <Row item = {data.data} navigation={this.props.navigation} updateCount = {this.computeSelectionCount.bind(this)}></Row>   
+                    <Row  item = {data.data} navigation={this.props.navigation} 
+                    updateCount = {this.computeSelectionCount.bind(this)}
+                   
+                    ></Row>   
                 );
             case 'TypeTitle':
                 return (
@@ -196,18 +227,29 @@ export default class TestRecyclerGlass extends React.Component {
         },
     });
 
-    
+    onFocus = (ld) => {
+        if(!this.firstFocus){
+            setTimeout(function(){dm._updatePlusMoins()},5);
+            
+        }
+        this.firstFocus = false;
+    }
+
+
     render() {
         return (
            
      
             <View style={{height: hp('100%'), width: wp('100%'), backgroundColor:'black'}}>
+                <NavigationEvents  onDidFocus={this.onFocus} />
             { this.state.showModal ?
-                    <ModalSearch show= {this.state.showModal} toggle = {this.toggleModal.bind(this)}></ModalSearch>
+                    <ModalSearch show= {this.state.showModal} toggle = {this.toggleModal.bind(this)}
+                    search= {this.onSearch} req={this.req}>
+                    
+                    </ModalSearch>
             : null}
-                    <RecyclerListView layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
             </View>
-            
         )
        
     }

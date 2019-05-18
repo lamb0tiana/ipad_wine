@@ -17,7 +17,7 @@ import {heightPercentageToDP as hp,
 import DataManager  from './DataManager';
 import ModalSearch from "./ModalSearch";
 import { NavigationEvents } from 'react-navigation';
-import _clone from 'lodash/clone';
+let _ = require('lodash');
 
 
 let dm = DataManager.getInstance();
@@ -31,9 +31,11 @@ export default class TestRecyclerFull extends React.Component {
         super(args);
 
         this.scrollViewRef = null;
-        global.Referer ='Fullwinelist';
-    
+
+        //custom parmeter for each view
+        global.Referer ='Fullwinelist';   
         this.view = 'full';
+
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -227,7 +229,8 @@ export default class TestRecyclerFull extends React.Component {
 
     onFocus = (ld) => {
         if(!this.firstFocus){
-            dm._updatePlusMoins();
+            setTimeout(function(){dm._updatePlusMoins()},5);
+            
         }
         this.firstFocus = false;
     }
