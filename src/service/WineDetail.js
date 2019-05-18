@@ -10,6 +10,8 @@ import {
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
     import DataManager from './DataManager';
+import { NavigationEvents } from 'react-navigation';
+
 
 export default class WineDetail extends Component {
     constructor(props) {
@@ -22,13 +24,15 @@ export default class WineDetail extends Component {
             grape:''
         };
 
-        
+        this.firstFocus = true;
         
         this.item = this.props.navigation.state.params.item;
 
         this.dm = DataManager.getInstance();
 
         this.computeSelectionCount();
+
+        this.onFocus = this.onFocus.bind(this);
         
 
     }
@@ -41,7 +45,7 @@ export default class WineDetail extends Component {
         var sel = global.Selected.reduce(function(a,r){
             return a+ r.count;
             }, 0);
-
+       
         this.props.navigation.setParams({
             handleThis: this.refreshHandler,
             ct: sel,
@@ -168,6 +172,22 @@ export default class WineDetail extends Component {
        })
     }
     
+    onFocus(){
+        
+        if(!this.firstFocus){
+            var sel = global.Selected.reduce(function(a,r){
+                return a+ r.count;
+                }, 0);
+    
+            this.props.navigation.setParams({
+                ct: sel
+            });           
+        }
+
+        this.firstFocus = false;
+    }
+
+
     render() {
 
 
@@ -175,6 +195,7 @@ export default class WineDetail extends Component {
 
         return (
             <ScrollView style={{backgroundColor:'black',width:wp('100%') }}>
+                <NavigationEvents  onDidFocus={this.onFocus} />
                 <View style={styles.container}>
                     <View
                         style={{

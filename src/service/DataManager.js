@@ -83,7 +83,6 @@ export default class DataManager {
     _addPlusMoinsRef(id, ref){
         if(_.find(this._plusMoinsList, e => e.id == id) == undefined){
             this._plusMoinsList.push({id:id, ref:ref});
-            console.log(this._plusMoinsList.length);
         }
     }
 
