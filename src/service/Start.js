@@ -13,7 +13,7 @@ global.CountryIds = [];
 global.Countries = [];
 global.RegionIds = [];
 dm.setGlobals();
-dm._update();
+
 import RNFetchBlob from 'rn-fetch-blob';
 
 import {heightPercentageToDP as hp,

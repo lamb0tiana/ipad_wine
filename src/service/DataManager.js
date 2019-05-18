@@ -35,11 +35,14 @@ export default class DataManager {
              }else{
                  this.sourceData = 'downloaded';
              }
+
+             this._initData('full');
+             this._initData('best');
+             this._initData('glass');
+             this._initData('half');
+
         });
-        this._initData('full');
-        this._initData('best');
-        this._initData('glass');
-        this._initData('half');
+
         // let dirs  = RNFetchBlob.fs.dirs;
         // var imageDir = (Platform.OS === 'ios') ? dirs.DocumentDir : '' + dirs.DocumentDir;
         // console.log('/data/user/0/com.wine/files/20190414223211.jpg');
@@ -78,27 +81,29 @@ export default class DataManager {
 
 
         for(var i=0; i< itemWithImageToDownload.length; i++){
-            var item = itemWithImageToDownload[i];
-            console.log('downloading '+item.path);
+            itemWithImageToDownload[i];
+            console.log('downloading '+itemWithImageToDownload[i].path);
 
             id++;
-            this.sendMessageToUi(id+'d','Downloading '+item.path+', '+(dowloadedImage.length + 1)+'/'+itemWithImageToDownload.length);
+            this.sendMessageToUi(id+'d','Downloading '+itemWithImageToDownload[i].path+', '+(dowloadedImage.length + 1)+'/'+itemWithImageToDownload.length);
 
-            var downResult = await this._downloadImage(item.path);
+            var downResult = await this._downloadImage(itemWithImageToDownload[i].path);
             if(downResult.error){
                 aborted = true;
-                console.log('breaking '+item.path+' not downloaded'); 
+                console.log('breaking '+itemWithImageToDownload[i].path+' not downloaded'); 
 
                 id++;
                 this.sendMessageToUi(id,'Error while downloading '+item.path+', try again '+downResult.data);
                 break;             
             }else{
                 dowloadedImage.push(downResult.data);
-                item.path = downResult.data;
-                console.log('downloaded '+item.path);
+                console.log('rty');
+                console.log(downResult.data);
+                itemWithImageToDownload[i].path = downResult.data;
+                console.log('downloaded '+itemWithImageToDownload[i].path);
                 id++;
                 this.sendMessageToUi(id,'    Done');
-                if(i==2)break;
+
             }
         }
 
@@ -109,6 +114,8 @@ export default class DataManager {
             });
             return;
         }
+
+        //console.log(newJson.ipad_wines);
 
         //must not have error
         AsyncStorage.setItem('@ipad:data', JSON.stringify(newJson) , error => {
@@ -447,6 +454,7 @@ export default class DataManager {
         }else{
             let value = await AsyncStorage.getItem('@ipad:data');
             console.log('source on updated');
+            let s = JSON.parse(value);
             return JSON.parse(value);
         }
     }
