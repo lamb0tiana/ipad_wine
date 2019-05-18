@@ -16,6 +16,7 @@ export default class DataManager {
     data = {};
     country = {};
     region = {};
+    updateCancel = false;
 
     sourceData = 'local';
     emitter = null;
@@ -54,10 +55,9 @@ export default class DataManager {
         // })
     }
 
-    async _update(cb){
+    async _update(){
         console.log('soo');
         var newJson = null;
-
         try{
             newJson = await fetch('http://mmbund.com/surgery/index.php/ipadjson');
         }catch(e){
@@ -67,7 +67,7 @@ export default class DataManager {
         newJson = await newJson.json();
 
         var oldJson = await this.getDataFromSource();
-        var id = 0;
+        var id = 5;
 
         id++;
         this.sendMessageToUi(id,'Get response from server, downloading new images...');
@@ -79,8 +79,17 @@ export default class DataManager {
         var dowloadedImage = [];
         var aborted = false;
 
+        this.emitter.addListener('cancel', (e) => {
+            aborted = true;
+           
+        });
 
         for(var i=0; i< itemWithImageToDownload.length; i++){
+
+            if(aborted) {
+                break;        
+            }
+
             itemWithImageToDownload[i];
             console.log('downloading '+itemWithImageToDownload[i].path);
 
@@ -97,17 +106,14 @@ export default class DataManager {
                 break;             
             }else{
                 dowloadedImage.push(downResult.data);
-                console.log('rty');
-                console.log(downResult.data);
                 itemWithImageToDownload[i].path = downResult.data;
-                console.log('downloaded '+itemWithImageToDownload[i].path);
                 id++;
                 this.sendMessageToUi(id,'    Done');
 
             }
         }
 
-        if(aborted){
+        if(aborted || this.updateCancel){
             //delete downloadedImage
             dowloadedImage.forEach(e =>{           
                 console.log('deleting '+e);
@@ -116,6 +122,8 @@ export default class DataManager {
         }
 
         //console.log(newJson.ipad_wines);
+
+        if(this.updateCancel) return;
 
         //must not have error
         AsyncStorage.setItem('@ipad:data', JSON.stringify(newJson) , error => {
@@ -193,6 +201,11 @@ export default class DataManager {
                 }
             }
         })
+    }
+
+    cancelUpdate(){
+        this.cancelUpdate = true;
+        this.emitter.emit('cancel', 'message');
     }
 
 
