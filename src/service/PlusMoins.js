@@ -7,6 +7,8 @@ import {
     ImageBackground,
 
 } from 'react-native';
+import DataManager  from './DataManager';
+ 
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
 
@@ -15,11 +17,11 @@ import {heightPercentageToDP as hp,
             super(props)
             this.state = {
                 count: 0,
-                number:0
+                number:0,
+                refresh:0
             }
 
             this.init();
-            
         }
 
         init(){

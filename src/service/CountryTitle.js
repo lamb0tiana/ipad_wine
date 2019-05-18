@@ -18,11 +18,6 @@ export default class CountryTitle extends Component {
 
 
 
-onLayout = event => {
-  
-    let {width, height} = event.nativeEvent.layout;
-    console.log('wsee'+width + 'hsee'+height);
-}
 
     render() {
         return (

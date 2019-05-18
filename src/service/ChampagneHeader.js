@@ -18,11 +18,6 @@ export default class Start extends Component {
 
 
 
-onLayout = event => {
-  
-    let {width, height} = event.nativeEvent.layout;
-    console.log('wee'+width + 'hee'+height);
-}
 
     render() {
         return (

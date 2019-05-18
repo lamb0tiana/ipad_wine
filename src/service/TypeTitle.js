@@ -18,11 +18,7 @@ export default class TypeTitle extends Component {
 
 
 
-onLayout = event => {
-  
-    let {width, height} = event.nativeEvent.layout;
-    console.log('wseeh'+width + 'hseeh'+height);//993.33
-}
+
 
     render() {
         return (

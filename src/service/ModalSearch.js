@@ -86,7 +86,6 @@ export default class ModalSearch extends Component {
     }
 
     toggle(type, value){
-        console.log('toggle sx');
         if(type == 'name'){
             this.state.req.name = value;
             return;
@@ -173,38 +172,20 @@ export default class ModalSearch extends Component {
     }
 
     onReset(){
-        let checkboxState = {  
-            RED: false,
-            WHITE: false,
-            SWEET: false,
-            ROSE: false,
-            CHAMPAGNE: false,
+        let checkboxState = {};
+        let types = ['RED','WHITE','SWEET','ROSE','CHAMPAGNE'];
+        types.forEach(type =>{
+            checkboxState[type] = false;
+        })
 
-            France: false,
-            Chile: false,
-            China: false,
-            Argentina: false,
-            Austria: false,
-            Australia: false,
-            NewZealand: false,
-            Italy: false,
-            Spain: false,
-            USA: false,
-            SouthAfrica: false,
-            Switzerland: false,
-            Germany: false,
-            Israel: false,
-            Canada: false,
-            Serbia: false,
-	        Switzerland: false,
-            Hungray: false,
+        dm.country.forEach(country => {
+            checkboxState[country.name.replace(/ /g, "")] = false;            
+        })
 
-            priceRangeA: false,
-            priceRangeB: false,
-            priceRangeC: false,
-            priceRangeD: false
-
-        };
+        let priceRanges = ['priceRangeA','priceRangeB','priceRangeC','priceRangeD'];
+        priceRanges.forEach(priceRange =>{
+            checkboxState[priceRange] = false;
+        })
 
 
         global.Regions.forEach( e =>{
@@ -219,6 +200,9 @@ export default class ModalSearch extends Component {
              req : {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''},
              checkbox: checkboxState,
              keyWordSearch: '',
+             filterGrapeCount: 0,
+             filterRegionCount:0,
+ 
         });
 
 

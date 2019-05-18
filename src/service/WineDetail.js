@@ -21,11 +21,13 @@ export default class WineDetail extends Component {
             mySelectionCount: 0,
             grape:''
         };
+
         
-        console.log('CONSTRUCTOR  winedetail'); 
-        console.log(global.Selected);
+        
         this.item = this.props.navigation.state.params.item;
+
         this.dm = DataManager.getInstance();
+
         this.computeSelectionCount();
         
 

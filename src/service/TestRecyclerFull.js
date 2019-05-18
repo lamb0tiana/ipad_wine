@@ -16,6 +16,8 @@ import {heightPercentageToDP as hp,
 
 import DataManager  from './DataManager';
 import ModalSearch from "./ModalSearch";
+import { NavigationEvents } from 'react-navigation';
+import _clone from 'lodash/clone';
 
 
 let dm = DataManager.getInstance();
@@ -34,7 +36,7 @@ export default class TestRecyclerFull extends React.Component {
         this.view = 'full';
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
-
+        this.firstFocus = true;
         this.props.navigation.setParams({
             filterCount: dm._total[this.view],
             });
@@ -127,6 +129,11 @@ export default class TestRecyclerFull extends React.Component {
         });
     }
 
+    componentWillUnmount(){
+        dm._plusMoinsList = null;
+        dm._plusMoinsList = []; 
+      }
+
 
     setScrollViewRef = (element) => {
         this.scrollViewRef = element;
@@ -149,7 +156,10 @@ export default class TestRecyclerFull extends React.Component {
                 );
             case 'Row':
                 return (
-                    <Row item = {data.data} navigation={this.props.navigation} updateCount = {this.computeSelectionCount.bind(this)}></Row>   
+                    <Row  item = {data.data} navigation={this.props.navigation} 
+                    updateCount = {this.computeSelectionCount.bind(this)}
+                   
+                    ></Row>   
                 );
             case 'TypeTitle':
                 return (
@@ -215,19 +225,27 @@ export default class TestRecyclerFull extends React.Component {
         },
     });
 
-    
+    onFocus = (ld) => {
+        if(!this.firstFocus){
+            dm._updatePlusMoins();
+        }
+        this.firstFocus = false;
+    }
+
+
     render() {
         return (
            
      
             <View style={{height: hp('100%'), width: wp('100%'), backgroundColor:'black'}}>
+                <NavigationEvents  onDidFocus={this.onFocus} />
             { this.state.showModal ?
                     <ModalSearch show= {this.state.showModal} toggle = {this.toggleModal.bind(this)}
                     search= {this.onSearch} req={this.req}>
                     
                     </ModalSearch>
             : null}
-                    <RecyclerListView layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
             </View>
         )
        

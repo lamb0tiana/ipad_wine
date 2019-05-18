@@ -13,19 +13,33 @@ import {heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import DataManager  from './DataManager';
 
+
 let dm = DataManager.getInstance();
 export default class Row extends Component {
 
     constructor(props) {
         super(props);//w =1004, h =181
+        this.plusMoinsRef = null;
+
+        
+        this.dm = DataManager.getInstance();
+
+
+
+
     }
 
-
-onLayouts = event => { 
-    // let {width, height} = event.nativeEvent.layout;
-    // console.log('wsee'+width + 'hsee'+height);
+componentDidMount() {
+    if(this.plusMoinsRef){
+            this.dm._addPlusMoinsRef(this.props.item.id,this.plusMoinsRef);
+    }
 }
 
+    
+
+setScrollViewRef = (element) => {
+    this.plusMoinsRef = element;
+};
 
     render() {
         return (
@@ -93,7 +107,8 @@ onLayouts = event => {
                 <View style={{backgroundColor:'#1c1c1c',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('8%'),height:wp('7%')}}>
 
-                    <PlusMoins id={this.props.item.id} computeSelectionCount = {this.props.updateCount} refresh={this.props.item.id}>                                                    </PlusMoins>
+                    <PlusMoins id={this.props.item.id} ref={this.setScrollViewRef}
+                    computeSelectionCount = {this.props.updateCount} refresh={this.props.item.id}>                                                    </PlusMoins>
 
                     </View>
                     <View style={{flexDirection: 'row',height:45, marginTop:-5,justifyContent: 'space-between',width:wp('20%'),paddingLeft:wp('1%'),paddingRight:wp('1%')}}>

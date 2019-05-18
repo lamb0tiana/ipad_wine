@@ -49,7 +49,6 @@ export default class Selectlist extends Component {
                 });
 
                 this.state.FlatListSelected = global.Selected
-                console.log(global.Selected);
                 
         });          
         //ajouter 
@@ -60,10 +59,7 @@ export default class Selectlist extends Component {
 
     }
 
-    refresh = () => {
-        console.log('refreshing');
 
-   }
 
 
     componentDidMount() {
@@ -243,7 +239,7 @@ export default class Selectlist extends Component {
                             <View key={item.data.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                 <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                        JSON_ListView_Clicked_Item: this.state.count, item: item.data, onGoBack: () => this.refresh()
+                                        JSON_ListView_Clicked_Item: this.state.count, item: item.data
                                     })}>
                                         <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                             <View style={{

@@ -11,6 +11,7 @@ export default class DataManager {
     _data = [];
     _countryIndexName = [];
     _total =[];
+    _plusMoinsList = [];
 
     data = {};
     country = {};
@@ -78,6 +79,24 @@ export default class DataManager {
         var imagesToAdd =  _.difference(arrOld,arrNew);
         return _.filter(newData, n => imagesToAdd.indexOf(n.path) > -1 );
     }
+
+    _addPlusMoinsRef(id, ref){
+        if(_.find(this._plusMoinsList, e => e.id == id) == undefined){
+            this._plusMoinsList.push({id:id, ref:ref});
+        }
+    }
+
+    _updatePlusMoins(){
+        var target = _.uniqBy(global.Selected, 'id');
+        this._plusMoinsList.forEach(p =>{
+            if(_.find(target, t => t.id == p.id)){
+                p.ref.init();
+                p.ref.setState({refresh: p.ref.state.refresh - 1});
+                console.log('updating '+p.id);
+            }
+        })
+    }
+
 
     _search(viewType,req){
 
