@@ -3,7 +3,7 @@
  A scrollable list with different item type
  */
 import React, { Component } from "react";
-import { View, Text,  TouchableOpacity,ImageBackground } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity,ImageBackground } from "react-native";
 import { RecyclerListView, DataProvider, LayoutProvider } from "recyclerlistview";
 import MenuHeader from './MenuHeader';
 import Row from './Row';
@@ -229,8 +229,8 @@ export default class TestRecyclerGlass extends React.Component {
 
     onFocus = (ld) => {
         if(!this.firstFocus){
-            setTimeout(function(){dm._updatePlusMoins()},5);
-            
+            dm._updatePlusMoins();
+            this.computeSelectionCount();
         }
         this.firstFocus = false;
     }

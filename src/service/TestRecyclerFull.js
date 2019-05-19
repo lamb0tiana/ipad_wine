@@ -229,7 +229,8 @@ export default class TestRecyclerFull extends React.Component {
 
     onFocus = (ld) => {
         if(!this.firstFocus){
-            dm._updatePlusMoins();     
+            dm._updatePlusMoins();
+            this.computeSelectionCount();
         }
         this.firstFocus = false;
     }

@@ -292,11 +292,9 @@ export default class Selectlist extends Component {
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
-                            {item.type === 'pricex' ? <View style={styles.glassContainer}>
+                            {item.type === 'price1' ? <View style={styles.glassContainer}>
                                                 
-                                                <Text style={styles.glassVolume}>
-                                                75CL
-                                                </Text>
+
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
