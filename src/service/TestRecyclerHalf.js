@@ -248,7 +248,11 @@ export default class TestRecyclerHalf extends React.Component {
                     
                     </ModalSearch>
             : null}
-                    <RecyclerListView  layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider}
+                     dataProvider={this.state.dataProvider}
+                      rowRenderer={this._rowRenderer}
+                      renderAheadOffset= {1500}
+                       ref={this.setScrollViewRef}/>
             </View>
         )
        

@@ -36,6 +36,7 @@ export default class TestRecyclerFull extends React.Component {
         global.Referer ='Fullwinelist';   
         this.view = 'full';
 
+
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -95,7 +96,11 @@ export default class TestRecyclerFull extends React.Component {
         this.state = {
             dataProvider: dataProvider.cloneWithRows(dm._data[this.view])
         };
+
+        
     }
+
+
     toggleModal(){
         this.setState({showModal: !this.state.showModal})
     }
@@ -180,13 +185,13 @@ export default class TestRecyclerFull extends React.Component {
             <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
                     <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => navigation.navigate('Accueil')}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
+                <View style={{marginLeft:15,marginRight:10,borderWidth: 0.5, borderColor: 'red'}} onPress={() => navigation.navigate('Accueil')}>
                     <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => navigation.navigate('Accueil')}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
 
                         </TouchableOpacity>
                     </ImageBackground>
@@ -248,7 +253,11 @@ export default class TestRecyclerFull extends React.Component {
                     
                     </ModalSearch>
             : null}
-                    <RecyclerListView  layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider} 
+                    dataProvider={this.state.dataProvider} 
+                    rowRenderer={this._rowRenderer} 
+                    renderAheadOffset= {1500}
+                    ref={this.setScrollViewRef}/>
             </View>
         )
        

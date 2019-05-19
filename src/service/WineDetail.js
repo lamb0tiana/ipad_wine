@@ -53,9 +53,8 @@ export default class WineDetail extends Component {
     }
 
     refresh = () => {
-        console.log('refreshing wine detail ');
        this.setState({count: this.state.count +1}, () => {
-            console.log('refresh count = '+this.state.count+' this refresh ')
+            
        });
    }
 

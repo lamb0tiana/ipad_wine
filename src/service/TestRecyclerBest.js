@@ -235,7 +235,6 @@ export default class TestRecyclerBest extends React.Component {
         this.firstFocus = false;
     }
 
-
     render() {
         return (
            
@@ -248,7 +247,12 @@ export default class TestRecyclerBest extends React.Component {
                     
                     </ModalSearch>
             : null}
-                    <RecyclerListView  layoutProvider={this._layoutProvider} dataProvider={this.state.dataProvider} rowRenderer={this._rowRenderer} ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider}
+                     dataProvider={this.state.dataProvider}
+                      rowRenderer={this._rowRenderer}
+                       ref={this.setScrollViewRef}
+                       renderAheadOffset= {1500}
+                       />
             </View>
         )
        

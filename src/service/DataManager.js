@@ -21,7 +21,6 @@ export default class DataManager {
     
     constructor(){
         this.emitter = new EventEmitter();
-        console.log('launch data manager constructor !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         AsyncStorage.getItem('@ipad:upadted', (error, result) => {
              if(result == null && error == null){
                 AsyncStorage.setItem('@ipad:upadted', 'false', error => {
@@ -42,15 +41,6 @@ export default class DataManager {
 
         });
 
-        // let dirs  = RNFetchBlob.fs.dirs;
-        // var imageDir = (Platform.OS === 'ios') ? dirs.DocumentDir : '' + dirs.DocumentDir;
-        // console.log('/data/user/0/com.wine/files/20190414223211.jpg');
-        //  RNFetchBlob.fs.unlink('/data/user/0/com.wine/files/20190414223211.jpg').then(() => {
-        //                console.log('deleted');                  
-        //  }).catch(err => {
-        //      console.log(err);
-        //     console.log('error while deleting ');
-        // })
     }
 
     async _update(){
@@ -86,7 +76,6 @@ export default class DataManager {
             }
 
             itemWithImageToDownload[i];
-            console.log('downloading '+itemWithImageToDownload[i].path);
 
             id++;
             this.sendMessageToUi(id+'d','Downloading '+itemWithImageToDownload[i].path+', '+(dowloadedImage.length + 1)+'/'+itemWithImageToDownload.length);
@@ -94,7 +83,6 @@ export default class DataManager {
             var downResult = await this._downloadImage(itemWithImageToDownload[i].path);
             if(downResult.error){
                 aborted = true;
-                console.log('breaking '+itemWithImageToDownload[i].path+' not downloaded'); 
 
                 id++;
                 this.sendMessageToUi(id,'Error while downloading '+item.path+', try again '+downResult.data);
@@ -111,19 +99,17 @@ export default class DataManager {
         if(aborted){
             //delete downloadedImage
             dowloadedImage.forEach(e =>{           
-                console.log('deleting '+e);
             });
             return;
         }
 
-        //console.log(newJson.ipad_wines);
 
         if(aborted) return;
 
         //must not have error
         AsyncStorage.setItem('@ipad:data', JSON.stringify(newJson) , error => {
             if(error) throw 'error while storing downloaded json';
-            console.log('SCRIPT END HERE');
+
             
         AsyncStorage.setItem('@ipad:upadted','true', error => { 
             if(error) throw 'error while setting updated status'+error;
@@ -381,7 +367,6 @@ export default class DataManager {
             }
 
             countryKey.forEach(country =>{
-                //console.log(data[country]);return;
                 var rows = [];
 
                 if(viewType == 'full'){
@@ -416,20 +401,13 @@ export default class DataManager {
 
 
     getImageSource(path){
-        //console.log('syx');
-        //console.log(path);
+
         var result = {};
         if(path.indexOf('/') > -1){
-           // path = '/data/user/0/com.wine/files/20190414223211.jpg';
-           
             result = { uri : Platform.OS === 'android' ? 'file://' + path  : path }
-            //return { uri : Platform.OS === 'android' ? 'file://' + path  : '' + path } ok
         }else{
             result = {uri: Platform.OS === 'android' ? 'asset:/1002.jpg':path.replace('.JPG','.jpg')};
         }
-        console.log('imgsrc '+result);
-        console.log(path);
-        console.log(result);
         return result;
     }
 
@@ -462,7 +440,6 @@ export default class DataManager {
             return require('../jsonData/ipadjson.json');
         }else{
             let value = await AsyncStorage.getItem('@ipad:data');
-            console.log('source on updated');
             let s = JSON.parse(value);
             return JSON.parse(value);
         }
@@ -497,43 +474,6 @@ export default class DataManager {
         data = null;
     }
 
-
-
-
-   
-
-    
-        // let dirs = RNFetchBlob.fs.dirs
-        //   RNFetchBlob
-        //   .config({
-        //     // response data will be saved to this path if it has access right.
-        //     path : dirs.DocumentDir + '/1004.jpg'
-        //   })
-        //   .fetch('GET', 'http://mmbund.com/media/wine_list/1004.jpg', {
-        //     //some headers ..
-        //   })
-        //   .then((res) => {
-        //     // the path should be dirs.DocumentDir + 'path-to-file.anything'
-        //     console.log('The file saved to ', res.path())
-        //   })
-
-     downloadImage(name,cb){
-
-        let dirs = RNFetchBlob.fs.dirs;
-        RNFetchBlob
-          .config({
-            // response data will be saved to this path if it has access right.
-            path : dirs.DocumentDir + '/'+name
-          })
-          .fetch('GET', 'http://mmbund.com/media/wine_list/'+name, {
-            //some headers ..
-          }).then((res) => {
-                // the path should be dirs.DocumentDir + 'path-to-file.anything'
-                console.log('The file saved to ', res.path())
-                return res.path();
-              });
-    }
-
     async _downloadUnit(name){
         
         let dirs = RNFetchBlob.fs.dirs;
@@ -555,7 +495,7 @@ export default class DataManager {
         try{
             s = await this._downloadUnit(name);
         }catch(e){
-            console.log('sro'+e);
+           
             return {error:true,data: e};
         }
 
@@ -570,111 +510,6 @@ export default class DataManager {
         return this.myInstance;
     }
 
-    async update(cb){
-        fetch('http://mmbund.com/surgery/index.php/ipadjson')
-       .then((response) => response.json())
-       .then((responseJson) => {
-           var id = 0;
-
-           id++;
-           this.sendMessageToUi(id,'Get response from server');
-
-            this.getDataFromSource().then(oldData =>{
-               var itemWithImageToDownload =  this.getWineWithNewImage(responseJson.ipad_wines, oldData.ipad_wines);
-               var pathOfImageToDelete = this.getUnusedImagePath(responseJson.ipad_wines, oldData.ipad_wines);
-               var total = itemWithImageToDownload.length;
-               var currentDownloaded = 0;
-
-           if(itemWithImageToDownload.length != 0){
-               id++;
-               this.sendMessageToUi(id,'Downloading new image');
-
-               itemWithImageToDownload.forEach( e => {
-
-               id++;    
-               this.sendMessageToUi(id+e.path,'Downloading '+e.path);
-
-                   this.downloadImage(e.path, path => {
-                              
-                       console.log('finished download path is '+path);
-                       e.path = path;
-                       currentDownloaded = currentDownloaded +1;
-
-                       id++;
-
-                       this.sendMessageToUi(id+path.substr(path.length-6),'Finished downloading to '+path+', '+currentDownloaded+'/'+total);
-
-                       if(currentDownloaded == total){
-                           console.log('all downloaded, persisting');
-
-                           id++;    
-                           this.sendMessageToUi(id,'All new image downloaded ');
-   
-
-                           AsyncStorage.setItem('@ipad:data', JSON.stringify(responseJson) , error => {
-                               if(error) throw 'error while storing downloaded json';
-                               console.log('SCRIPT END HERE');
-                               
-                           AsyncStorage.setItem('@ipad:upadted','true', error => { 
-                               if(error) throw 'error while setting updated status'+error;
-                               this.sourceData = 'updated';
-                           })
-                           });
-                           console.log('SCRIPT END HERE, deleting unused image in storage');
-                           //delete unused image in path here
-                           if(pathOfImageToDelete.length > 0){
-
-                               id++;    
-                               this.sendMessageToUi(id,'Deleting unused image');
-                               total = pathOfImageToDelete.length ;
-                               var currentDeleted = 0;
-                               pathOfImageToDelete.forEach(e =>{
-                                   id++;    
-                                   this.sendMessageToUi('Deleting '+e);
-                                 
-
-                                   RNFetchBlob.fs.unlink(e).then(() => {
-                                       id++;    
-                                       this.sendMessageToUi('Deleted '+e);
-
-                                       currentDeleted++;
-                                       if(currentDeleted == total){
-                                           id++;    
-                                           this.sendMessageToUi(id,'UPDATED SUCCESSFULLY ');   
-                                           cb(true);
-                                       }
-
-                                         }).catch(err => {
-                                           id++;    
-                                           this.sendMessageToUi('Error while deleting '+err);
-                                         })
-                               });
-
-                           }else{
-                               id++;    
-                               this.sendMessageToUi(id,'UPDATED SUCCESSFULLY '); 
-                               cb(true);   
-                           }
-           
-
-                       }
-                   });
-               });
-
-       }else{
-           //meme ensemble de fichier image pour origine available et local, ne necessite pas de mise a jour
-                   alert('Application is already up to date');
-                   cb(true);
-           }
-            });
-
-       })
-       .catch((error) => {
-         console.error(error);
-         cb(true);
-       });
-
-
-   }
+ 
 
 }

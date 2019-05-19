@@ -31,13 +31,7 @@ componentDidMount() {
     }
 }
 
-// componentWillReceiveProps(nextProps){
-//     if(this.props.item != nextProps.item)
-//         {
-//             // console.log('making update');
-//            console.log('xxs '+nextProps.item.id);
-//         }             
-// }     
+     
 
 setScrollViewRef = (element) => {
     this.plusMoinsRef = element;
