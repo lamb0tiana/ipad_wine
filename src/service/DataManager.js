@@ -223,6 +223,7 @@ export default class DataManager {
                 }
 
                 if(toAdd && req['price'].length > 0 ){
+                    var found = false;
                     for(var j=0; j<req['price'].length; j++ ){
                         var type = req['price'][j];
                         if(type == 'priceRangeA'){
@@ -238,11 +239,12 @@ export default class DataManager {
                             min = 4001; max= Infinity;
                         }
 
-                        if(item.data.price > max || item.data.price <min){
-                            toAdd = false;
+                        if(item.data.price <= max && item.data.price > min){
+                            found = true;
                             break;
                         }
                     }
+                    toAdd = found;
                 }
 
                 if(toAdd && req['name'].length > 0 ){ 

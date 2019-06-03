@@ -253,7 +253,7 @@ export default class TestRecyclerGlass extends React.Component {
                     dataProvider={this.state.dataProvider}
                      rowRenderer={this._rowRenderer}
                       ref={this.setScrollViewRef}
-                      renderAheadOffset= {1500}
+                      renderAheadOffset= {900}
                       />
             </View>
         )

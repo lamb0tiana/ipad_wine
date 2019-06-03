@@ -20,7 +20,7 @@ export default class MenuHeader extends React.Component {
 
     scrollToTarget(w){
         try{
-            this.props.reference.scrollToIndex(w);  
+            this.props.reference.scrollToIndex(w, false);  
         }catch(e){
             return;
         }
@@ -67,7 +67,7 @@ export default class MenuHeader extends React.Component {
                                 key={i}
                                 onPress = {() => {
                                     try{
-                                        this.props.reference.scrollToIndex(tb[0]);  
+                                        this.props.reference.scrollToIndex(tb[0], false);  
                                     }catch(e){
                                         return;
                                     }
@@ -94,7 +94,7 @@ export default class MenuHeader extends React.Component {
                                             key={i}
                                             onPress = {() => {
                                                 try{
-                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                    this.props.reference.scrollToIndex(tb[0], false);  
                                                 }catch(e){
                                                     return;
                                                 }
@@ -121,7 +121,7 @@ export default class MenuHeader extends React.Component {
                                             key= {i}
                                             onPress = {() => {
                                                 try{
-                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                    this.props.reference.scrollToIndex(tb[0], false);  
                                                 }catch(e){
                                                     return;
                                                 }
@@ -149,7 +149,7 @@ export default class MenuHeader extends React.Component {
                                             key= {i}
                                             onPress = {() => {
                                                 try{
-                                                    this.props.reference.scrollToIndex(tb[0]);  
+                                                    this.props.reference.scrollToIndex(tb[0], false);  
                                                 }catch(e){
                                                     return;
                                                 }

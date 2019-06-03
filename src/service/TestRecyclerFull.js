@@ -256,7 +256,7 @@ export default class TestRecyclerFull extends React.Component {
                     <RecyclerListView  layoutProvider={this._layoutProvider} 
                     dataProvider={this.state.dataProvider} 
                     rowRenderer={this._rowRenderer} 
-                    renderAheadOffset= {1500}
+                    renderAheadOffset= {900}
                     ref={this.setScrollViewRef}/>
             </View>
         )

@@ -252,7 +252,7 @@ export default class TestRecyclerBest extends React.Component {
                      dataProvider={this.state.dataProvider}
                       rowRenderer={this._rowRenderer}
                        ref={this.setScrollViewRef}
-                       renderAheadOffset= {1500}
+                       renderAheadOffset= {900}
                        />
             </View>
         )

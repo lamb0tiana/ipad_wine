@@ -534,12 +534,14 @@ const styles = StyleSheet.create({
         marginTop: -6,
         marginLeft: 7,
         color: '#ed4622',
-        fontSize: 26
+        fontSize: 23
     },
     country0:{
         paddingTop:40,
         flexDirection: 'row',
-        width:wp('17%'),
+        width:wp('22%'),
+        alignItems: 'flex-end'
+
     },
     country1:{
         paddingTop:40,
