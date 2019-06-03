@@ -24,14 +24,11 @@
 		1CB12DFD90154630BE070B52 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = D854D2D0F0DB45319DC7E9B1 /* AppCenter-Config.plist */; };
 		3414F6187BA74F7CBEDC685F /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0664AF522014045880C73B6 /* libRNGestureHandler.a */; };
 		37CB93A02ABD4EDBB8FD2467 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 842E3454D7C344D0BC1F22E3 /* libRNFetchBlob.a */; };
-		68FD830F6E9C407DB4D162ED /* libAppCenterReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80262D31BCE045B8B6A0E677 /* libAppCenterReactNative.a */; };
 		69079C5C228D3FB800694E45 /* iconenew.png in Resources */ = {isa = PBXBuildFile; fileRef = 69079C32228D3FB800694E45 /* iconenew.png */; };
 		6942B320227B0AA8009F2999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6942B30B227ABD57009F2999 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		697AD9A222788EE3003CBF30 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697AD99F22788338003CBF30 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C07ADE0291A64F68A3C12AAD /* libAppCenterReactNativeAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4593B709AFB842B3999B67DA /* libAppCenterReactNativeAnalytics.a */; };
-		EBE6D0D29324443DB443A9F8 /* libAppCenterReactNativeCrashes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 207E7E755C83466E91757768 /* libAppCenterReactNativeCrashes.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		EEF3CFAB97B94A45A17F7E5F /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE1387EA4C8545819F454D54 /* libRNSound.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -261,27 +258,6 @@
 			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
 			remoteInfo = RNSound;
 		};
-		6984801F2291B32B003E7E1C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24B04B453C304F5384715B53 /* AppCenterReactNative.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C35AEC211EF91F9300931F0C;
-			remoteInfo = AppCenterReactNative;
-		};
-		698480242291B32C003E7E1C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD7FB60002274799988D35A3 /* AppCenterReactNativeCrashes.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
-			remoteInfo = AppCenterReactNativeCrashes;
-		};
-		698480292291B32C003E7E1C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 094DB157EF6D4606ABD1E435 /* AppCenterReactNativeAnalytics.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 548694001D8384E600E6685A;
-			remoteInfo = AppCenterReactNativeAnalytics;
-		};
 		69E832172269C0D800DE7E51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -424,9 +400,6 @@
 				3414F6187BA74F7CBEDC685F /* libRNGestureHandler.a in Frameworks */,
 				37CB93A02ABD4EDBB8FD2467 /* libRNFetchBlob.a in Frameworks */,
 				EEF3CFAB97B94A45A17F7E5F /* libRNSound.a in Frameworks */,
-				68FD830F6E9C407DB4D162ED /* libAppCenterReactNative.a in Frameworks */,
-				C07ADE0291A64F68A3C12AAD /* libAppCenterReactNativeAnalytics.a in Frameworks */,
-				EBE6D0D29324443DB443A9F8 /* libAppCenterReactNativeCrashes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,21 +1050,18 @@
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAppCenterReactNative.a;
-			remoteRef = 6984801F2291B32B003E7E1C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		698480252291B32C003E7E1C /* libAppCenterReactNativeCrashes.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAppCenterReactNativeCrashes.a;
-			remoteRef = 698480242291B32C003E7E1C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		6984802A2291B32C003E7E1C /* libAppCenterReactNativeAnalytics.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAppCenterReactNativeAnalytics.a;
-			remoteRef = 698480292291B32C003E7E1C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		69E832182269C0D800DE7E51 /* libjsi.a */ = {

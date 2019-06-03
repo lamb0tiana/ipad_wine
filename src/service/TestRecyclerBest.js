@@ -184,7 +184,7 @@ export default class TestRecyclerBest extends React.Component {
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-                <View style={{marginLeft:15,marginRight:10,borderWidth: 0.5, borderColor: 'red'}} onPress={() => navigation.navigate('Accueil')}>
+                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
                     <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
                         <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
 
