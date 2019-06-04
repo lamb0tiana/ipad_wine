@@ -41,8 +41,8 @@ export default class ModalSearch extends Component {
         priceRanges.forEach(priceRange =>{
             checkboxState[priceRange] = this.props.req.price.indexOf(priceRange) > -1;
         })
-
-        global.Regions.forEach( e =>{
+        
+        dm._regionList[this.props.type].forEach( e =>{
             checkboxState[e.name.replace(/ /g, "")] = this.props.req.region_id.indexOf(e.id) > -1;
         });
 
@@ -188,7 +188,7 @@ export default class ModalSearch extends Component {
         })
 
 
-        global.Regions.forEach( e =>{
+        dm._regionList[this.props.type].forEach( e =>{
             checkboxState[e.name.replace(/ /g, "")] = false;
         });
 
@@ -345,7 +345,7 @@ this.state.statusA ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
 this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92%'), marginTop:wp('2%')}}>
                         <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap', width:wp('94%')}}>
                         {                      
-                            global.Regions.map(( region, i ) =>
+                            dm._regionList[this.props.type].map(( region, i ) =>
                             (
                             <View key={i} style={styles.region}>
                                 <CheckBox

@@ -12,6 +12,8 @@ export default class DataManager {
     _countryIndexName = [];
     _total =[];
     _plusMoinsList = [];
+    _regionList = [];
+    _grapeList = [];
 
     country = {};
     region = {};
@@ -357,6 +359,9 @@ export default class DataManager {
 
         s= _.filter(s, p => p.available == '1');
 
+        this._regionList[viewType] = [];
+
+
         s= s.map(e => {
             e.country = dico.get(e.country_id);
             e.region = dicoRegion.get(e.region_id);
@@ -400,9 +405,15 @@ export default class DataManager {
                     main.push({type:'CountryTitle',data:country});
                         rows.forEach(row =>{
                             main.push({type:'Row',data:row});
+
+                            if(_.find(this._regionList[viewType], rg => rg.name == row.region) == undefined)
+                                this._regionList[viewType].push({id:row.region_id, name:row.region});
+            
                             this._total[viewType] = this._total[viewType] +1;
                         })
+
                 }
+
             })
         }
 
@@ -481,7 +492,6 @@ export default class DataManager {
         
         var region_ids = _.map(_.uniqBy(dataWine, 'region_id'), 'region_id');  
         global.Regions =  _.filter(data.ipad_regions, r => region_ids.indexOf(r.id) > -1);
-        this.region = _.clone(global.Regions);
         global.Regions.forEach( c => {var name = c.name.replace(/ /g, ""); global.RegionIds[name] = c.id;  });
 
         var wine_ids = _.map(_.uniqBy(dataWine, 'id'), 'id');

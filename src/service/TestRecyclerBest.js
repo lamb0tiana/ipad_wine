@@ -253,7 +253,7 @@ export default class TestRecyclerBest extends React.Component {
                 <NavigationEvents  onDidFocus={this.onFocus} />
             { this.state.showModal ?
                     <ModalSearch show= {this.state.showModal} toggle = {this.toggleModal.bind(this)}
-                    search= {this.onSearch} req={this.req}>
+                    search= {this.onSearch} req={this.req} type ={this.view}>
                     
                     </ModalSearch>
             : null}
