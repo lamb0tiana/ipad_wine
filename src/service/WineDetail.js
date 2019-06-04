@@ -136,7 +136,7 @@ export default class WineDetail extends Component {
             <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
                     <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                    <TouchableOpacity style={{ height: hp('100%')}} onPress={() => {navigation.navigate(global.Referer)}}>
+                    <TouchableOpacity style={{ height: hp('6%')}} onPress={() => {navigation.navigate(global.Referer)}}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>

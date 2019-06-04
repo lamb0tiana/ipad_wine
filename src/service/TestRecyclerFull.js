@@ -10,6 +10,7 @@ import Row from './Row';
 import TypeTitle from './TypeTitle';
 import ChampagneHeader from './ChampagneHeader';
 import CountryTitle from './CountryTitle';
+import End from './End';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
@@ -50,7 +51,6 @@ export default class TestRecyclerFull extends React.Component {
         let dataProvider = new DataProvider((r1, r2) => {
             return r1 !== r2;
         });
-
         //Create the layout provider
         //First method: Given an index return the type of item e.g ListItemType1, ListItemType2 in case you have variety of items in your list/grid
         //Second: Given a type and object set the exact height and width for that type on given object, if you're using non deterministic rendering provide close estimates
@@ -82,6 +82,10 @@ export default class TestRecyclerFull extends React.Component {
                     case 'TypeTitle':
                         dim.width = 1024;
                         dim.height = 101.33;
+                        break;
+                    case 'End':
+                        dim.width = 1024;
+                        dim.height = 150.33;
                         break;
                     default:
                         dim.width = 0;
@@ -171,6 +175,10 @@ export default class TestRecyclerFull extends React.Component {
             case 'TypeTitle':
                 return (
                     <TypeTitle type={data.data}></TypeTitle>   
+                );
+            case 'End':
+                return (
+                    <End></End>   
                 );
             default:
                 return null;

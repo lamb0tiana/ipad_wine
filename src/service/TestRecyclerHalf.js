@@ -10,6 +10,7 @@ import Row from './Row';
 import TypeTitle from './TypeTitle';
 import ChampagneHeader from './ChampagneHeader';
 import CountryTitle from './CountryTitle';
+import End from './End';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
@@ -36,6 +37,7 @@ export default class TestRecyclerHalf extends React.Component {
         global.Referer ='Halfofflist';   
         this.view = 'half';
 
+
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -49,7 +51,6 @@ export default class TestRecyclerHalf extends React.Component {
         let dataProvider = new DataProvider((r1, r2) => {
             return r1 !== r2;
         });
-
         //Create the layout provider
         //First method: Given an index return the type of item e.g ListItemType1, ListItemType2 in case you have variety of items in your list/grid
         //Second: Given a type and object set the exact height and width for that type on given object, if you're using non deterministic rendering provide close estimates
@@ -82,6 +83,10 @@ export default class TestRecyclerHalf extends React.Component {
                         dim.width = 1024;
                         dim.height = 101.33;
                         break;
+                    case 'End':
+                        dim.width = 1024;
+                        dim.height = 150.33;
+                        break;
                     default:
                         dim.width = 0;
                         dim.height = 0;
@@ -95,7 +100,11 @@ export default class TestRecyclerHalf extends React.Component {
         this.state = {
             dataProvider: dataProvider.cloneWithRows(dm._data[this.view])
         };
+
+        
     }
+
+
     toggleModal(){
         this.setState({showModal: !this.state.showModal})
     }
@@ -167,10 +176,15 @@ export default class TestRecyclerHalf extends React.Component {
                 return (
                     <TypeTitle type={data.data}></TypeTitle>   
                 );
+            case 'End':
+                return (
+                    <End></End>   
+                );
             default:
                 return null;
         }
     }
+
     static navigationOptions = ({navigation}) => ({
         headerLeft:
           <View style={{flexDirection: 'row'}}>
@@ -247,11 +261,11 @@ export default class TestRecyclerHalf extends React.Component {
                     
                     </ModalSearch>
             : null}
-                    <RecyclerListView  layoutProvider={this._layoutProvider}
-                     dataProvider={this.state.dataProvider}
-                      rowRenderer={this._rowRenderer}
-                      renderAheadOffset= {900}
-                       ref={this.setScrollViewRef}/>
+                    <RecyclerListView  layoutProvider={this._layoutProvider} 
+                    dataProvider={this.state.dataProvider} 
+                    rowRenderer={this._rowRenderer} 
+                    renderAheadOffset= {900}
+                    ref={this.setScrollViewRef}/>
             </View>
         )
        

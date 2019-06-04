@@ -139,6 +139,12 @@ export default class DataManager {
                 return path;
             }
         });
+        arrOld = arrOld.map(e => {
+            return e.replace('.JPG','.jpg');
+        });
+        arrNew = arrNew.map(e => {
+            return e.replace('.JPG','.jpg');
+        });
         var imagesToAdd =  _.difference(arrNew,arrOld);
         return _.filter(newData, n => imagesToAdd.indexOf(n.path) > -1 );
     }
@@ -277,9 +283,15 @@ export default class DataManager {
             }
 
         }
-
-        if(result[result.length - 1].type == 'CountryTitle'){
-            result.pop();
+        
+        if(result[result.length - 1].type == 'End'){
+            if(result.length > 2){
+                if(result[result.length - 2].type == 'CountryTitle'){
+                    result.pop();
+                    result.pop();
+                    result.push({type:'End',data:''});
+                }
+            }
         }
 
         return [result, count];
@@ -394,6 +406,8 @@ export default class DataManager {
             })
         }
 
+    
+        main.push({type:'End',data:''});
         this._data[viewType] = main;
 
 }

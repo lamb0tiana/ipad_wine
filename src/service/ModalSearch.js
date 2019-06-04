@@ -537,7 +537,7 @@ const styles = StyleSheet.create({
         fontSize: 23
     },
     country0:{
-        paddingTop:40,
+        paddingTop:20,
         flexDirection: 'row',
         width:wp('22%'),
         alignItems: 'flex-end'

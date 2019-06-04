@@ -9,6 +9,7 @@ import MenuHeader from './MenuHeader';
 import Row from './Row';
 import TypeTitle from './TypeTitle';
 import ChampagneHeader from './ChampagneHeader';
+import End from './End';
 import CountryTitle from './CountryTitle';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
@@ -64,7 +65,7 @@ export default class TestRecyclerBest extends React.Component {
                 switch (type) {
                     case 'MenuHeader':
                         dim.width = 1024;
-                        dim.height = 1317;
+                        dim.height = 1200;
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
@@ -81,6 +82,10 @@ export default class TestRecyclerBest extends React.Component {
                     case 'TypeTitle':
                         dim.width = 1024;
                         dim.height = 101.33;
+                        break;
+                    case 'End':
+                        dim.width = 1024;
+                        dim.height = 150.33;
                         break;
                     default:
                         dim.width = 0;
@@ -166,6 +171,10 @@ export default class TestRecyclerBest extends React.Component {
             case 'TypeTitle':
                 return (
                     <TypeTitle type={data.data}></TypeTitle>   
+                );
+            case 'End':
+                return (
+                    <End></End>   
                 );
             default:
                 return null;
