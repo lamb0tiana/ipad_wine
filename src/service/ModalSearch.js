@@ -46,7 +46,7 @@ export default class ModalSearch extends Component {
             checkboxState[e.name.replace(/ /g, "")] = this.props.req.region_id.indexOf(e.id) > -1;
         });
 
-        global.Grapes.forEach( e =>{
+        dm._grapeList[this.props.type].forEach( e =>{
             checkboxState[e] = this.props.req.grapes.indexOf(e) > -1;
         });
 
@@ -192,7 +192,7 @@ export default class ModalSearch extends Component {
             checkboxState[e.name.replace(/ /g, "")] = false;
         });
 
-        global.Grapes.forEach( e =>{
+        dm._grapeList[this.props.type].forEach( e =>{
             checkboxState[e] = false;
         });
 
@@ -327,7 +327,7 @@ export default class ModalSearch extends Component {
 this.state.statusA ? <ScrollView style={{backgroundColor:'#444444', width:wp('92%'), marginTop:wp('2%')}}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', flexWrap:'wrap'}}>
                     {                              
-                        global.Grapes.map(( grape, i ) =>
+                        dm._grapeList[this.props.type].map(( grape, i ) =>
                         (
                         <View key={i} style={styles.grape}>
                             <CheckBox

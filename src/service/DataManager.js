@@ -360,7 +360,7 @@ export default class DataManager {
         s= _.filter(s, p => p.available == '1');
 
         this._regionList[viewType] = [];
-
+        this._grapeList[viewType] = [];
 
         s= s.map(e => {
             e.country = dico.get(e.country_id);
@@ -409,6 +409,9 @@ export default class DataManager {
                             if(_.find(this._regionList[viewType], rg => rg.name == row.region) == undefined)
                                 this._regionList[viewType].push({id:row.region_id, name:row.region});
             
+                            if(_.find(this._grapeList[viewType], gr => gr == row.grape) == undefined && row.grape && row.grape != '')
+                                this._grapeList[viewType].push(row.grape);
+
                             this._total[viewType] = this._total[viewType] +1;
                         })
 
