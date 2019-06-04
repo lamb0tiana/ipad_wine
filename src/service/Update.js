@@ -23,10 +23,14 @@ constructor(props) {
         status:  [],
         count: 0
     }
+    this.scrollViewRef = null;
     this.dm = DataManager.getInstance();
     this._isMounted = false;
+    
     this.dm.emitter.addListener('status', (e) =>{
-        this.updateUi(e)
+        this.updateUi(e);
+        if(this.scrollViewRef)
+            this.scrollViewRef.scrollToEnd();
     });
     // dm.update(status => {
     //     if(status){
@@ -58,8 +62,11 @@ constructor(props) {
                 this.state.status.push({id:0, text:'Initialization'});
                 this.setState({Updating: true});
                 this.dm._update().then(e =>{
-                    if(this._isMounted)
-                            this.setState({Updating: false});
+                    if(this._isMounted){
+                        this.setState({Updating: false});
+                        
+                    }
+                            
                 });
                 
              }else{
@@ -105,7 +112,12 @@ constructor(props) {
     componentWillUnmount(){
         this.dm.emitter.removeAllListeners();
         this._isMounted = false;
+        this.scrollViewRef = null;
     }
+
+    setScrollViewRef = (element) => {
+        this.scrollViewRef = element;
+    };
 
     static navigationOptions =
     {
@@ -133,6 +145,7 @@ constructor(props) {
             extraData = {this.state.count}
             keyExtractor={item => String(item.id)}
             style = { styles.FlatList }
+            ref={this.setScrollViewRef}
             />
 
         </ScrollView>
