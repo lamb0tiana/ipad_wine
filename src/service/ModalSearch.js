@@ -575,7 +575,7 @@ const styles = StyleSheet.create({
     },
     RegionText:{
         color: '#ed4622',
-        fontSize: 22,
+        fontSize: 20,
         marginLeft: 7
     },
     grape:{
