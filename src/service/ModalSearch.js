@@ -205,7 +205,7 @@ export default class ModalSearch extends Component {
  
         });
 
-        dm._plusMoinsList = [];
+        
 
 
     }
@@ -429,7 +429,7 @@ this.state.statusC ? <View>
                                 <TouchableHighlight onPress={() => {
                                             this.toggle('name', this.state.keyWordSearch); 
                                             this.props.search(this.state.req);
-                                            
+
                                             }}
                                             style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:2,marginRight:2,marginBottom:10,padding:2, width:wp('26%'), height:wp('10%')}}>
                                     <Text style={{fontSize:34, textAlign: 'center',color:'#fff',backgroundColor:'#54b84a',padding:3, paddingTop: 16, height:wp('9.65%')}}>SEARCH</Text>
