@@ -205,6 +205,8 @@ export default class ModalSearch extends Component {
  
         });
 
+        dm._plusMoinsList = [];
+
 
     }
 
