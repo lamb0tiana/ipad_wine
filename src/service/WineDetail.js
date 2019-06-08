@@ -235,35 +235,35 @@ export default class WineDetail extends Component {
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
                                     <ImageBackground source={require('../img/cone-champagn.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
                                     </ImageBackground>                                   
-                                        <Text style={{ fontSize: 16, fontFamily: "Arial", color:'#ffffff',padding:4, paddingTop: 7}}>CHAMPAGNE</Text>
+                                        <Text style={{ fontSize: 15, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7,marginLeft:10}}>CHAMPAGNE</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='WHITE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
                                     <ImageBackground source={require('../img/cone-white.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
                                     </ImageBackground>                                   
-                                        <Text style={{ fontSize: 18, fontFamily: "Arial", color:'#ffffff',padding:4, paddingTop: 7}}>WHITE</Text>
+                                        <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>WHITE</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='RED' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
                                     <ImageBackground source={require('../img/cone-red.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
                                     </ImageBackground>                                   
-                                        <Text style={{ fontSize: 18, fontFamily: "Arial", color:'#ffffff',padding:4, paddingTop: 7}}>RED</Text>
+                                        <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>RED</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='ROSE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
                                     <ImageBackground source={require('../img/cone-rose.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
                                     </ImageBackground>                                   
-                                        <Text style={{ fontSize: 18, fontFamily: "Arial", color:'#ffffff',padding:4, paddingTop: 7}}>ROSE</Text>
+                                        <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>ROSE</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='SWEET' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
                                     <ImageBackground source={require('../img/cone-sweet.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
                                     </ImageBackground>                                   
-                                        <Text style={{ fontSize: 24, fontFamily: "Arial", color:'#ffffff',padding:4, paddingTop: 7}}>SWEET</Text>
+                                        <Text style={{ fontSize: 24, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>SWEET</Text>
                                     </View>:null
                                     }
                                     <View style={{ width:wp('20%'), flex:1,flexDirection:"row"}}>
@@ -294,15 +294,15 @@ export default class WineDetail extends Component {
                                 </View>:null}
                                 {this.item.byglass==1? <View>
                                     <View style={{marginTop: wp('1.82%')}}>
-                                        <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "American Typewriter"}}>
+                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "American Typewriter"}}>
                                         {this.item.country}
                                         </Text>
                                         <Text style={styles.descVine}>
-                                        {this.item.topRegion+' '+this.item.region}
+                                        {this.item.region+', '+this.item.topRegion}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "Arial"}}>
+                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "Helvetica-Bold", fontWeight:'bold'}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
@@ -316,11 +316,11 @@ export default class WineDetail extends Component {
                                             {this.item.country}
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                        {this.item.topRegion+' '+this.item.region}
+                                        {this.item.region+', '+this.item.topRegion}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 31, fontFamily: "Arial", marginTop:15}}>
+                                        <Text style={{color:'#ffffff', fontSize: 31, fontFamily: "Helvetica Neue", marginTop:15}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>
@@ -471,7 +471,7 @@ export default class WineDetail extends Component {
                             <Text style={{color:'#f1592a', fontFamily: "American Typewriter", fontSize:30, marginBottom: 5}}>
                                 DESCRIPTION
                             </Text>
-                            <Text style={{ color:'#ffffff', fontFamily: "Arial",fontSize: 18, textAlign:'auto', lineHeight: 20}}>
+                            <Text style={{ color:'#ffffff', fontFamily: "Helvetica Neue",fontSize: 18, textAlign:'auto', lineHeight: 20}}>
                             {this.item.info}
                             </Text>
                         </View>
@@ -534,18 +534,18 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         textAlign: 'center',
         paddingLeft:10,
-        fontSize: 17,
+        fontSize: 16,
         marginTop: 18,
         borderColor:'red'
     },
     descVine: {
         color:'#bbbebf', 
-        fontSize: 23, 
+        fontSize: 20, 
         fontFamily:"AvenirNext-Regular"
     },
     descVineGrand: {
         color:'#bbbebf', 
-        fontSize: 25, 
+        fontSize: 22, 
         fontFamily:"AvenirNext-Regular"
     },
     centerVerHor: {

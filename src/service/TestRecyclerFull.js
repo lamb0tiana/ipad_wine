@@ -69,11 +69,11 @@ export default class TestRecyclerFull extends React.Component {
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 181;
+                        dim.height = 200;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
-                        dim.height = 74;
+                        dim.height = 100;
                         break;
                     case 'Row':
                         dim.width = 1024;

@@ -52,11 +52,11 @@ setScrollViewRef = (element) => {
                             <ImageBackground source={dm.resolveIconSourceForType(this.props.item.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
 
-                                <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Arial"}}>
+                                <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'400'}}>
                                 {this.props.item.name.length >= 55 ? this.props.item.name.substring(0,55)+'...':this.props.item.name}
                                 </Text>
-                                <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Arial"}}>
-                                {this.props.item.region} {this.props.item.vintage}
+                                <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue"}}>
+                                {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                 </Text>
                               
                             </View>
@@ -100,7 +100,7 @@ setScrollViewRef = (element) => {
                         
                     </View>
                 </TouchableOpacity>
-                <View style={{backgroundColor:'#1c1c1c',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
+                <View style={{backgroundColor:'#1c1c1c',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 8, paddingLeft:10}}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('8%'),height:wp('7%')}}>
 
                     <PlusMoins id={this.props.item.id} ref={this.setScrollViewRef}
@@ -108,8 +108,13 @@ setScrollViewRef = (element) => {
 
                     </View>
                     <View style={{flexDirection: 'row',height:45, marginTop:-5,justifyContent: 'space-between',width:wp('20%'),paddingLeft:wp('1%'),paddingRight:wp('1%')}}>
+                  {this.props.item.byglass == 1 ?
                     <ImageBackground source={require('../img/icon-bouteil.png')} style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,resizeMode: 'contain'}}>
                         </ImageBackground>
+                   :
+                    <View style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,backgroundColor:'#1c1c1c'}}>
+                        </View>
+                  }
                         
                         <Text style={{color:'#FFFFFF', marginLeft:-7,marginTop:4, fontSize: 17}}>
                             {this.props.item.price}

@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
         marginTop:0,
         paddingLeft:20,
         padding:6,
-        fontSize:28,
+        fontSize:22,
+        fontFamily: 'Helvetica Neue'
     }
 });

@@ -69,15 +69,15 @@ export default class TestRecyclerHalf extends React.Component {
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 181;
+                        dim.height = 200;
+                        break;
+                    case 'ChampagneHeader':
+                        dim.width = 1024;
+                        dim.height = 200;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
-                        dim.height = 74;
-                        break;
-                    case 'Row':
-                        dim.width = 1024;
-                        dim.height = 100.334;
+                        dim.height = 100;
                         break;
                     case 'TypeTitle':
                         dim.width = 1024;

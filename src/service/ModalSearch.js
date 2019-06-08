@@ -450,6 +450,8 @@ this.state.statusC ? <View>
                                         style={{height: 40, width:wp('50%'), backgroundColor:'#333333'}} 
                                         onChangeText={(word) => this.setState({keyWordSearch: word})}
                                         value={this.state.keyWordSearch}
+                                        placeholder = ' input wine name/country/grape ..'
+                                        placeholderTextColor ='#D3D3D3'
                                         onFocus ={ () => {
                                             this.setState({hideCountryList:true});
                                         }}

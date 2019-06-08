@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    Dimensions,
+    Dimensions,ImageBackground
 } from 'react-native';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
@@ -22,10 +22,12 @@ export default class CountryTitle extends Component {
     render() {
         return (
             <View style={styles.container}>
-                         <Text style={{color:'#808080', fontSize: 44,fontFamily:"American Typewriter"}}>
+                         <Text style={{color:'#808080', fontSize: 40,fontFamily:"American Typewriter", marginBottom:3}}>
                             {this.props.country}
                         </Text>   
-                        <View style={{ height: 0.1, width: '100%', backgroundColor: 'black' }} />            
+                     <ImageBackground source={require('../img/point-line-long.png')} style={{height: hp('1%'), width:wp('97%'),resizeMode: 'contain'}}>
+                        </ImageBackground>
+                       
             </View>
         );
     }
@@ -41,4 +43,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         width:wp('97%'),
         marginLeft:wp('1.5%'),
+        marginTop:23,
+        marginBottom:10
     }});
