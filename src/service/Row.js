@@ -52,17 +52,17 @@ setScrollViewRef = (element) => {
                             <ImageBackground source={dm.resolveIconSourceForType(this.props.item.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
 
-                                <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'400'}}>
+                                <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                 {this.props.item.name.length >= 55 ? this.props.item.name.substring(0,55)+'...':this.props.item.name}
                                 </Text>
-                                <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue"}}>
+                                <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                 {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                 </Text>
                               
                             </View>
 
-        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('72.2%'),  marginTop:-2, marginRight:1, position:"absolute"}}>
-                                <ImageBackground source={require('../img/icon-like.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:1, marginTop: 15, resizeMode: 'contain'}}>
+        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('72.2%'),  marginTop:-2, marginRight:1, position:"absolute", marginLeft:13}}>
+                                <ImageBackground source={require('../img/icon-like.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:5, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
         {this.props.item.promotion == 1 ?<View style={{paddingTop: 9, paddingLeft:wp('76.8%'), marginTop:-10 ,marginRight:1, position:"absolute"}}>

@@ -46,7 +46,7 @@ export default class MenuHeader extends React.Component {
                                 onPress = {this.scrollToTarget.bind(this,tb[0])}
                                     >
                    <Text style={styles.listPaysPremier}>
-                           {tb[1]}
+                           {dm.compoundCountry(tb[1])}
                    </Text>
                </TouchableOpacity>
         })}
@@ -73,7 +73,7 @@ export default class MenuHeader extends React.Component {
                                     }
                                 }} >
                    <Text style={styles.listPaysPremier}>
-                           {tb[1]}
+                           {dm.compoundCountry(tb[1])}
                    </Text>
                </TouchableOpacity>
                  })}                       
@@ -100,7 +100,7 @@ export default class MenuHeader extends React.Component {
                                                 }
                                             }}>
                             <Text style={styles.listPaysPremier}>
-                                    {tb[1]}
+                                    {dm.compoundCountry(tb[1])}
                             </Text>
                         </TouchableOpacity>
                  })} 
@@ -127,7 +127,7 @@ export default class MenuHeader extends React.Component {
                                                 }
                                             }}>
                             <Text style={styles.listPaysPremier}>
-                                    {tb[1]}
+                                    {dm.compoundCountry(tb[1])}
                             </Text>
                         </TouchableOpacity>
                  })} 
@@ -155,7 +155,7 @@ export default class MenuHeader extends React.Component {
                                                 }
                                             }} >
                             <Text style={styles.listPaysPremier}>
-                                    {tb[1]}
+                                    {dm.compoundCountry(tb[1])}
                             </Text>
                         </TouchableOpacity>
                  })} 
@@ -203,6 +203,6 @@ const styles = StyleSheet.create({
         paddingLeft:20,
         padding:6,
         fontSize:22,
-        fontFamily: 'Helvetica Neue'
+        fontFamily: "Helvetica Neue", fontWeight:'500'
     }
 });

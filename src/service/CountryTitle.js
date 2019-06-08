@@ -5,10 +5,14 @@ import {
     View,
     Dimensions,ImageBackground
 } from 'react-native';
+import DataManager  from './DataManager';
+
+
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
+let dm = DataManager.getInstance();
 
 export default class CountryTitle extends Component {
 
@@ -23,7 +27,7 @@ export default class CountryTitle extends Component {
         return (
             <View style={styles.container}>
                          <Text style={{color:'#808080', fontSize: 40,fontFamily:"American Typewriter", marginBottom:3}}>
-                            {this.props.country}
+                            {dm.compoundCountry(this.props.country)}
                         </Text>   
                      <ImageBackground source={require('../img/point-line-long.png')} style={{height: hp('1%'), width:wp('97%'),resizeMode: 'contain'}}>
                         </ImageBackground>

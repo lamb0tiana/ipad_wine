@@ -45,6 +45,12 @@ export default class DataManager {
 
     }
 
+    lineBreak(s){
+        if(s.length < 26)return s;
+        var space = s.lastIndexOf(' ');
+        return s.substring(0,space)+'\n'+s.substring(space);
+    }
+
     async _update(){
         var newJson = null;
         try{

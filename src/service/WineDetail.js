@@ -302,7 +302,7 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "Helvetica-Bold", fontWeight:'bold'}}>
+                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "Helvetica-Bold"}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
@@ -312,15 +312,15 @@ export default class WineDetail extends Component {
                                 </View>
                                 :<View>  
                                     <View style={{marginTop: wp('1.82%')}}>
-                                        <Text style={{color:'#ffffff', fontSize: 29, fontFamily: "American Typewriter"}}>
-                                            {this.item.country}
+                                        <Text style={{color:'#ffffff', fontSize: 28, fontFamily: "American Typewriter"}}>
+                                            {this.dm.compoundCountry(this.item.country)}
                                         </Text>
                                         <Text style={styles.descVineGrand}>
                                         {this.item.region+', '+this.item.topRegion}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 31, fontFamily: "Helvetica Neue", marginTop:15}}>
+                                        <Text style={{color:'#ffffff', fontSize: 28, fontFamily: "Helvetica Neue", marginTop:15, fontWeight:'bold'}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>
