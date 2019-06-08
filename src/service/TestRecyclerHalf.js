@@ -37,7 +37,7 @@ export default class TestRecyclerHalf extends React.Component {
         global.Referer ='Halfofflist';   
         this.view = 'half';
 
-
+        this.renderNumber = 50;
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -138,6 +138,7 @@ export default class TestRecyclerHalf extends React.Component {
         this.props.navigation.setParams({
             modalCom: this.toggleModal.bind(this),
         });
+        this.renderNumber = 90000;
     }
 
     componentWillUnmount(){
@@ -264,7 +265,7 @@ export default class TestRecyclerHalf extends React.Component {
                     <RecyclerListView  layoutProvider={this._layoutProvider} 
                     dataProvider={this.state.dataProvider} 
                     rowRenderer={this._rowRenderer} 
-                    renderAheadOffset= {900}
+                    renderAheadOffset= {this.renderNumber}
                     ref={this.setScrollViewRef}/>
             </View>
         )

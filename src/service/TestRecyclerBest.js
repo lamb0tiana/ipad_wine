@@ -37,6 +37,8 @@ export default class TestRecyclerBest extends React.Component {
         global.Referer ='Bestoflist';   
         this.view = 'best';
 
+        this.renderNumber = 100;
+
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -134,6 +136,7 @@ export default class TestRecyclerBest extends React.Component {
         this.props.navigation.setParams({
             modalCom: this.toggleModal.bind(this),
         });
+        this.renderNumber = 90000;
     }
 
     componentWillUnmount(){
@@ -261,7 +264,7 @@ export default class TestRecyclerBest extends React.Component {
                      dataProvider={this.state.dataProvider}
                       rowRenderer={this._rowRenderer}
                        ref={this.setScrollViewRef}
-                       renderAheadOffset= {900}
+                       renderAheadOffset= {this.renderNumber}
                        />
             </View>
         )
