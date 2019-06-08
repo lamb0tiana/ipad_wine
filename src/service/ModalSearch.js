@@ -8,7 +8,7 @@ import {
     ScrollView,
     Modal,
     TouchableHighlight,
-    TextInput,
+    TextInput,Image
 } from 'react-native';
 
 import CheckBox from 'react-native-check-box';
@@ -234,21 +234,30 @@ export default class ModalSearch extends Component {
                         <View style={styles.wineType0}>
                             <CheckBox
                                 isChecked={this.state.checkbox.RED }
-                                onClick={this.toggle.bind(this,'type','RED')} 
+                                onClick={this.toggle.bind(this,'type','RED')}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+ 
                                 />
                                 <Text style={styles.wineTypeText}>RED</Text>
                         </View>
                         <View style={styles.wineType1}>
                             <CheckBox
                                 isChecked={this.state.checkbox.WHITE}
-                                onClick={this.toggle.bind(this,'type','WHITE')} 
+                                onClick={this.toggle.bind(this,'type','WHITE')}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+ 
                                 />
                                 <Text style={styles.wineTypeText}>WHITE</Text>
                         </View>
                         <View style={styles.wineType2}>
                             <CheckBox
                                 isChecked={this.state.checkbox.SWEET }
-                                onClick={this.toggle.bind(this,'type','SWEET')} 
+                                onClick={this.toggle.bind(this,'type','SWEET')}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+ 
                                 />
                                 <Text style={styles.wineTypeText}>SWEET</Text>
                         </View>
@@ -256,6 +265,9 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.ROSE }
                                 onClick={this.toggle.bind(this,'type','ROSE')} 
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                 />
                                 <Text style={styles.wineTypeText}>ROSE</Text>
                         </View>
@@ -263,6 +275,9 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.CHAMPAGNE }
                                 onClick={this.toggle.bind(this,'type','CHAMPAGNE')} 
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                 />
                                 <Text style={styles.wineTypeText}>CHAMPAGNE</Text>
                         </View>
@@ -283,8 +298,10 @@ export default class ModalSearch extends Component {
                                 <CheckBox
                                     isChecked={this.state.checkbox[country.name.replace(/ /g, "")] }
                                     onClick={this.toggle.bind(this,'country_id',country.name.replace(/ /g, ""))} 
+                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
                                     />
-                                    <Text style={styles.countryText}>{country.name}</Text>
+                                    <Text style={styles.countryText}>{dm.compoundCountry(country.name)}</Text>
                             </View>
                             ))
                         }
@@ -327,14 +344,17 @@ export default class ModalSearch extends Component {
 
 {
 this.state.statusA ? <ScrollView style={{backgroundColor:'#444444', width:wp('92%'), marginTop:wp('2%')}}>
-                    <View style={{flexDirection: 'row',justifyContent: 'space-between', flexWrap:'wrap'}}>
+                    <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap', width:wp('94%')}}>
                     {                              
                         dm._grapeList[this.props.type].map(( grape, i ) =>
                         (
                         <View key={i} style={styles.grape}>
                             <CheckBox
                                 isChecked={this.state.checkbox[grape] }
-                                onClick={this.toggle.bind(this,'grapes',grape)} 
+                                onClick={this.toggle.bind(this,'grapes',grape)}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+ 
                                 />
                                 <Text style={styles.GrapeText}>{grape}</Text>
                         </View>
@@ -353,6 +373,9 @@ this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
                                 <CheckBox
                                     isChecked={this.state.checkbox[region.name.replace(/ /g, "")] }
                                     onClick={this.toggle.bind(this,'region_id',region.name.replace(/ /g, ""))} 
+                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                     />
                                     <Text style={styles.RegionText}>{region.name}</Text>
                                 </View>
@@ -375,6 +398,9 @@ this.state.statusC ? <View>
                                 <CheckBox
                                     isChecked={this.state.checkbox['priceRangeA']}
                                     onClick={this.toggle.bind(this,'price','priceRangeA')}
+                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                     />
                                     <Text style={styles.PriceRangeText}>500</Text>
                             </View>
@@ -382,6 +408,9 @@ this.state.statusC ? <View>
                                 <CheckBox
                                     isChecked={this.state.checkbox['priceRangeB']}
                                     onClick={this.toggle.bind(this,'price','priceRangeB')}
+                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                     />
                                     <Text style={styles.PriceRangeText}>500-1000</Text>
                             </View>
@@ -389,6 +418,9 @@ this.state.statusC ? <View>
                                 <CheckBox
                                     isChecked={this.state.checkbox['priceRangeC']}
                                     onClick={this.toggle.bind(this,'price','priceRangeC')}
+                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                     />
                                     <Text style={styles.PriceRangeText}>1000-4000</Text>
                             </View>
@@ -396,6 +428,9 @@ this.state.statusC ? <View>
                                 <CheckBox
                                     isChecked={this.state.checkbox['priceRangeD']}
                                     onClick={this.toggle.bind(this,'price','priceRangeD')}
+                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+
                                     />
                                     <Text style={styles.PriceRangeText}>PREMIUM</Text>
                             </View>
@@ -536,7 +571,8 @@ const styles = StyleSheet.create({
         marginTop: -6,
         marginLeft: 7,
         color: '#ed4622',
-        fontSize: 23
+        fontSize: 18,
+        fontFamily:'Helvetica Neue'
     },
     country0:{
         paddingTop:20,
@@ -568,26 +604,31 @@ const styles = StyleSheet.create({
     countryText:{
         marginTop: -4,
         color: '#ed4622',
-        fontSize: 22,
-        marginLeft: 7
+        fontSize: 18,
+        marginLeft: 7,
+        fontFamily:'Helvetica Neue'
     },
     region:{
         flexDirection: 'row',
         width:wp('31%'),
+        marginBottom:17
     },
     RegionText:{
         color: '#ed4622',
-        fontSize: 20,
-        marginLeft: 7
+        fontSize: 17,
+        marginLeft: 7,
+        fontFamily:'Helvetica Neue'
     },
     grape:{
         flexDirection: 'row',
         width:wp('31%'),
+        marginBottom:17
     },
     GrapeText: {
         color: '#ed4622',
-        fontSize: 22,
-        marginLeft: 7
+        fontSize: 17,
+        marginLeft: 7,
+        fontFamily:'Helvetica Neue'
     },
     grapeRegion:{
         paddingTop:20,
@@ -617,7 +658,8 @@ const styles = StyleSheet.create({
         marginTop: -4,
         color: '#ed4622',
         fontSize: 22,
-        marginLeft: 7
+        marginLeft: 7,
+        fontFamily:'Helvetica Neue'
     },
     search0:{
         marginLeft:8,
@@ -636,5 +678,6 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         color:'#ed4622',
         fontSize: 20,
+        fontFamily:'Helvetica Neue'
     }
   });

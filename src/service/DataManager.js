@@ -483,6 +483,25 @@ export default class DataManager {
         return jsonData;
     }
 
+compoundCountry(strings){
+ var result = '';   
+var i=0;
+var character='';
+var count = 0;
+while (i <= strings.length){
+    character = strings.charAt(i);
+
+        if (character == character.toUpperCase() && strings != 'USA') {
+            count ++;
+            if(count == 2)
+                result = result + ' ';
+        }
+        result = result + character;
+    i++;
+}
+return result;
+}
+
    async  setGlobals(){
         var data = await this.getDataFromSource();
 
