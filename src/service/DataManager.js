@@ -203,7 +203,7 @@ export default class DataManager {
 
         var result =[];
         var count = 0;
-        var main = this._data[viewType];
+        var main = this._data['full'];
 
         for(var i=0; i<main.length ; i++){
             var item = main[i];
