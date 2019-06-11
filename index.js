@@ -8,4 +8,4 @@ import Test from './src/service/Test';
 import App from './App.js';
 
 //AppRegistry.registerComponent(appName, () => Row);
-AppRegistry.registerComponent(appName, () => Test);
+AppRegistry.registerComponent(appName, () => App);

@@ -6,6 +6,8 @@ import {
     ImageBackground
 } from 'react-native';
 import DataManager  from './DataManager';
+import Full  from './Full';
+
 let dm = DataManager.getInstance();
 global.Regions = [];
 global.Grapes = [];
@@ -21,12 +23,30 @@ import {heightPercentageToDP as hp,
 
 
 
+
+
+
 export default class Start extends Component {
 
     constructor(props) {
         super(props);
         global.Selected = [];
+        let dm = DataManager.getInstance();
         
+ 
+        dm._initData('full').then(e => {
+            var s = new Full({navigation:this.props.navigation});
+            
+            var l = Date.now()/1000;
+            console.log('rendering '+l);
+            s = s.render();
+            console.log('rendering time'+(Date.now()/1000 - l));
+            console.log(s);
+            dm._fullRendered = s;
+           
+        })
+
+
     }
 
     static navigationOptions =

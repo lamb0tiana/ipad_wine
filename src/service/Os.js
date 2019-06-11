@@ -6,6 +6,9 @@ import {
     Text,
     ImageBackground
 } from 'react-native';
+import DataManager  from './DataManager';
+
+
 
 
 
@@ -15,7 +18,9 @@ export default class Os extends Component {
 
     constructor(props) {
         super(props); 
+        let dm = DataManager.getInstance();
         console.log('constructor OS'); 
+        console.log(dm._data['full']);
     }
 
     static navigationOptions =

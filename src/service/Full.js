@@ -21,7 +21,7 @@ import { NavigationEvents } from 'react-navigation';
 let _ = require('lodash');
 
 
-let dm = DataManager.getInstance();
+
 
 
 /***
@@ -30,23 +30,24 @@ let dm = DataManager.getInstance();
 export default class TestRecyclerFull extends React.Component {
     constructor(args) {
         super(args);
-
+        console.log('CONSTRUCTOR full');
         this.scrollViewRef = null;
-
+        this.dm = DataManager.getInstance();
+        this.navigation = args.navigation;
         //custom parmeter for each view
         global.Referer ='Fullwinelist';   
         this.view = 'full';
 
-        this.renderNumber = 100;
+        this.renderNumber = 90000;
 
 
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
-        this.props.navigation.setParams({
-            filterCount: dm._total[this.view],
-            });
-        this.computeSelectionCount();
+        // this.props.navigation.setParams({
+        //     filterCount: this.dm._total[this.view],
+        //     });
+        // this.computeSelectionCount();
         this.onSearch = this.onSearch.bind(this);
         //Create the data provider and provide method which takes in two rows of data and return if those two are different or not.
         //THIS IS VERY IMPORTANT, FORGET PERFORMANCE IF THIS IS MESSED UP
@@ -100,7 +101,7 @@ export default class TestRecyclerFull extends React.Component {
 
         //Since component should always render once data has changed, make data provider part of the state
         this.state = {
-            dataProvider: dataProvider.cloneWithRows(dm._data[this.view])
+            dataProvider: dataProvider.cloneWithRows(this.dm._data[this.view])
         };
 
         
@@ -116,11 +117,11 @@ export default class TestRecyclerFull extends React.Component {
             return r1 !== r2;
         });
         this.req = req;
-        let result = dm._search(this.view, req);
+        let result = this.dm._search(this.view, req);
         this.setState({dataProvider: dataProvider.cloneWithRows(result[0])});
-        this.props.navigation.setParams({
-            filterCount: result[1],
-            });
+        // this.props.navigation.setParams({
+        //     filterCount: result[1],
+        //     });
 
         this.toggleModal();
     }
@@ -131,21 +132,21 @@ export default class TestRecyclerFull extends React.Component {
             return a+ r.count;
             }, 0);
 
-        this.props.navigation.setParams({
-            ct: sel
-        });
+        // this.props.navigation.setParams({
+        //     ct: sel
+        // });
     }
 
     componentDidMount() {
-        this.props.navigation.setParams({
-            modalCom: this.toggleModal.bind(this),
-        });
+        // this.props.navigation.setParams({
+        //     modalCom: this.toggleModal.bind(this),
+        // });
         this.renderNumber = 90000;
     }
 
     componentWillUnmount(){
-        dm._plusMoinsList = null;
-        dm._plusMoinsList = []; 
+        this.dm._plusMoinsList = null;
+        this.dm._plusMoinsList = []; 
       }
 
 
@@ -158,7 +159,7 @@ export default class TestRecyclerFull extends React.Component {
         switch (type) {
             case 'MenuHeader':
                 return (
-                    <MenuHeader navigation={this.props.navigation} reference={this.scrollViewRef} viewType={this.view}>  </MenuHeader>        
+                    <MenuHeader navigation={this.navigation} reference={this.scrollViewRef} viewType={this.view}>  </MenuHeader>        
                 );
             case 'ChampagneHeader':
                 return (
@@ -170,7 +171,7 @@ export default class TestRecyclerFull extends React.Component {
                 );
             case 'Row':
                 return (
-                    <Row  item = {data.data} navigation={this.props.navigation} 
+                    <Row  item = {data.data} navigation={this.navigation} 
                     updateCount = {this.computeSelectionCount.bind(this)}
                    
                     ></Row>   
@@ -245,7 +246,7 @@ export default class TestRecyclerFull extends React.Component {
 
     onFocus = (ld) => {
         if(!this.firstFocus){
-            dm._updatePlusMoins();
+            this.dm._updatePlusMoins();
             this.computeSelectionCount();
         }
         this.firstFocus = false;
@@ -253,10 +254,23 @@ export default class TestRecyclerFull extends React.Component {
 
 
     render() {
+        console.log('render full opm');
         return (
            
-            <View>
- {dm._fullRendered}
+     
+            <View style={{height: hp('100%'), width: wp('100%'), backgroundColor:'black'}}>
+                <NavigationEvents  onDidFocus={this.onFocus} />
+            { this.state.showModal ?
+                    <ModalSearch show= {this.state.showModal} toggle = {this.toggleModal.bind(this)}
+                    search= {this.onSearch} req={this.req} type ={this.view}>
+                    
+                    </ModalSearch>
+            : null}
+                    <RecyclerListView  layoutProvider={this._layoutProvider} 
+                    dataProvider={this.state.dataProvider} 
+                    rowRenderer={this._rowRenderer} 
+                    renderAheadOffset= {this.renderNumber}
+                    ref={this.setScrollViewRef}/>
             </View>
         )
        
