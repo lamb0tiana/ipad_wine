@@ -4,8 +4,8 @@
 
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
-import ModalSearch from './src/service/ModalSearch';
+import Test from './src/service/Test';
 import App from './App.js';
 
 //AppRegistry.registerComponent(appName, () => Row);
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => Test);
