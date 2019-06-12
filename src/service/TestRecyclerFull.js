@@ -268,7 +268,9 @@ export default class TestRecyclerFull extends React.Component {
                     dataProvider={this.state.dataProvider} 
                     rowRenderer={this._rowRenderer} 
                     renderAheadOffset= {this.renderNumber}
-                    ref={this.setScrollViewRef}/>
+                    ref={this.setScrollViewRef}
+                    decelerationRate={'fast'}
+                    />
             </View>
         )
        

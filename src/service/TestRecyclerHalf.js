@@ -37,7 +37,9 @@ export default class TestRecyclerHalf extends React.Component {
         global.Referer ='Halfofflist';   
         this.view = 'half';
 
-        this.renderNumber = 50;
+        this.renderNumber = 100;
+
+
         this.state = {showModal:false};
         this.req = {type:[],country_id:[],region_id:[], grapes:[], price:[], name:''};
         this.firstFocus = true;
@@ -71,13 +73,13 @@ export default class TestRecyclerHalf extends React.Component {
                         dim.width = 1024;
                         dim.height = 200;
                         break;
-                    case 'ChampagneHeader':
-                        dim.width = 1024;
-                        dim.height = 200;
-                        break;
                     case 'CountryTitle':
                         dim.width = 1024;
                         dim.height = 100;
+                        break;
+                    case 'Row':
+                        dim.width = 1024;
+                        dim.height = 100.334;
                         break;
                     case 'TypeTitle':
                         dim.width = 1024;
@@ -266,7 +268,9 @@ export default class TestRecyclerHalf extends React.Component {
                     dataProvider={this.state.dataProvider} 
                     rowRenderer={this._rowRenderer} 
                     renderAheadOffset= {this.renderNumber}
-                    ref={this.setScrollViewRef}/>
+                    ref={this.setScrollViewRef}
+                    decelerationRate={'fast'}
+                    />
             </View>
         )
        
