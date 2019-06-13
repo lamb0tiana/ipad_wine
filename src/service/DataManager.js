@@ -416,7 +416,7 @@ export default class DataManager {
             countryKey.forEach(country =>{
                 var rows = [];
 
-                if(viewType == 'full' || 'all'){
+                if(viewType == 'full' || viewType =='all'){
                     rows = data[country];
                 }else if(viewType == 'glass'){
                     rows = _.filter(data[country], rw => rw.byglass == '1');
