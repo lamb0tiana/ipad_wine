@@ -57,7 +57,7 @@ setScrollViewRef = (element) => {
                                 </Text>
                                 <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
-                                    {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
+                                    {this.props.item.topRegion == '' ||  this.props.item.topRegion ==  this.props.item.region ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                     </Text>
                                     {this.props.item.promotion == 1 && this.props.view == 'half' ?
                                     <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
