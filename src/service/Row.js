@@ -116,18 +116,19 @@ setScrollViewRef = (element) => {
                     </View>
                     <View style={{flexDirection: 'row',height:45, marginTop:-5,justifyContent: 'space-between',width:wp('20%'),paddingLeft:wp('1%'),paddingRight:wp('1%')}}>
                   {this.props.item.byglass == 1 && this.props.item.promotion == 0 ?
-                    <ImageBackground source={require('../img/icon-bouteil.png')} style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,resizeMode: 'contain'}}>
+                    <ImageBackground source={require('../img/icon-bouteil.png')} style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:0,
+                    marginRight:6,marginTop:-7,marginRight:0 ,resizeMode: 'contain'}}>
                         </ImageBackground>
                    :
                     <View style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,backgroundColor:'#1c1c1c'}}>
                         </View>
                   }
                         
-                        <Text style={{color:dm.halfColor(this.props.item.promotion), marginLeft:-7,marginTop:4, fontSize: 17, fontWeight:dm.halfWeight(this.props.item.promotion)}}>
-                            {dm.ishalfof(this.props.item.price, this.props.item.promotion)}
+                        <Text style={{color:dm.halfColor(this.props.item.promotion), marginLeft:0,marginTop:4, fontSize: 17, fontWeight:dm.halfWeight(this.props.item.promotion)}}>
+                            {dm.ishalfof(this.props.item.price, this.props.item.promotion)+' ¥'}
                         </Text>
-                        <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
-                        </ImageBackground>
+                        <View style={{backgroundColor:'#1c1c1c', height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
+                        </View>
                     </View>
                 </View>
             </View>

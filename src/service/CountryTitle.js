@@ -33,8 +33,8 @@ export default class CountryTitle extends Component {
                         <Dash style={{width:wp('97%'), height:15}} 
                         dashGap={8}
                         dashColor={'#686767'}
-                        dashThickness={7}
-                        dashLength={7}
+                        dashThickness={5}
+                        dashLength={5}
                         dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
                        
             </View>

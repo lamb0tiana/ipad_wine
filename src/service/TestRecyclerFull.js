@@ -236,7 +236,8 @@ export default class TestRecyclerFull extends React.Component {
             ,
         headerStyle: {
             backgroundColor: 'black',
-            height:wp('11.5%'),
+            height:wp('15%'),
+            borderBottomColor:'transparent',borderBottomWidth: 0, shadowColor: 'transparent'
         },
     });
 

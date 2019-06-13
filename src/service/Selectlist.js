@@ -65,6 +65,9 @@ export default class Selectlist extends Component {
         if(type == 'byglass'){
             return item.data.price;
         }else{
+            if(item.data.promotion == '1'){
+                return item.data.price/2;
+            }
             return item.data[type];
         }
     }
@@ -259,15 +262,18 @@ export default class Selectlist extends Component {
                                                     <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
                                                     </Text>
-                                                    <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
-                                                    {item.data.region} {item.data.vintage}
-                                                    </Text>
+                                                    <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
+                                                        <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                                        {item.data.region} {item.data.vintage}
+                                                        </Text>
+                                                        {item.data.promotion == 1?
+                                                        <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                                        {item.data.price} ¥ (Original Price) 
+                                                        </Text>
+                                                        :null}
+                                                    </View>
                                                 </View>
 
-                            {item.type === 'byglass' ? <View style={{flexDirection:'row', marginTop:46, marginLeft:wp('75.5%'), position:"absolute"}}>
-                                                    <ImageBackground source={require('../img/new-glass.png')} style={{height: hp('3.1%'), width:wp('2%'),marginLeft:1, marginTop: 12, resizeMode: 'contain'}}>
-                                                    </ImageBackground>
-                                                </View>:null}
                             {item.type === 'price2' ? <View style={styles.glassContainer}>
                                                 
                                                     <Text style={styles.glassVolume}>
@@ -293,8 +299,7 @@ export default class Selectlist extends Component {
                                                 </ImageBackground>
                                             </View>:null}
                             {item.type === 'price1' ? <View style={styles.glassContainer}>
-                                                
-
+                                                               
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
