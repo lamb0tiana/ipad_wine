@@ -64,9 +64,6 @@ export default class Selectlist extends Component {
         
         var type = item.type;
         if(type == 'byglass'){
-            if(item.data.promotion == '1'){
-                return item.data.price/2;
-            }
             return item.data.price;
         }else{
             return item.data[type];
@@ -283,11 +280,6 @@ export default class Selectlist extends Component {
                                                         <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                         {item.data.region} {item.data.vintage}
                                                         </Text>
-                                                        {item.data.promotion == 1?
-                                                        <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
-                                                        {item.data.price} ¥ (Original Price) 
-                                                        </Text>
-                                                        :null}
                                                     </View>
                                                 </View>
 
