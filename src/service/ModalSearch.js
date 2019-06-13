@@ -232,7 +232,7 @@ export default class ModalSearch extends Component {
                         </ImageBackground>
                 <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-8, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: 11, marginRight:20}}>
                         </ImageBackground>
-                <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20, paddingTop: 20, fontSize: 21}}>Wine Type</Text>
+                <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20, paddingTop: 20, fontSize: 22}}>Wine Type</Text>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', paddingTop:16}}>
                         <View style={styles.wineType0}>
                             <CheckBox
@@ -288,9 +288,16 @@ export default class ModalSearch extends Component {
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop: 30}}>
                         <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -4, marginRight:20}}>
                         </ImageBackground>
-                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Country</Text>
-                        <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
-                        </ImageBackground>
+                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 22}}>Country</Text>
+
+
+                        <Dash style={{width:wp('78%'), height:15,marginTop: 12, marginLeft:15, marginRight:30}} 
+                        dashGap={8.5}
+                        dashColor={'black'}
+                        dashThickness={4}
+                        dashLength={4}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
+                        
                     </View>
                 { this.state.hideCountryList ? null :
                     <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap'}}>
@@ -314,9 +321,17 @@ export default class ModalSearch extends Component {
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
                         <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
                         </ImageBackground>
-                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Grapes & Region</Text>
-                        <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
-                        </ImageBackground>
+                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 22}}>Grapes & Region</Text>
+                        
+                        <Dash style={{width:wp('78%'), height:15,marginTop: 12, marginLeft:15, marginRight:30}} 
+                        dashGap={8.5}
+                        dashColor={'black'}
+                        dashThickness={4}
+                        dashLength={4}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>                  
+
+
+                       
                     </View>
 
                         <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:0.5*wp('1%')}}>
@@ -412,9 +427,15 @@ this.state.statusC ? <View>
                         <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:0.59*wp('3%')}}>
                             <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
                             </ImageBackground>
-                            <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Price Range</Text>
-                            <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
-                        </ImageBackground>
+                            <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 22}}>Price Range</Text>
+
+                        <Dash style={{width:wp('78%'), height:15,marginTop: 12, marginLeft:15, marginRight:30}} 
+                        dashGap={8.5}
+                        dashColor={'black'}
+                        dashThickness={4}
+                        dashLength={4}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
+
                         </View>
                         <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
                             <View style={styles.PriceRange0}>
@@ -459,12 +480,14 @@ this.state.statusC ? <View>
                             </View>
                         </View>
                             <View style={{flexDirection: 'row',justifyContent: 'space-between', height: hp('5%'),  marginTop:wp('3%')}}>
-                              <ImageBackground source={require('../img/point-noir-short.png')} style={{ height: hp('1%'),width:wp('40%'),resizeMode: 'contain',marginTop: 4, paddingRight:100}}>
-                              </ImageBackground>
-                              <ImageBackground source={require('../img/point-noir-short.png')} style={{ height: hp('1%'),width:wp('40%'),resizeMode: 'contain',marginTop: 4, paddingRight:100}}>
-                              </ImageBackground>
-                              <ImageBackground source={require('../img/point-noir-short.png')} style={{ height: hp('1%'),width:wp('40%'),resizeMode: 'contain',marginTop: 4, marginRight:30}}>
-                              </ImageBackground>
+                           
+                            <Dash style={{width:wp('92%'), height:15,marginTop: 12, marginLeft:-5}} 
+                        dashGap={8.5}
+                        dashColor={'black'}
+                        dashThickness={4}
+                        dashLength={4}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
+
                             </View>
                         <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('2%')}}>
                             <View style={styles.search0}>
@@ -488,10 +511,10 @@ this.state.statusC ? <View>
                             left:wp('49%'),
                         position:'absolute',top:28
                         }} 
-                        dashGap={6}
+                        dashGap={8}
                         dashColor={'black'}
-                        dashThickness={7}
-                        dashLength={7}
+                        dashThickness={4}
+                        dashLength={4}
                         dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
 
 

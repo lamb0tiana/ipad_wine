@@ -433,6 +433,13 @@ export default class DataManager {
                     this._countryIndexName[viewType][types[i]].push([main.length,country]);
                     main.push({type:'CountryTitle',data:country});
                         rows.forEach(row =>{
+                            
+                            if(row.name.length > 52){
+                                row.nameOnRow = row.name.substring(0, row.name.indexOf(' ',40))+'...';
+                            }else{
+                                row.nameOnRow = row.name;
+                            }
+
                             main.push({type:'Row',data:row});
 
                             if(_.find(this._regionList[viewType], rg => rg.name == row.region) == undefined)

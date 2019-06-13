@@ -11,6 +11,7 @@ import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
     import DataManager from './DataManager';
 import { NavigationEvents } from 'react-navigation';
+import Dash from 'react-native-dash';
 
 
 export default class WineDetail extends Component {
@@ -229,8 +230,12 @@ export default class WineDetail extends Component {
                             {this.item.name}
                         </Text>
 
-                        <ImageBackground source={require('../img/point-line-long.png')} style={{ height: 15}}>
-                            </ImageBackground>
+                        <Dash style={{width:wp('94%'), height:15}} 
+                        dashGap={8}
+                        dashColor={'#686767'}
+                        dashThickness={5}
+                        dashLength={5}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
 
                     </View>
                     <View style={styles.row}>

@@ -53,7 +53,7 @@ setScrollViewRef = (element) => {
                                                     </ImageBackground>
 
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
-                                {this.props.item.name.length >= 55 ? this.props.item.name.substring(0,55)+'...':this.props.item.name}
+                                                {this.props.item.nameOnRow}
                                 </Text>
                                 <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
