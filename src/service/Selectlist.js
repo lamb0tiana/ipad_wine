@@ -206,8 +206,8 @@ export default class Selectlist extends Component {
                     </ImageBackground>
                 </View>
                 <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
-                    <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
+                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.getParam('deleteAllSelected')()}>
 
                         </TouchableOpacity>
                     </ImageBackground>
@@ -216,17 +216,17 @@ export default class Selectlist extends Component {
             </View>,
         headerRight:
          <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
-            <View style={{backgroundColor:'#c3c3c4',marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
-                    <TouchableOpacity onPress={ () => navigation.state.params.modalCom() }>
+            <View style={{marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <View >
                     <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
-                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>Filter</Text>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,padding:4,fontFamily:"American Typewriter", fontSize: 22}}></Text>
                         <View
-                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('7%'),paddingTop:8, color:'#fff'}}
                     >
-                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('filterCount')}</Text>
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}></Text>
                         </View>
                     </View>
-                    </TouchableOpacity>
+                    </View>
             </View>
             <View style={{backgroundColor:'#c3c3c4',marginRight:60,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
                     <TouchableOpacity onPress={() => navigation.navigate('Selectlist')}>

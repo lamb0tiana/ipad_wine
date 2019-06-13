@@ -140,25 +140,25 @@ export default class WineDetail extends Component {
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
-                    <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
+                <View style={{marginLeft:15,marginRight:10}}>
+                    <View style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <View style={{ height: hp('6%')}}>
 
-                        </TouchableOpacity>
-                    </ImageBackground>
+                        </View>
+                    </View>
                 </View>
             </View>
             </View>,
         headerRight:
          <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
-            <View style={{backgroundColor:'#c3c3c4',marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
-                    <TouchableOpacity onPress={ () => navigation.state.params.modalCom() }>
+            <View style={{marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity>
                     <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
-                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>Filter</Text>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,padding:4,fontFamily:"American Typewriter", fontSize: 22}}></Text>
                         <View
-                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('7%'),paddingTop:8}}
                     >
-                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('filterCount')}</Text>
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}></Text>
                         </View>
                     </View>
                     </TouchableOpacity>
@@ -318,7 +318,7 @@ export default class WineDetail extends Component {
                                         {this.item.country}
                                         </Text>
                                         <Text style={styles.descVine}>
-                                        {this.item.region+', '+this.item.topRegion}
+                                        {this.item.region != this.item.topRegion ? this.item.region+', '+this.item.topRegion : this.item.topRegion}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
@@ -336,7 +336,7 @@ export default class WineDetail extends Component {
                                             {this.dm.compoundCountry(this.item.country)}
                                         </Text>
                                         <Text style={styles.descVineGrand}>
-                                        {this.item.region+', '+this.item.topRegion}
+                                        {this.item.region != this.item.topRegion ? this.item.region+', '+this.item.topRegion : this.item.topRegion}
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>

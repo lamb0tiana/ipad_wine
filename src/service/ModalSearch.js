@@ -44,11 +44,11 @@ export default class ModalSearch extends Component {
             checkboxState[priceRange] = this.props.req.price.indexOf(priceRange) > -1;
         })
         
-        dm._regionList['full'].forEach( e =>{
+        dm._regionList['all'].forEach( e =>{
             checkboxState[e.name.replace(/ /g, "")] = this.props.req.region_id.indexOf(e.id) > -1;
         });
 
-        dm._grapeList['full'].forEach( e =>{
+        dm._grapeList['all'].forEach( e =>{
             checkboxState[e] = this.props.req.grapes.indexOf(e) > -1;
         });
 
@@ -190,11 +190,11 @@ export default class ModalSearch extends Component {
         })
 
 
-        dm._regionList['full'].forEach( e =>{
+        dm._regionList['all'].forEach( e =>{
             checkboxState[e.name.replace(/ /g, "")] = false;
         });
 
-        dm._grapeList['full'].forEach( e =>{
+        dm._grapeList['all'].forEach( e =>{
             checkboxState[e] = false;
         });
 
@@ -369,7 +369,7 @@ export default class ModalSearch extends Component {
 this.state.statusA ? <ScrollView style={{backgroundColor:'#444444', width:wp('92%'), marginTop:wp('2%')}}>
                     <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap', width:wp('94%')}}>
                     {                              
-                        dm._grapeList['full'].map(( grape, i ) =>
+                        dm._grapeList['all'].map(( grape, i ) =>
                         (
                         <View key={i} style={styles.grape}>
                             <CheckBox
@@ -390,7 +390,7 @@ this.state.statusA ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
 this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92%'), marginTop:wp('2%')}}>
                         <View style={{flexDirection: 'row',justifyContent: 'flex-start', flexWrap:'wrap', width:wp('94%')}}>
                         {                      
-                            dm._regionList['full'].map(( region, i ) =>
+                            dm._regionList['all'].map(( region, i ) =>
                             (
                             <View key={i} style={styles.region}>
                                 <CheckBox
