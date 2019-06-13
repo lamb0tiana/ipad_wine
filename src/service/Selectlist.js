@@ -61,13 +61,14 @@ export default class Selectlist extends Component {
 
 
     getPrice(item){
+        
         var type = item.type;
         if(type == 'byglass'){
-            return item.data.price;
-        }else{
             if(item.data.promotion == '1'){
                 return item.data.price/2;
             }
+            return item.data.price;
+        }else{
             return item.data[type];
         }
     }
@@ -310,14 +311,15 @@ export default class Selectlist extends Component {
                                     <View style={{backgroundColor:'#1c1c1c',width:wp('20%'),height:wp('12.2%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
                                     
                                     <View style={{flexDirection: 'row',height:40, marginTop:10}}>
-                                            <Text style={{color:'#FFFFFF', marginLeft:15,marginTop:4, fontSize: 18}}>
-                                                {this.getPrice(item)}
+                                            <Text style={{color:'#FFFFFF', marginLeft:23,marginTop:4, fontSize: 18}}>
+                                                {this.getPrice(item)+' ¥'}
                                             </Text>
-                                            <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain'}}>
-                                            </ImageBackground>
+                                            <View style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain',
+                                             backgroundColor:'#1c1c1c'}}>
+                                            </View>
                                     </View>
 
-                                        <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('18%'),height:wp('8.5%'),paddingRight:wp('6.5%'),paddingTop:10}}>
+                                        <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('18%'),height:wp('8.5%'),paddingRight:wp('6.5%'),paddingTop:4}}>
                         
                                             
                                         {this.onPressMoinPlus2(item.id,item.type)}
