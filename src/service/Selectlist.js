@@ -196,21 +196,22 @@ export default class Selectlist extends Component {
      }
 
 
-    static navigationOptions = ({navigation}) => ({
+     static navigationOptions = ({navigation}) => ({
         headerLeft:
           <View style={{flexDirection: 'row'}}>
             <ImageBackground source={require('../img/fond.png')} style={{ position:"absolute", height: 0.15* wp('94%') ,width:wp('94%'), left: wp("3%"), top:-40}}>
             </ImageBackground>          
-            <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35,  top:-10}}>
+            <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
                     <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => {navigation.navigate(global.Referer)}}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Home')}>
-                    <ImageBackground source={require('../img/cercle-moin-grand.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.state.params.deleteAllSelected()}>
+                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
+                    <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
+
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
@@ -218,21 +219,36 @@ export default class Selectlist extends Component {
             </View>,
         headerRight:
          <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
-            <View style={{backgroundColor:'#c3c3c4',marginRight:70,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{backgroundColor:'#c3c3c4',marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity onPress={ () => navigation.state.params.modalCom() }>
+                    <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>Filter</Text>
+                        <View
+                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                    >
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('filterCount')}</Text>
+                        </View>
+                    </View>
+                    </TouchableOpacity>
+            </View>
+            <View style={{backgroundColor:'#c3c3c4',marginRight:60,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Selectlist')}>
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
                         style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
                     >
-                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 22}}>{navigation.getParam('ct')}</Text>
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('ct')}</Text>
                         </View>
                     </View>
+                    </TouchableOpacity>
             </View>
         </View>
             ,
         headerStyle: {
             backgroundColor: 'black',
-            height:wp('11.5%'),
+            height:wp('15%'),
+            borderBottomColor:'transparent',borderBottomWidth: 0, shadowColor: 'transparent'
         },
     });
 
