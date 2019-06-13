@@ -409,8 +409,6 @@ export default class DataManager {
             var countryKey = _.keys(data);
             countryKey = _.sortBy(countryKey);
 
-            if(types[i] == 'CHAMPAGNE' && viewType=='full')
-                continue;
 
             if(i != 0){
                 main.push({type:'TypeTitle',data:types[i]});

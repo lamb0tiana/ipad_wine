@@ -69,6 +69,10 @@ export default class TestRecyclerFull extends React.Component {
                         dim.width = 1024;
                         dim.height = 950;
                         break;
+                    case 'ChampagneHeader':
+                        dim.width = 1024;
+                        dim.height = 70;
+                        break;
                     case 'CountryTitle':
                         dim.width = 1024;
                         dim.height = 85;
@@ -159,7 +163,8 @@ export default class TestRecyclerFull extends React.Component {
                 );
             case 'ChampagneHeader':
                 return (
-                    null
+                    <ChampagneHeader type={this.view}>  </ChampagneHeader>   
+
                 );
             case 'CountryTitle':
                 return (
