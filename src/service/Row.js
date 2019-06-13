@@ -55,7 +55,7 @@ setScrollViewRef = (element) => {
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                 {this.props.item.name.length >= 55 ? this.props.item.name.substring(0,55)+'...':this.props.item.name}
                                 </Text>
-                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('79%')}}>
+                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                     </Text>
@@ -123,7 +123,7 @@ setScrollViewRef = (element) => {
                         </View>
                   }
                         
-                        <Text style={{color:'#FFFFFF', marginLeft:-7,marginTop:4, fontSize: 17}}>
+                        <Text style={{color:dm.halfColor(this.props.item.promotion), marginLeft:-7,marginTop:4, fontSize: 17, fontWeight:dm.halfWeight(this.props.item.promotion)}}>
                             {dm.ishalfof(this.props.item.price, this.props.item.promotion)}
                         </Text>
                         <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>

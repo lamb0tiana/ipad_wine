@@ -309,6 +309,16 @@ export default class DataManager {
     }
 
 
+    halfWeight(half){
+        if(half == 0) return 'normal';
+        return 'bold';
+    }
+
+    halfColor(half){
+        if(half == 0) return '#FFFFFF';
+        return '#008000';
+    }
+
     ishalfof(price, half){
         if(half == 0) return price;
         return price/2;
@@ -393,6 +403,8 @@ export default class DataManager {
             data = _.groupBy(data, 'country');
             var countryKey = _.keys(data);
             countryKey = _.sortBy(countryKey);
+
+ 
 
             if(i != 0){
                 main.push({type:'TypeTitle',data:types[i]});

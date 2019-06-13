@@ -49,13 +49,13 @@ export default class Accueil extends Component {
                     <View style={styles.row}>
                         <View style={styles.first}>
                             <View style={styles.firstButton}>
-                                <ImageBackground source={require('../img/icon1.png')} style={{ height: 1.05*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
+                                <ImageBackground source={require('../img/icon1.jpeg')} style={{ height: 1.05*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Fullwinelist')}>
                                     </TouchableOpacity>
                                 </ImageBackground>
                             </View>
                             <View style={styles.secondButton}>
-                                <ImageBackground source={require('../img/icon2.png')} style={{ height: 1.05*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
+                                <ImageBackground source={require('../img/icon2.jpeg')} style={{ height: 1.05*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Byglasslist')}>
                                     </TouchableOpacity>
                                 </ImageBackground>
@@ -70,7 +70,7 @@ export default class Accueil extends Component {
                                 </ImageBackground>
                             </View>
                             <View style={styles.fourthButton}>
-                                <ImageBackground source={require('../img/icon4.png')} style={{ height: 1.06*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
+                                <ImageBackground source={require('../img/icon4.jpeg')} style={{ height: 1.06*wp('40,38%'),marginTop: 5,paddingTop: 1}}>
                                     <TouchableOpacity style={{ height: hp('30%')}} onPress={() => this.props.navigation.navigate('Bestoflist')}>
                                         <Text>wine4</Text>
                                     </TouchableOpacity>
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     fourthButton:{
         width: wp('42,38%'),
         height: 1.09*wp('42,38%'),
-        borderColor:'#dbbb6a',
+        borderColor:'#00a54f',
         borderWidth: wp('1,40%'),
         color:'white',
     }
