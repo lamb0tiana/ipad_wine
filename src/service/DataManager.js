@@ -324,7 +324,7 @@ export default class DataManager {
 
     ishalfof(price, half, view=null){
         if(view != null && view !='half' ) return price;
-        
+        if(view == null && half != '1') return price;
         return price/2;
         
     }

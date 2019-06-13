@@ -107,12 +107,12 @@ export default class WineDetail extends Component {
  
          if (this.getSelected(id,type) != undefined) {
              return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-                 <ImageBackground source={require('../img/plusnoir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
+                 <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
                  </ImageBackground>
              </TouchableOpacity>
          }
          else return <TouchableOpacity  onPress={this.onPressPlus.bind(this, id, type)}>
-             <ImageBackground source={require('../img/plusnoir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
+             <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
              </ImageBackground>
          </TouchableOpacity>;
      }
@@ -225,7 +225,7 @@ export default class WineDetail extends Component {
                             flex: 1,
                         }}
                     >
-                        <Text style={{color:'#ffffff',fontSize: 35, fontFamily:"American Typewriter", marginBottom: hp("2%")}}>
+                        <Text style={{color:'#ffffff',fontSize: 33, fontFamily:"American Typewriter", marginBottom: hp("2%")}}>
                             {this.item.name}
                         </Text>
 
@@ -314,7 +314,7 @@ export default class WineDetail extends Component {
                                 </View>:null}
                                 {this.item.byglass==1? <View>
                                     <View style={{marginTop: wp('1.82%')}}>
-                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "American Typewriter"}}>
+                                        <Text style={{color:'#ffffff', fontSize: 21, fontFamily: "American Typewriter"}}>
                                         {this.item.country}
                                         </Text>
                                         <Text style={styles.descVine}>
@@ -322,7 +322,7 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 25, fontFamily: "Helvetica-Bold"}}>
+                                        <Text style={{color:'#ffffff', fontSize: 18, fontFamily: "Helvetica-Bold"}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
@@ -340,7 +340,7 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 28, fontFamily: "Helvetica Neue", marginTop:15, fontWeight:'bold'}}>
+                                        <Text style={{color:'#ffffff', fontSize: 18, fontFamily: "Helvetica Neue", marginTop:15, fontWeight:'bold'}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>
@@ -350,15 +350,15 @@ export default class WineDetail extends Component {
                                     <View style={{flexDirection: 'row', width: wp('47%'), marginTop:wp('10%') }}>
                                         <View style={{ borderWidth: 4, borderColor:'#808080',marginRight: wp("1%"), backgroundColor:'#ed4622',paddingRight:0, 
                                         width: wp("12%"), height:  0.4*wp("17.1875%"),  justifyContent: 'center', alignItems: 'center'}}>
-                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 27}}>{this.item.alcohol == null ? this.item.alcohol : 'N/A'}</Text>
+                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 23}}>{this.item.alcohol == null ? this.item.alcohol : 'N/A'}</Text>
                                         </View>
                                         <View style={{ borderWidth: 4, borderColor:'#808080', backgroundColor:'#ed4622', width: wp("12"),height:  0.4*wp("17.1875%"),
                                             justifyContent: 'center', alignItems: 'center'}}>
-                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 27}}>{this.item.volume}</Text>
+                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 23}}>{this.item.volume}</Text>
                                         </View>
                                         <View style={{ borderWidth: 4, borderColor:'#808080', marginLeft: 12, backgroundColor:'#4d4e4e',
                                         justifyContent: 'center', alignItems: 'center', height:  0.4*wp("17.1875%"), width: wp('22%')}}>
-                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 26}}>RMB {this.dm.ishalfof(this.item.price)}</Text>
+                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 23}}>RMB {this.dm.ishalfof(this.item.price)}</Text>
                                         </View>
                                     </View>
                                 </View>}                                
@@ -368,9 +368,9 @@ export default class WineDetail extends Component {
                                     </ImageBackground>
 
                                     <View style={{height:hp('3%'),paddingTop:0,flexDirection: 'row'}}>
-                                        <ImageBackground source={require('../img/new-glass.png')} style={{ height: 2.13*wp('1.89%'), width: wp('1.89%'), marginRight: 5}}>
+                                        <ImageBackground source={require('../img/new-glass.png')} style={{ height: 2.13*wp('1.89%')*0.94, width: wp('1.89%'), marginRight: 5}}>
                                         </ImageBackground>
-                                        <Text style={{marginLeft:2,paddingTop:3, color:'#ee4922',fontSize: 23, fontFamily:"AvenirNext-Regular"}}>
+                                        <Text style={{marginLeft:2,paddingTop:8, color:'#ee4922',fontSize: 14, fontFamily:"AvenirNext-Regular"}}>
                                             BY GLASS
                                         </Text>
                                     </View>
@@ -488,10 +488,10 @@ export default class WineDetail extends Component {
                             </View>
                         </View>
                         <View style={{marginTop:hp('1%')}}>
-                            <Text style={{color:'#f1592a', fontFamily: "American Typewriter", fontSize:30, marginBottom: 5}}>
+                            <Text style={{color:'#f1592a', fontFamily: "American Typewriter", fontSize:27, marginBottom: 5}}>
                                 DESCRIPTION
                             </Text>
-                            <Text style={{ color:'#ffffff', fontFamily: "Helvetica Neue",fontSize: 18, textAlign:'auto', lineHeight: 20}}>
+                            <Text style={{ color:'#ffffff', fontFamily: "Helvetica Neue",fontSize: 17, textAlign:'auto', lineHeight: 20}}>
                             {this.item.info}
                             </Text>
                         </View>
@@ -560,7 +560,7 @@ const styles = StyleSheet.create({
     },
     descVine: {
         color:'#bbbebf', 
-        fontSize: 20, 
+        fontSize: 15, 
         fontFamily:"AvenirNext-Regular"
     },
     descVineGrand: {
