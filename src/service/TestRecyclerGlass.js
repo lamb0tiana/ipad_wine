@@ -166,7 +166,7 @@ export default class TestRecyclerGlass extends React.Component {
                 return (
                     <Row  item = {data.data} navigation={this.props.navigation} 
                     updateCount = {this.computeSelectionCount.bind(this)}
-                   
+                    view = {this.view}
                     ></Row>   
                 );
             case 'TypeTitle' || 'ChampagneHeader':

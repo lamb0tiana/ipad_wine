@@ -59,7 +59,7 @@ setScrollViewRef = (element) => {
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                     </Text>
-                                    {this.props.item.promotion == 1?
+                                    {this.props.item.promotion == 1 && this.props.view == 'half' ?
                                     <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.price} ¥ (Original Price) 
                                     </Text>
@@ -76,7 +76,7 @@ setScrollViewRef = (element) => {
                                 <ImageBackground source={require('../img/icon-etoil.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:1, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.byglass == 1 && this.props.item.promotion == 0 ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
+        {this.props.item.byglass == 1 && this.props.view != 'half' ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
                                 <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1%'), width:wp('1%'),marginLeft:1, marginTop: 36, resizeMode: 'contain'}}>
                                 </ImageBackground>
                                 <Text style={{color:'#FFFFFF', marginLeft:1, marginTop: 29, fontSize: 18}}>
@@ -124,8 +124,9 @@ setScrollViewRef = (element) => {
                         </View>
                   }
                         
-                        <Text style={{color:dm.halfColor(this.props.item.promotion), marginLeft:0,marginTop:4, fontSize: 17, fontWeight:dm.halfWeight(this.props.item.promotion)}}>
-                            {dm.ishalfof(this.props.item.price, this.props.item.promotion)+' ¥'}
+                        <Text style={{color:dm.halfColor(this.props.item.promotion, this.props.view), marginLeft:0,marginTop:4, fontSize: 17,
+                             fontWeight:dm.halfWeight(this.props.item.promotion, this.props.view)}}>
+                            {dm.ishalfof(this.props.item.price, this.props.item.promotion, this.props.view)+' ¥'}
                         </Text>
                         <View style={{backgroundColor:'#1c1c1c', height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
                         </View>

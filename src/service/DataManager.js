@@ -5,6 +5,7 @@ import {Platform} from 'react-native';
 import EventEmitter from 'events';
 
 
+
 export default class DataManager {
 
     static myInstance = null;
@@ -311,19 +312,21 @@ export default class DataManager {
     }
 
 
-    halfWeight(half){
-        if(half == 0) return 'normal';
+    halfWeight(half, view=null){
+        if(view != null && view !='half' ) return 'normal';
         return 'bold';
     }
 
-    halfColor(half){
-        if(half == 0) return '#FFFFFF';
+    halfColor(half, view=null){
+        if(view != null && view !='half' ) return '#FFFFFF';
         return '#008000';
     }
 
-    ishalfof(price, half){
-        if(half == 0) return price;
+    ishalfof(price, half, view=null){
+        if(view != null && view !='half' ) return price;
+        
         return price/2;
+        
     }
 
     async  _initData(viewType){

@@ -136,7 +136,7 @@ export default class WineDetail extends Component {
             <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
                     <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate(global.Referer)}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
@@ -309,7 +309,7 @@ export default class WineDetail extends Component {
                                     </View>
                                     <View style={{ borderWidth: 4, borderColor:'#808080', marginLeft: 12, backgroundColor:'#4d4e4e',
                                     justifyContent: 'center', alignItems: 'center', height:  0.64*wp("8,34375%"), width: wp('17.1875%')}}>
-                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 20}}>RMB {this.item.price}</Text>
+                                        <Text style={{ color:'#ffffff',padding: 5, fontSize: 20}}>RMB {this.dm.ishalfof(this.item.price, this.item.promotion)}</Text>
                                     </View>
                                 </View>:null}
                                 {this.item.byglass==1? <View>
@@ -358,7 +358,7 @@ export default class WineDetail extends Component {
                                         </View>
                                         <View style={{ borderWidth: 4, borderColor:'#808080', marginLeft: 12, backgroundColor:'#4d4e4e',
                                         justifyContent: 'center', alignItems: 'center', height:  0.4*wp("17.1875%"), width: wp('22%')}}>
-                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 26}}>RMB {this.item.price}</Text>
+                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 26}}>RMB {this.dm.ishalfof(this.item.price)}</Text>
                                         </View>
                                     </View>
                                 </View>}                                
@@ -382,7 +382,7 @@ export default class WineDetail extends Component {
                                             </Text>
                                         </View>: <View style = {{flexDirection: "row", alignItems:"center"}}>
                                             <Text style={{marginLeft:2, color:'#ffffff',fontStyle:"italic", fontSize: 14,fontFamily:"AvenirNext-Regular", marginRight: 2, marginTop: 20}}>
-                                                {this.item.price1}RMB 
+                                            RMB {this.dm.ishalfof(this.item.price, this.item.promotion)}
                                             </Text>
 
 
