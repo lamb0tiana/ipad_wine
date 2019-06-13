@@ -24,7 +24,7 @@ export default class TypeTitle extends Component {
         return (
         <View style={styles.container}>
             <View style={{marginLeft: 10,marginBottom:10, marginTop:30, marginRight: 10}} >
-                <Text style={{color:'#fff',fontSize: 46,fontFamily:"American Typewriter"}}>
+                <Text style={{color:'#fff',fontSize: 38,fontFamily:"American Typewriter"}}>
                     {this.props.type}
                 </Text>
             </View>

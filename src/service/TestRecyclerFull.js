@@ -67,7 +67,7 @@ export default class TestRecyclerFull extends React.Component {
                 switch (type) {
                     case 'MenuHeader':
                         dim.width = 1024;
-                        dim.height = 1317;
+                        dim.height = 1000;
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
@@ -75,7 +75,7 @@ export default class TestRecyclerFull extends React.Component {
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
-                        dim.height = 100;
+                        dim.height = 85;
                         break;
                     case 'Row':
                         dim.width = 1024;

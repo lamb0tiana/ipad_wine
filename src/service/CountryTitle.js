@@ -26,10 +26,10 @@ export default class CountryTitle extends Component {
     render() {
         return (
             <View style={styles.container}>
-                         <Text style={{color:'#808080', fontSize: 40,fontFamily:"American Typewriter", marginBottom:3}}>
+                         <Text style={{color:'#808080', fontSize: 32,fontFamily:"American Typewriter", marginBottom:3}}>
                             {dm.compoundCountry(this.props.country)}
                         </Text>   
-                     <ImageBackground source={require('../img/point-line-long.png')} style={{height: hp('1%'), width:wp('97%'),resizeMode: 'contain'}}>
+                     <ImageBackground source={require('../img/rsz_1rsz_point-line-long.png')} style={{height: 6,resizeMode: 'cover'}}>
                         </ImageBackground>
                        
             </View>
@@ -48,5 +48,4 @@ const styles = StyleSheet.create({
         width:wp('97%'),
         marginLeft:wp('1.5%'),
         marginTop:23,
-        marginBottom:10
     }});

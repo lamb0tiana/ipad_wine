@@ -63,17 +63,13 @@ export default class TestRecyclerGlass extends React.Component {
             },
             (type, dim) => {
                 switch (type) {
-                    case 'MenuHeader':
-                        dim.width = 1024;
-                        dim.height = 1317;
-                        break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
                         dim.height = 50;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
-                        dim.height = 100;
+                        dim.height = 85;
                         break;
                     case 'Row':
                         dim.width = 1024;
@@ -156,7 +152,7 @@ export default class TestRecyclerGlass extends React.Component {
         switch (type) {
             case 'MenuHeader':
                 return (
-                    <MenuHeader navigation={this.props.navigation} reference={this.scrollViewRef} viewType={this.view}>  </MenuHeader>        
+                    null
                 );
             case 'ChampagneHeader':
                 return (

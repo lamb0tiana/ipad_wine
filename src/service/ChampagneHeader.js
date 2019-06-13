@@ -22,7 +22,7 @@ export default class Start extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{color:'#fff',fontSize: 46,fontFamily:"American Typewriter"}}>
+                <Text style={{color:'#fff',fontSize: 38,fontFamily:"American Typewriter"}}>
                 CHAMPAGNE
                 </Text>
                 {this.props.type ?  null :
