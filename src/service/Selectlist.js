@@ -268,7 +268,7 @@ export default class Selectlist extends Component {
                                     })}>
                                         <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                             <View style={{
-                                                    backgroundColor:'#1c1c1c',width:wp('80%'),height:wp('12.2%'),marginBottom:2, flexDirection:'row'
+                                                    backgroundColor:'#333333',width:wp('80%'),height:wp('12.2%'),marginBottom:2, flexDirection:'row'
                                                 }}>
                                                 <View style={{paddingTop: 9, marginRight:1}}>
                                                     <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
@@ -316,14 +316,14 @@ export default class Selectlist extends Component {
                                             
                                         </View>
                                     </TouchableOpacity>
-                                    <View style={{backgroundColor:'#1c1c1c',width:wp('20%'),height:wp('12.2%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
+                                    <View style={{backgroundColor:'#333333',width:wp('20%'),height:wp('12.2%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
                                     
                                     <View style={{flexDirection: 'row',height:40, marginTop:10}}>
                                             <Text style={{color:'#FFFFFF', marginLeft:23,marginTop:4, fontSize: 18}}>
                                                 {this.getPrice(item)+' ¥'}
                                             </Text>
                                             <View style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain',
-                                             backgroundColor:'#1c1c1c'}}>
+                                             backgroundColor:'#333333'}}>
                                             </View>
                                     </View>
 

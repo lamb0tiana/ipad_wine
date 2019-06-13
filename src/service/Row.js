@@ -45,7 +45,7 @@ setScrollViewRef = (element) => {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail',{item:this.props.item})}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                         <View style={{
-                                backgroundColor:'#1c1c1c',width:wp('80%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
+                                backgroundColor:'#333333',width:wp('80%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
                             }}>
                             <View style={{paddingTop: 9, marginRight:1}}>
 
@@ -107,7 +107,7 @@ setScrollViewRef = (element) => {
                         
                     </View>
                 </TouchableOpacity>
-                <View style={{backgroundColor:'#1c1c1c',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 8, paddingLeft:10}}>
+                <View style={{backgroundColor:'#333333',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 8, paddingLeft:10}}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('8%'),height:wp('7%')}}>
 
                     <PlusMoins id={this.props.item.id} ref={this.setScrollViewRef}
@@ -120,7 +120,7 @@ setScrollViewRef = (element) => {
                     marginRight:6,marginTop:-7,marginRight:0 ,resizeMode: 'contain'}}>
                         </ImageBackground>
                    :
-                    <View style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,backgroundColor:'#1c1c1c'}}>
+                    <View style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,backgroundColor:'#333333'}}>
                         </View>
                   }
                         
@@ -128,7 +128,7 @@ setScrollViewRef = (element) => {
                              fontWeight:dm.halfWeight(this.props.item.promotion, this.props.view)}}>
                             {dm.ishalfof(this.props.item.price, this.props.item.promotion, this.props.view)+' ¥'}
                         </Text>
-                        <View style={{backgroundColor:'#1c1c1c', height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
+                        <View style={{backgroundColor:'#333333', height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
                         </View>
                     </View>
                 </View>

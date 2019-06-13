@@ -116,7 +116,7 @@ export default class TestRecyclerFull extends React.Component {
             return r1 !== r2;
         });
         this.req = req;
-        console.log(dm._data['all']);
+   
         let result = dm._search(this.view, req);
         this.setState({dataProvider: dataProvider.cloneWithRows(result[0])});
         this.props.navigation.setParams({

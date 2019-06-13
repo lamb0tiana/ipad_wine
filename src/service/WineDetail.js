@@ -107,12 +107,12 @@ export default class WineDetail extends Component {
  
          if (this.getSelected(id,type) != undefined) {
              return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-                 <ImageBackground source={require('../img/plusr.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
+                 <ImageBackground source={require('../img/plusnoir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
                  </ImageBackground>
              </TouchableOpacity>
          }
          else return <TouchableOpacity  onPress={this.onPressPlus.bind(this, id, type)}>
-             <ImageBackground source={require('../img/plusr.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
+             <ImageBackground source={require('../img/plusnoir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
              </ImageBackground>
          </TouchableOpacity>;
      }
@@ -253,14 +253,14 @@ export default class WineDetail extends Component {
                                     
                                     {this.item.type =='CHAMPAGNE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-champagn.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
+                                    <ImageBackground source={require('../img/cone-champagn.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 15, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7,marginLeft:10}}>CHAMPAGNE</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='WHITE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-white.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
+                                    <ImageBackground source={require('../img/cone-white.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>WHITE</Text>
                                     </View>:null
@@ -274,14 +274,14 @@ export default class WineDetail extends Component {
                                     }
                                     {this.item.type =='ROSE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-rose.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
+                                    <ImageBackground source={require('../img/cone-rose.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>ROSE</Text>
                                     </View>:null
                                     }
                                     {this.item.type =='SWEET' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-sweet.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
+                                    <ImageBackground source={require('../img/cone-sweet.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 24, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>SWEET</Text>
                                     </View>:null
