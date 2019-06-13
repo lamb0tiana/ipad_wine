@@ -71,7 +71,7 @@ export default class TestRecyclerBest extends React.Component {
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 200;
+                        dim.height = 210;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
@@ -264,7 +264,8 @@ export default class TestRecyclerBest extends React.Component {
                      dataProvider={this.state.dataProvider}
                       rowRenderer={this._rowRenderer}
                        ref={this.setScrollViewRef}
-                       renderAheadOffset= {this.renderNumber}
+                       renderAheadOffset= {750}
+                       decelerationRate={'fast'}
                        />
             </View>
         )

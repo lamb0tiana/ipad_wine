@@ -256,10 +256,10 @@ export default class Selectlist extends Component {
                                                 <View style={{paddingTop: 9, marginRight:1}}>
                                                     <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
-                                                    <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue"}}>
+                                                    <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
                                                     </Text>
-                                                    <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue"}}>
+                                                    <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.region} {item.data.vintage}
                                                     </Text>
                                                 </View>

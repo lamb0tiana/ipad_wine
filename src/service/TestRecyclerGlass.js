@@ -69,7 +69,7 @@ export default class TestRecyclerGlass extends React.Component {
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 200;
+                        dim.height = 230;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
@@ -265,7 +265,8 @@ export default class TestRecyclerGlass extends React.Component {
                     <RecyclerListView  layoutProvider={this._layoutProvider} 
                     dataProvider={this.state.dataProvider} 
                     rowRenderer={this._rowRenderer} 
-                    renderAheadOffset= {this.renderNumber}
+                    renderAheadOffset= {750}
+                    decelerationRate={'fast'}
                     ref={this.setScrollViewRef}/>
             </View>
         )
