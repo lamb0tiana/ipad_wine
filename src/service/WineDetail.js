@@ -247,7 +247,7 @@ export default class WineDetail extends Component {
                                     <View style={{ borderWidth: 4, borderColor:'#808080',backgroundColor:'#ed4622', width: wp('17.1875%'), height: 0.46*wp('17.1875%'),
                                     justifyContent: 'center', alignItems: 'center'
                                     }}>
-                                        <Text style={{ color:'#ffffff',padding: 4, fontSize: 36 }}>{this.item.vintage}</Text>
+                                        <Text style={{ color:'#ffffff',padding: 4, fontSize: this.item.vintage.length >8 ? 20 : 30}}>{this.item.vintage}</Text>
                                     </View>
                                     
                                     
