@@ -67,7 +67,7 @@ export default class TestRecyclerHalf extends React.Component {
                 switch (type) {
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 50;
+                        dim.height = 70;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;

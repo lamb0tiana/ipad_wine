@@ -41,6 +41,7 @@ export default class DataManager {
              this._initData('best');
              this._initData('glass');
              this._initData('half');
+             this._initData('all');
 
         });
 
@@ -210,7 +211,8 @@ export default class DataManager {
 
         var result =[];
         var count = 0;
-        var main = this._data['full'];
+        var main = this._data['all'];
+       
 
         for(var i=0; i<main.length ; i++){
             var item = main[i];
@@ -414,7 +416,7 @@ export default class DataManager {
             countryKey.forEach(country =>{
                 var rows = [];
 
-                if(viewType == 'full'){
+                if(viewType == 'full' || 'all'){
                     rows = data[country];
                 }else if(viewType == 'glass'){
                     rows = _.filter(data[country], rw => rw.byglass == '1');

@@ -67,11 +67,7 @@ export default class TestRecyclerFull extends React.Component {
                 switch (type) {
                     case 'MenuHeader':
                         dim.width = 1024;
-                        dim.height = 1000;
-                        break;
-                    case 'ChampagneHeader':
-                        dim.width = 1024;
-                        dim.height = 230;
+                        dim.height = 950;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
@@ -116,6 +112,7 @@ export default class TestRecyclerFull extends React.Component {
             return r1 !== r2;
         });
         this.req = req;
+        console.log(dm._data['all']);
         let result = dm._search(this.view, req);
         this.setState({dataProvider: dataProvider.cloneWithRows(result[0])});
         this.props.navigation.setParams({
@@ -162,7 +159,7 @@ export default class TestRecyclerFull extends React.Component {
                 );
             case 'ChampagneHeader':
                 return (
-                    <ChampagneHeader>  </ChampagneHeader>   
+                    null
                 );
             case 'CountryTitle':
                 return (

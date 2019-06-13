@@ -65,7 +65,7 @@ export default class TestRecyclerGlass extends React.Component {
                 switch (type) {
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 50;
+                        dim.height = 70;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
@@ -169,7 +169,7 @@ export default class TestRecyclerGlass extends React.Component {
                    
                     ></Row>   
                 );
-            case 'TypeTitle':
+            case 'TypeTitle' || 'ChampagneHeader':
                 return (
                     <TypeTitle type={data.data}></TypeTitle>   
                 );
