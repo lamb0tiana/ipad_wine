@@ -235,7 +235,7 @@ export default class WineDetail extends Component {
                     </View>
                     <View style={styles.row}>
                         <View style={styles.border_one}>
-                            <ImageBackground source={this.dm.getImageSource(this.item.path)} style={{ height: (wp('43.16%') - 13)/ 0.71, width: wp('43.16%')-16}}>
+                            <ImageBackground source={this.dm.getImageSource(this.item.path)} style={{ height: (wp('43.16%') - 12)/ 0.71, width: wp('43.16%')-16}}>
                             </ImageBackground>
                             {this.item.promotion ==1 ?<ImageBackground source={require('../img/icon-star.png')} style={{ height: 1.07* wp('6%'), width: wp('6%') , position:"absolute", bottom:-7, right:-wp('6%')-4 }}>
                             </ImageBackground>:null}
@@ -267,7 +267,7 @@ export default class WineDetail extends Component {
                                     }
                                     {this.item.type =='RED' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-red.png')} style={{ position:'absolute', height: 47, width: 47, top:0, left:0}}>
+                                    <ImageBackground source={require('../img/cone-red.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>RED</Text>
                                     </View>:null
@@ -537,7 +537,7 @@ const styles = StyleSheet.create({
         marginRight: wp("2,14%"),
         width: wp('43,16%'),
         height: wp('43,16%') / 0.71,
-        borderColor:'#f1592a',
+        borderColor:'#ed4622',
         borderWidth: 7,
         color:'#f1592a',
         marginBottom: hp("2,25%")

@@ -319,7 +319,7 @@ export default class DataManager {
 
     halfColor(half, view=null){
         if(view != null && view !='half' ) return '#FFFFFF';
-        return '#008000';
+        return '#54b84a';
     }
 
     ishalfof(price, half, view=null){
