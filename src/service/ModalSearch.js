@@ -11,6 +11,8 @@ import {
     TextInput,Image
 } from 'react-native';
 
+import Dash from 'react-native-dash';
+
 import CheckBox from 'react-native-check-box';
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,
@@ -219,6 +221,7 @@ export default class ModalSearch extends Component {
             onRequestClose={() => {
                 this.props.toggle();
             }}
+           
             >
             <TouchableOpacity 
                 onPress={() => {this.props.toggle()}} 
@@ -229,14 +232,14 @@ export default class ModalSearch extends Component {
                         </ImageBackground>
                 <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-8, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: 11, marginRight:20}}>
                         </ImageBackground>
-                <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20, paddingTop: 20, fontSize: 30}}>Wine Type</Text>
+                <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20, paddingTop: 20, fontSize: 21}}>Wine Type</Text>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', paddingTop:16}}>
                         <View style={styles.wineType0}>
                             <CheckBox
                                 isChecked={this.state.checkbox.RED }
                                 onClick={this.toggle.bind(this,'type','RED')}
-                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
-                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:32,height:32}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:32,height:32}}/>}
  
                                 />
                                 <Text style={styles.wineTypeText}>RED</Text>
@@ -245,8 +248,8 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.WHITE}
                                 onClick={this.toggle.bind(this,'type','WHITE')}
-                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
-                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:32,height:32}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:32,height:32}}/>}
  
                                 />
                                 <Text style={styles.wineTypeText}>WHITE</Text>
@@ -255,8 +258,8 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.SWEET }
                                 onClick={this.toggle.bind(this,'type','SWEET')}
-                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
-                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:32,height:32}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:32,height:32}}/>}
  
                                 />
                                 <Text style={styles.wineTypeText}>SWEET</Text>
@@ -265,8 +268,8 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.ROSE }
                                 onClick={this.toggle.bind(this,'type','ROSE')} 
-                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
-                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:32,height:32}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:32,height:32}}/>}
 
                                 />
                                 <Text style={styles.wineTypeText}>ROSE</Text>
@@ -275,8 +278,8 @@ export default class ModalSearch extends Component {
                             <CheckBox
                                 isChecked={this.state.checkbox.CHAMPAGNE }
                                 onClick={this.toggle.bind(this,'type','CHAMPAGNE')} 
-                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
-                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
+                                                                    checkedImage={<Image source={require('../img/selected.png')} style={{width:32,height:32}} />}
+                                    unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:32,height:32}}/>}
 
                                 />
                                 <Text style={styles.wineTypeText}>CHAMPAGNE</Text>
@@ -285,7 +288,7 @@ export default class ModalSearch extends Component {
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop: 30}}>
                         <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -4, marginRight:20}}>
                         </ImageBackground>
-                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 30}}>Country</Text>
+                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Country</Text>
                         <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
                         </ImageBackground>
                     </View>
@@ -311,7 +314,7 @@ export default class ModalSearch extends Component {
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
                         <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
                         </ImageBackground>
-                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 30}}>Grapes & Region</Text>
+                        <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Grapes & Region</Text>
                         <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
                         </ImageBackground>
                     </View>
@@ -319,7 +322,7 @@ export default class ModalSearch extends Component {
                             <View style={styles.grapeRegion}>
                                 <View style={{backgroundColor:'#c3c3c4',marginRight: wp('20%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={this.ShowHideComponentA} style={(this.state.btnSelected== 1)?styles.btnSelected:styles.notSelected}>
-                                        <Text style={{fontSize:20, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20, padding:8,fontFamily:"American Typewriter"}}>Grapes</Text>
+                                        <Text style={{fontSize:15, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20, padding:8,fontFamily:"Helvetica Neue"}}>Grapes</Text>
                                     </TouchableOpacity>
                                     <View
                                         style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
@@ -327,9 +330,10 @@ export default class ModalSearch extends Component {
                                         <Text style={{fontSize:20, color:'#fff',textAlign: 'center',padding:8}}>{this.state.filterGrapeCount}</Text>
                                     </View>
                                 </View>
+                                
                                 <View style={{backgroundColor:'#c3c3c4',marginRight: wp('1ss0%'), marginLeft: 5,marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={this.ShowHideComponentB} style={(this.state.btnSelected== 2)?styles.btnSelected:styles.notSelected}>
-                                        <Text style={{fontSize:20, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20,padding:8,fontFamily:"American Typewriter"}}>Regions</Text>
+                                        <Text style={{fontSize:15, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20,padding:8,fontFamily:"Helvetica Neue"}}>Regions</Text>
                                     </TouchableOpacity>
                                     <View
                                         style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
@@ -389,7 +393,7 @@ this.state.statusC ? <View>
                         <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
                             <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
                             </ImageBackground>
-                            <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 30}}>Price Range</Text>
+                            <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Price Range</Text>
                             <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
                         </ImageBackground>
                         </View>
@@ -402,7 +406,7 @@ this.state.statusC ? <View>
                                     unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
 
                                     />
-                                    <Text style={styles.PriceRangeText}>500</Text>
+                                    <Text style={styles.PriceRangeText}>{'<500'}</Text>
                             </View>
                             <View style={styles.PriceRange1}>
                                 <CheckBox
@@ -447,7 +451,7 @@ this.state.statusC ? <View>
                             <View style={styles.search0}>
                                     <Text style={styles.searchText}>NAME,REGION OR GRAPES</Text>
                                     <TextInput
-                                        style={{height: 40, width:wp('50%'), backgroundColor:'#333333'}} 
+                                        style={{height: 30, width:wp('50%'), backgroundColor:'#333333'}} 
                                         onChangeText={(word) => this.setState({keyWordSearch: word})}
                                         value={this.state.keyWordSearch}
                                         placeholder = ' input wine name/country/grape ..'
@@ -459,7 +463,22 @@ this.state.statusC ? <View>
                                             this.setState({hideCountryList:false});
                                         }}
                                         />
-                                </View>
+                            </View>
+
+                            <Dash style={{width:wp('10,6%'), height:15,transform: [{ rotate: '-90deg'}], 
+                            left:wp('49%'),
+                        position:'absolute',top:28
+                        }} 
+                        dashGap={6}
+                        dashColor={'black'}
+                        dashThickness={7}
+                        dashLength={7}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
+
+
+
+
+
                             <View style={styles.search1}>
                             </View>
                             <View style={styles.search2}>
@@ -468,8 +487,8 @@ this.state.statusC ? <View>
                                             this.props.search(this.state.req);
 
                                             }}
-                                            style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:2,marginRight:2,marginBottom:10,padding:2, width:wp('26%'), height:wp('10%')}}>
-                                    <Text style={{fontSize:34, textAlign: 'center',color:'#fff',backgroundColor:'#54b84a',padding:3, paddingTop: 16, height:wp('9.65%')}}>SEARCH</Text>
+                                            style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:2,marginRight:6,marginBottom:10,padding:2, width:wp('22%'), height:wp('10%')}}>
+                                    <Text style={{fontSize:28, textAlign: 'center',color:'#fff',backgroundColor:'#54b84a',padding:3, paddingTop: 16, height:wp('9.65%')}}>SEARCH</Text>
                                 </TouchableHighlight>
                             </View>
                         </View>
@@ -478,7 +497,7 @@ this.state.statusC ? <View>
                                             this.onReset()
                                             }}
                                             style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:5,marginRight:2,marginBottom:10,padding:2, width:wp('13%'), height:40}}>
-                                    <Text style={{textAlign: 'center',color:'#fff',backgroundColor:'#ed4622',padding:2, paddingTop:8, height:35, fontSize:18}}>RESET</Text>
+                                    <Text style={{textAlign: 'center',color:'#fff',backgroundColor:'#ed4622',padding:2, paddingTop:8, height:35, fontSize:13}}>RESET</Text>
                                 </TouchableHighlight>
                         </View>
                     </View> : null
@@ -504,7 +523,7 @@ const styles = StyleSheet.create({
         marginTop:wp('2%')
     },
     modalContainer: {
-        marginTop: wp('-1.8%'),
+        marginTop: -8,
         marginLeft:wp('3%'),
         paddingLeft:wp('2%'),
         marginRight:wp('3%'),
@@ -570,7 +589,7 @@ const styles = StyleSheet.create({
         width:wp('30%'),
     },
     wineTypeText:{
-        marginTop: -6,
+        marginTop: 5,
         marginLeft: 7,
         color: '#ed4622',
         fontSize: 18,
@@ -580,8 +599,8 @@ const styles = StyleSheet.create({
         paddingTop:20,
         flexDirection: 'row',
         width:wp('22%'),
-        alignItems: 'flex-end'
-
+        alignItems: 'flex-end',
+        marginBottom:10
     },
     country1:{
         paddingTop:40,
@@ -606,9 +625,10 @@ const styles = StyleSheet.create({
     countryText:{
         marginTop: -4,
         color: '#ed4622',
-        fontSize: 18,
+        fontSize: 16,
         marginLeft: 7,
-        fontFamily:'Helvetica Neue'
+        fontFamily:'Helvetica Neue',
+        fontWeight:'400'
     },
     region:{
         flexDirection: 'row',
@@ -617,9 +637,10 @@ const styles = StyleSheet.create({
     },
     RegionText:{
         color: '#ed4622',
-        fontSize: 17,
+        fontSize: 13,
         marginLeft: 7,
-        fontFamily:'Helvetica Neue'
+        fontFamily:'Helvetica Neue',
+       
     },
     grape:{
         flexDirection: 'row',
@@ -628,7 +649,7 @@ const styles = StyleSheet.create({
     },
     GrapeText: {
         color: '#ed4622',
-        fontSize: 17,
+        fontSize: 13,
         marginLeft: 7,
         fontFamily:'Helvetica Neue'
     },
@@ -657,9 +678,8 @@ const styles = StyleSheet.create({
         width:wp('28%'),
     },
     PriceRangeText:{
-        marginTop: -4,
         color: '#ed4622',
-        fontSize: 22,
+        fontSize: 16,
         marginLeft: 7,
         fontFamily:'Helvetica Neue'
     },
@@ -679,7 +699,7 @@ const styles = StyleSheet.create({
     searchText:{
         marginBottom: 5,
         color:'#ed4622',
-        fontSize: 20,
+        fontSize: 13,
         fontFamily:'Helvetica Neue'
     }
   });
