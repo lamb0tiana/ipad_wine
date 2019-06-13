@@ -55,12 +55,12 @@ setScrollViewRef = (element) => {
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                 {this.props.item.nameOnRow}
                                 </Text>
-                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
+                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('77%')}}>
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.topRegion == '' ||  this.props.item.topRegion ==  this.props.item.region ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                     </Text>
                                     {this.props.item.promotion == 1 && this.props.view == 'half' ?
-                                    <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                    <Text style={{color:'#f1592a',paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.price} ¥ (Original Price) 
                                     </Text>
                                     :null}
@@ -72,15 +72,14 @@ setScrollViewRef = (element) => {
                                 <ImageBackground source={require('../img/icon-like.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:5, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.promotion == 1 ?<View style={{paddingTop: 9, paddingLeft:wp('76.8%'), marginTop:-10 ,marginRight:1, position:"absolute"}}>
+        {this.props.item.promotion == 1 ?<View style={{paddingTop: 9, paddingLeft:wp('73,8%'), marginTop:-10 ,marginRight:1, position:"absolute"}}>
                                 <ImageBackground source={require('../img/icon-etoil.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:1, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.byglass == 1 && this.props.view != 'half' ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
-                                <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1%'), width:wp('1%'),marginLeft:1, marginTop: 36, resizeMode: 'contain'}}>
-                                </ImageBackground>
+        {this.props.item.byglass == 1 && this.props.view != 'half' ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('48%'), position:"absolute"}}>
+
                                 <Text style={{color:'#FFFFFF', marginLeft:1, marginTop: 29, fontSize: 18}}>
-                                    :
+                                ¥:
                                 </Text>
                                 <Text style={{color:'#FFFFFF', textAlign:"right", marginTop: 31, fontSize: 16, width:30}}>
                                 {this.props.item.price1}

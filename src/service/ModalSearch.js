@@ -339,9 +339,9 @@ export default class ModalSearch extends Component {
 
 
 
-                                <View style={{backgroundColor:'#c3c3c4',marginRight: wp('20%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+                                <View style={{backgroundColor:'#808080',marginRight: wp('20%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
                                         <TouchableOpacity onPress={this.ShowHideComponentA} style={(this.state.btnSelected== 1)?styles.btnSelected:styles.notSelected}>
-                                            <Text style={{fontSize:15, color:'#c3c3c4',fontFamily:"Helvetica Neue",fontWeight:'400',
+                                            <Text style={{fontSize:15, color:'#808080',fontFamily:"Helvetica Neue",fontWeight:'400',
                                             marginLeft:16, marginTop:6}}>
                                             Grapes</Text>
                                         </TouchableOpacity>
@@ -354,16 +354,16 @@ export default class ModalSearch extends Component {
                                         </View>
                                 </View>
  
-                                <View style={{backgroundColor:'#c3c3c4',marginRight: wp('1ss0%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+                                <View style={{backgroundColor:'#808080',marginRight: wp('1ss0%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={this.ShowHideComponentB} style={(this.state.btnSelected== 2)?styles.btnSelected:styles.notSelected}>
-                                    <Text style={{fontSize:15, color:'#c3c3c4',fontFamily:"Helvetica Neue",fontWeight:'400',
+                                    <Text style={{fontSize:15, color:'#808080',fontFamily:"Helvetica Neue",fontWeight:'400',
              marginLeft:16, marginTop:6}}>   
                                         Regions</Text>
                                     </TouchableOpacity>
                                     <View
                                         style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
                                     >
-                                        <Text style={{fontSize:15, color:'#c3c3c4',textAlign: 'center',  marginTop:7}}>
+                                        <Text style={{fontSize:15, color:'#808080',textAlign: 'center',  marginTop:7}}>
                                         {this.state.filterRegionCount}
                                         </Text>
                                     </View>
@@ -529,7 +529,7 @@ this.state.statusC ? <View>
                                             this.props.search(this.state.req);
 
                                             }}
-                                            style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:2,marginRight:6,marginBottom:10,padding:2, width:wp('22%'), height:wp('10%')}}>
+                                            style={{backgroundColor:'#808080',marginLeft:2,marginTop:2,marginRight:6,marginBottom:10,padding:2, width:wp('22%'), height:wp('10%')}}>
                                     <Text style={{fontSize:28, textAlign: 'center',color:'#fff',backgroundColor:'#54b84a',padding:3, paddingTop: 16, height:wp('9.65%')}}>SEARCH</Text>
                                 </TouchableHighlight>
                             </View>
@@ -538,7 +538,7 @@ this.state.statusC ? <View>
                                 <TouchableHighlight onPress={() => {
                                             this.onReset()
                                             }}
-                                            style={{borderWidth:2, borderColor:'#c3c3c4',marginLeft:2,marginTop:5,
+                                            style={{borderWidth:2, borderColor:'#808080',marginLeft:2,marginTop:5,
                                             backgroundColor:'#ed4622',marginRight:2,marginBottom:10, width:0.82*wp('13%'), height:31}}>
                                     <Text style={{textAlign: 'center',color:'#fff', height:35, fontSize:13, marginTop:5}}>RESET</Text>
                                 </TouchableHighlight>

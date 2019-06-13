@@ -3,6 +3,7 @@ import {AsyncStorage} from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import {Platform} from 'react-native';
 import EventEmitter from 'events';
+import { isFor } from '@babel/types';
 
 
 
@@ -12,6 +13,7 @@ export default class DataManager {
 
     _data = [];
     _countryIndexName = [];
+    _countryIndexNameCloned = [];
     _total =[];
     _plusMoinsList = [];
     _regionList = [];
@@ -402,9 +404,14 @@ export default class DataManager {
         var types = ['CHAMPAGNE','RED','WHITE','ROSE','SWEET'];
 
         this._countryIndexName[viewType] = [];
+        this._countryIndexNameCloned[viewType] = [];
+
         for(var i=0; i<types.length; i++){
             var data = s[types[i]];
+
             this._countryIndexName[viewType][types[i]] = [];
+            this._countryIndexNameCloned[viewType][types[i]] = [];
+
             data = _.groupBy(data, 'country');
             var countryKey = _.keys(data);
             countryKey = _.sortBy(countryKey);
@@ -431,11 +438,15 @@ export default class DataManager {
                 if(rows.length > 0){
 
                     this._countryIndexName[viewType][types[i]].push([main.length,country]);
+                    this._countryIndexNameCloned[viewType][types[i]].push([main.length,this.compoundCountry(country)]);
+                   
+
                     main.push({type:'CountryTitle',data:country});
                         rows.forEach(row =>{
                             
                             if(row.name.length > 52){
                                 row.nameOnRow = row.name.substring(0, row.name.indexOf(' ',40))+'...';
+                                if(row.nameOnRow.length < 4) row.nameOnRow = row.name.substring(0, 52)+'...';
                             }else{
                                 row.nameOnRow = row.name;
                             }
@@ -456,7 +467,7 @@ export default class DataManager {
             })
         }
 
-    
+
         main.push({type:'End',data:''});
         this._data[viewType] = main;
 

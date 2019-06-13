@@ -40,7 +40,7 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-        { dm._countryIndexName[this.props.viewType]['RED'].map( (tb, i) => {
+        { dm._countryIndexNameCloned[this.props.viewType]['RED'].map( (tb, i) => {
             return       <TouchableOpacity 
                                 key={'Red'+i}
                                 onPress = {this.scrollToTarget.bind(this,tb[0])}
@@ -62,7 +62,7 @@ export default class MenuHeader extends React.Component {
                 </View>
             </View>
 
-            { dm._countryIndexName[this.props.viewType]['WHITE'].map((tb, i) => {
+            { dm._countryIndexNameCloned[this.props.viewType]['WHITE'].map((tb, i) => {
             return       <TouchableOpacity 
                                 key={i}
                                 onPress = {() => {
@@ -73,7 +73,7 @@ export default class MenuHeader extends React.Component {
                                     }
                                 }} >
                    <Text style={styles.listPaysPremier}>
-                           {dm.compoundCountry(tb[1])}
+                           {tb[1]}
                    </Text>
                </TouchableOpacity>
                  })}                       
@@ -89,7 +89,7 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm._countryIndexName[this.props.viewType]['CHAMPAGNE'].map((tb,i) => {
+                { dm._countryIndexNameCloned[this.props.viewType]['CHAMPAGNE'].map((tb,i) => {
                         return       <TouchableOpacity  
                                             key={i}
                                             onPress = {() => {
@@ -116,7 +116,7 @@ export default class MenuHeader extends React.Component {
                     </View>
                 </View>
 
-                { dm._countryIndexName[this.props.viewType]['ROSE'].map((tb, i) => {
+                { dm._countryIndexNameCloned[this.props.viewType]['ROSE'].map((tb, i) => {
                         return       <TouchableOpacity 
                                             key= {i}
                                             onPress = {() => {
@@ -144,7 +144,7 @@ export default class MenuHeader extends React.Component {
                         </Text>
                     </View>
                 </View>
-                { dm._countryIndexName[this.props.viewType]['SWEET'].map((tb,i) => {
+                { dm._countryIndexNameCloned[this.props.viewType]['SWEET'].map((tb,i) => {
                         return       <TouchableOpacity  
                                             key= {i}
                                             onPress = {() => {

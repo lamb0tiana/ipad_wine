@@ -228,7 +228,7 @@ export default class Selectlist extends Component {
                     </View>
                     </View>
             </View>
-            <View style={{backgroundColor:'#c3c3c4',marginRight:60,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{backgroundColor:'#808080',marginRight:60,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
                     <TouchableOpacity onPress={() => navigation.navigate('Selectlist')}>
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     glassVolume:{
         color:'#f1592a',
         textAlign:"right",
-        marginTop: 26,
+        marginTop: 20,
         fontSize: 18,
         width:50 
     },
