@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-        width:wp('97%'),
-        marginLeft:wp('1.5%'),
+        width:wp('94%'),
+        marginLeft:wp('3%'),
         marginTop: 20
     }});

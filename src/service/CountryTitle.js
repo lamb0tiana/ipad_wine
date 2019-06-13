@@ -30,7 +30,7 @@ export default class CountryTitle extends Component {
                          <Text style={{color:'#808080', fontSize: 32,fontFamily:"American Typewriter", marginBottom:3}}>
                             {dm.compoundCountry(this.props.country)}
                         </Text>   
-                        <Dash style={{width:wp('97%'), height:15}} 
+                        <Dash style={{width:wp('94%'), height:15}} 
                         dashGap={8}
                         dashColor={'#686767'}
                         dashThickness={5}
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-        width:wp('97%'),
-        marginLeft:wp('1.5%'),
+        width:wp('94%'),
+        marginLeft:wp('3%'),
         marginTop:23,
 
 

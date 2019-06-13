@@ -322,7 +322,7 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('4,9%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 18, fontFamily: "Helvetica-Bold"}}>
+                                        <Text style={{color:'#ffffff', fontSize: 19, fontFamily: "Helvetica-Bold"}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVine}>
@@ -340,7 +340,7 @@ export default class WineDetail extends Component {
                                         </Text>
                                     </View>
                                     <View style={{marginTop:wp('6%'), marginBottom: wp('1%') }}>
-                                        <Text style={{color:'#ffffff', fontSize: 18, fontFamily: "Helvetica Neue", marginTop:15, fontWeight:'bold'}}>
+                                        <Text style={{color:'#ffffff', fontSize: 19, fontFamily: "Helvetica Neue", marginTop:15, fontWeight:'bold'}}>
                                             GRAPES
                                         </Text>
                                         <Text style={styles.descVineGrand}>

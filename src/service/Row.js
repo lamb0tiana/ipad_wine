@@ -45,7 +45,7 @@ setScrollViewRef = (element) => {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail',{item:this.props.item})}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                         <View style={{
-                                backgroundColor:'#1c1c1c',width:wp('80%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
+                                backgroundColor:'#1c1c1c',width:wp('77%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
                             }}>
                             <View style={{paddingTop: 9, marginRight:1}}>
 
@@ -68,7 +68,7 @@ setScrollViewRef = (element) => {
                               
                             </View>
 
-        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('72.2%'),  marginTop:-2, marginRight:1, position:"absolute", marginLeft:13}}>
+        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('71%'),  marginTop:-2, marginRight:1, position:"absolute", marginLeft:13}}>
                                 <ImageBackground source={require('../img/icon-like.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:5, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
@@ -147,6 +147,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-        width:wp('97%'),
-        marginLeft:wp('1.5%'),
+        width:wp('94%'),
+        marginLeft:wp('3%'),
     }});
