@@ -142,6 +142,11 @@ export default class TestRecyclerFull extends React.Component {
             modalCom: this.toggleModal.bind(this),
         });
         this.renderNumber = 90000;
+
+        setTimeout(function(){
+            this.scrollViewRef.scrollToIndex(1);
+        }.bind(this), 200)
+        
     }
 
     componentWillUnmount(){
@@ -197,13 +202,13 @@ export default class TestRecyclerFull extends React.Component {
             </ImageBackground>          
             <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
-                    <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                    <ImageBackground source={require('../img/retourr.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
                         <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
                 <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
-                    <ImageBackground source={require('../img/home.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                    <ImageBackground source={require('../img/homer.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
                         <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate('Accueil')}>
 
                         </TouchableOpacity>

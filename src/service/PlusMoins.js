@@ -85,12 +85,12 @@ import {heightPercentageToDP as hp,
         onPressPlusView = (id) => {
             if (this.state.count == 0) {
                 return <TouchableOpacity style={{ paddingLeft: wp('5.5%'), paddingTop: -20}} onPress={this.onPressPlus.bind(this, id)} >
-                    <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'),marginRight: 13}}>
+                    <ImageBackground source={require('../img/plusr.png')} style={{ height: hp('1.9%'),width:wp('2.5%'),marginRight: 13}}>
                     </ImageBackground>
                 </TouchableOpacity>
             }
             else return <TouchableOpacity style={{ paddingLeft: wp('1.5%')}} onPress={this.onPressPlus.bind(this, id)}>
-                <ImageBackground source={require('../img/circle-plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%')}}>
+                <ImageBackground source={require('../img/plusr.png')} style={{ height: hp('1.9%'),width:wp('2.5%')}}>
                 </ImageBackground>
             </TouchableOpacity>;
         }
