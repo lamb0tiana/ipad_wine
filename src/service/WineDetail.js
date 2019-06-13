@@ -108,12 +108,12 @@ export default class WineDetail extends Component {
  
          if (this.getSelected(id,type) != undefined) {
              return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-                 <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
+                 <ImageBackground source={require('../img/circle-plus-noir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 10, marginTop: 20}}>
                  </ImageBackground>
              </TouchableOpacity>
          }
          else return <TouchableOpacity  onPress={this.onPressPlus.bind(this, id, type)}>
-             <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
+             <ImageBackground source={require('../img/circle-plus-noir.png')} style={{ height: hp('1.9%'),width:wp('2.5%'), marginLeft: 20, marginTop: 20}}>
              </ImageBackground>
          </TouchableOpacity>;
      }

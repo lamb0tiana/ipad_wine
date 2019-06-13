@@ -171,12 +171,12 @@ export default class Selectlist extends Component {
  
          if (this.getSelected(id,type) != undefined) {
             return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-            <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.8%'),width:wp('2.5%')}}>
+            <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('1.8%'),width:wp('2.5%')}}>
             </ImageBackground>
         </TouchableOpacity>
     }
     else return <TouchableOpacity  onPress={this.onPressPlus.bind(this, id, type)}>
-        <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.8%'),width:wp('2.5%'), marginLeft: 45}}>
+        <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('1.8%'),width:wp('2.5%'), marginLeft: 45}}>
         </ImageBackground>
     </TouchableOpacity>;
         }
