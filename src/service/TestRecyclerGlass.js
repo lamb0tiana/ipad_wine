@@ -69,7 +69,7 @@ export default class TestRecyclerGlass extends React.Component {
                         break;
                     case 'ChampagneHeader':
                         dim.width = 1024;
-                        dim.height = 230;
+                        dim.height = 50;
                         break;
                     case 'CountryTitle':
                         dim.width = 1024;
@@ -160,7 +160,7 @@ export default class TestRecyclerGlass extends React.Component {
                 );
             case 'ChampagneHeader':
                 return (
-                    <ChampagneHeader>  </ChampagneHeader>   
+                    <ChampagneHeader type={this.view}>  </ChampagneHeader>   
                 );
             case 'CountryTitle':
                 return (

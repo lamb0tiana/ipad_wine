@@ -4,6 +4,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 import {Platform} from 'react-native';
 import EventEmitter from 'events';
 
+
 export default class DataManager {
 
     static myInstance = null;
@@ -307,6 +308,11 @@ export default class DataManager {
 
     }
 
+
+    ishalfof(price, half){
+        if(half == 0) return price;
+        return price/2;
+    }
 
     async  _initData(viewType){
 

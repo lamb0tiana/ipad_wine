@@ -25,6 +25,8 @@ export default class Start extends Component {
                 <Text style={{color:'#fff',fontSize: 46,fontFamily:"American Typewriter"}}>
                 CHAMPAGNE
                 </Text>
+                {this.props.type ?  null :
+                <View>
                 <Text style={{marginTop: 6, color:'#FF0000',fontSize: 22.5,fontFamily:"American Typewriter"}}>
                 Mr & Mrs Bund celebrate the weekend with their incredible Moet & Chandon Special!
                 </Text>
@@ -37,6 +39,8 @@ export default class Start extends Component {
                 <Text style={{marginTop: 4, color:'#fff',fontSize: 16,fontFamily:"American Typewriter"}}>
                 (Not available During Special Events)
                 </Text>
+                </View>
+                }
             </View>
         );
     }

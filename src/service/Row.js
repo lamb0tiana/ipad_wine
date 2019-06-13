@@ -55,9 +55,16 @@ setScrollViewRef = (element) => {
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                 {this.props.item.name.length >= 55 ? this.props.item.name.substring(0,55)+'...':this.props.item.name}
                                 </Text>
-                                <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
-                                {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
-                                </Text>
+                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('79%')}}>
+                                    <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                    {this.props.item.topRegion == '' ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
+                                    </Text>
+                                    {this.props.item.promotion == 1?
+                                    <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                    {this.props.item.price} ¥ (Original Price) 
+                                    </Text>
+                                    :null}
+                                </View>
                               
                             </View>
 
@@ -69,7 +76,7 @@ setScrollViewRef = (element) => {
                                 <ImageBackground source={require('../img/icon-etoil.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:1, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.byglass == 1 ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
+        {this.props.item.byglass == 1 && this.props.item.promotion == 0 ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
                                 <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1%'), width:wp('1%'),marginLeft:1, marginTop: 36, resizeMode: 'contain'}}>
                                 </ImageBackground>
                                 <Text style={{color:'#FFFFFF', marginLeft:1, marginTop: 29, fontSize: 18}}>
@@ -108,7 +115,7 @@ setScrollViewRef = (element) => {
 
                     </View>
                     <View style={{flexDirection: 'row',height:45, marginTop:-5,justifyContent: 'space-between',width:wp('20%'),paddingLeft:wp('1%'),paddingRight:wp('1%')}}>
-                  {this.props.item.byglass == 1 ?
+                  {this.props.item.byglass == 1 && this.props.item.promotion == 0 ?
                     <ImageBackground source={require('../img/icon-bouteil.png')} style={{height: hp('3.5%'), width:wp('2.5%'),marginLeft:2,marginTop:-7,marginRight:0 ,resizeMode: 'contain'}}>
                         </ImageBackground>
                    :
@@ -117,7 +124,7 @@ setScrollViewRef = (element) => {
                   }
                         
                         <Text style={{color:'#FFFFFF', marginLeft:-7,marginTop:4, fontSize: 17}}>
-                            {this.props.item.price}
+                            {dm.ishalfof(this.props.item.price, this.props.item.promotion)}
                         </Text>
                         <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.4%'), width:wp('1%'),marginTop: 8,marginRight:60,resizeMode: 'contain'}}>
                         </ImageBackground>
