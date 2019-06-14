@@ -171,7 +171,7 @@ export default class Selectlist extends Component {
  
          if (this.getSelected(id,type) != undefined) {
             return <TouchableOpacity onPress={this.onPressPlus.bind(this, id, type)} >
-            <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('1.8%'),width:wp('2.5%')}}>
+            <ImageBackground source={require('../img/plus.png')} style={{ height: hp('1.8%'),width:wp('2.5%')}}>
             </ImageBackground>
         </TouchableOpacity>
     }
@@ -206,7 +206,7 @@ export default class Selectlist extends Component {
                     </ImageBackground>
                 </View>
                 <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
-                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                    <ImageBackground source={require('../img/deleteall.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
                         <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.getParam('deleteAllSelected')()}>
 
                         </TouchableOpacity>
