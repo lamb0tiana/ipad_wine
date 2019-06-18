@@ -8,7 +8,7 @@ import {
     ScrollView,
     Modal,
     TouchableHighlight,
-    TextInput,Image
+    TextInput,Image, Button
 } from 'react-native';
 
 import Dash from 'react-native-dash';
@@ -318,32 +318,51 @@ export default class ModalSearch extends Component {
                         <ImageBackground source={require('../img/point-noir-long.png')} style={{ height: hp('1%'),width:wp('78%'),resizeMode: 'contain',marginTop: 14, marginLeft:15, marginRight:30}}>
                         </ImageBackground>
                     </View>
-                        <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('1%')}}>
+
+                        <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:0.5*wp('1%')}}>
                             <View style={styles.grapeRegion}>
+
+
+
                                 <View style={{backgroundColor:'#c3c3c4',marginRight: wp('20%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
-                                    <TouchableOpacity onPress={this.ShowHideComponentA} style={(this.state.btnSelected== 1)?styles.btnSelected:styles.notSelected}>
-                                        <Text style={{fontSize:15, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20, padding:8,fontFamily:"Helvetica Neue"}}>Grapes</Text>
-                                    </TouchableOpacity>
-                                    <View
-                                        style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
-                                    >
-                                        <Text style={{fontSize:20, color:'#fff',textAlign: 'center',padding:8}}>{this.state.filterGrapeCount}</Text>
-                                    </View>
+                                        <TouchableOpacity onPress={this.ShowHideComponentA} style={(this.state.btnSelected== 1)?styles.btnSelected:styles.notSelected}>
+                                            <Text style={{fontSize:15, color:'#c3c3c4',fontFamily:"Helvetica Neue",fontWeight:'400',
+                                            marginLeft:16, marginTop:6}}>
+                                            Grapes</Text>
+                                        </TouchableOpacity>
+                                        <View
+                                            style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
+                                        >
+                                            <Text style={{fontSize:15, color:'#fff',textAlign: 'center',
+                                            marginTop:7
+                                        }}>{this.state.filterGrapeCount}</Text>
+                                        </View>
                                 </View>
-                                
-                                <View style={{backgroundColor:'#c3c3c4',marginRight: wp('1ss0%'), marginLeft: 5,marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+ 
+                                <View style={{backgroundColor:'#c3c3c4',marginRight: wp('1ss0%'), marginTop:10,marginBottom:10,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={this.ShowHideComponentB} style={(this.state.btnSelected== 2)?styles.btnSelected:styles.notSelected}>
-                                        <Text style={{fontSize:15, color:'#c3c3c4',marginRight:3,paddingLeft:20, paddingRight:20,padding:8,fontFamily:"Helvetica Neue"}}>Regions</Text>
+                                    <Text style={{fontSize:15, color:'#c3c3c4',fontFamily:"Helvetica Neue",fontWeight:'400',
+             marginLeft:16, marginTop:6}}>   
+                                        Regions</Text>
                                     </TouchableOpacity>
                                     <View
                                         style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
                                     >
-                                        <Text style={{fontSize:20, color:'#c3c3c4',textAlign: 'center',padding:8}}>
+                                        <Text style={{fontSize:15, color:'#c3c3c4',textAlign: 'center',  marginTop:7}}>
                                         {this.state.filterRegionCount}
                                         </Text>
                                     </View>
                                 </View>
-                            </View>
+
+
+                  </View>
+
+
+
+
+
+
+
                         </View>          
 
 {
@@ -390,7 +409,7 @@ this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
 }
 {
 this.state.statusC ? <View>
-                        <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:wp('3%')}}>
+                        <View style={{flexDirection: 'row',justifyContent: 'space-between', marginTop:0.59*wp('3%')}}>
                             <ImageBackground source={require('../img/icon-point-left.png')} style={{position:'absolute', marginLeft:-22, height: hp('4%'), width:wp('4%'),resizeMode: 'contain',marginTop: -6, marginRight:20}}>
                             </ImageBackground>
                             <Text style={{color: '#333333',fontFamily:"American Typewriter", marginLeft:20,fontSize: 21}}>Price Range</Text>
@@ -496,8 +515,9 @@ this.state.statusC ? <View>
                                 <TouchableHighlight onPress={() => {
                                             this.onReset()
                                             }}
-                                            style={{backgroundColor:'#c3c3c4',marginLeft:2,marginTop:5,marginRight:2,marginBottom:10,padding:2, width:wp('13%'), height:40}}>
-                                    <Text style={{textAlign: 'center',color:'#fff',backgroundColor:'#ed4622',padding:2, paddingTop:8, height:35, fontSize:13}}>RESET</Text>
+                                            style={{borderWidth:2, borderColor:'#c3c3c4',marginLeft:2,marginTop:5,
+                                            backgroundColor:'#ed4622',marginRight:2,marginBottom:10, width:0.82*wp('13%'), height:31}}>
+                                    <Text style={{textAlign: 'center',color:'#fff', height:35, fontSize:13, marginTop:5}}>RESET</Text>
                                 </TouchableHighlight>
                         </View>
                     </View> : null
@@ -534,9 +554,13 @@ const styles = StyleSheet.create({
     },
     btnSelected: {
         backgroundColor:'#54b84a',
+        height: 33,
+        width:81
      },
      notSelected : {
          backgroundColor:'#57585b',
+         height: 33,
+         width:81
      },
     welcome: {
         fontSize: 20,
