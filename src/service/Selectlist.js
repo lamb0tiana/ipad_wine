@@ -26,7 +26,7 @@ export default class Selectlist extends Component {
         }
 
 
-        this.computeSelectionCount();
+        
 
         var ids = global.Selected.reduce(function(a,r){
             if(a == '') {
@@ -49,8 +49,7 @@ export default class Selectlist extends Component {
                 });
 
                 this.state.FlatListSelected = global.Selected
-                console.log(global.Selected);
-                this.setState({mySelectionCount:2});
+                
         });          
         //ajouter 
 
@@ -60,19 +59,22 @@ export default class Selectlist extends Component {
 
     }
 
-    refresh = () => {
-        console.log('refreshing');
-       this.setState({count: this.state.count +1}, () => {
-            console.log('refresh count = '+this.state.count+' this refresh '+this.state.refreshMe)
-       });
-   }
+
+    getPrice(item){
+        
+        var type = item.type;
+        if(type == 'byglass'){
+            return item.data.price;
+        }else{
+            return item.data[type];
+        }
+    }
 
 
     componentDidMount() {
         this.computeSelectionCount();
         this.props.navigation.setParams({
             ct: global.SelectionCount,
-            refresh: this.props.navigation.state.params.onGoBack,
             deleteAllSelected: this.deleteAllSelected,
         });
     }
@@ -191,21 +193,22 @@ export default class Selectlist extends Component {
      }
 
 
-    static navigationOptions = ({navigation}) => ({
+     static navigationOptions = ({navigation}) => ({
         headerLeft:
           <View style={{flexDirection: 'row'}}>
             <ImageBackground source={require('../img/fond.png')} style={{ position:"absolute", height: 0.15* wp('94%') ,width:wp('94%'), left: wp("3%"), top:-40}}>
             </ImageBackground>          
-            <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35,  top:-10}}>
+            <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems:"center", marginLeft: 35, top:-10}}>
                 <View style={{marginLeft:30,marginRight:10}}>
                     <ImageBackground source={require('../img/retour.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => {navigation.navigate(global.Referer)}}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.navigate(global.Referer)}>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Home')}>
-                    <ImageBackground source={require('../img/cercle-moin-grand.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
-                        <TouchableOpacity style={{ height: hp('100%')}} onPress={() => navigation.state.params.deleteAllSelected()}>
+                <View style={{marginLeft:15,marginRight:10}} onPress={() => navigation.navigate('Accueil')}>
+                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('4.2%'),width:wp('5.4%')}}>
+                        <TouchableOpacity style={{ height: hp('6%')}} onPress={() => navigation.getParam('deleteAllSelected')()}>
+
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
@@ -213,21 +216,36 @@ export default class Selectlist extends Component {
             </View>,
         headerRight:
          <View style={{flexDirection: 'row' , alignItems:"center",flexDirection: 'row',justifyContent: 'space-between', top:-10}}>
-            <View style={{backgroundColor:'#c3c3c4',marginRight:70,padding:2,flexDirection: 'row',justifyContent: 'space-between'}}>
+            <View style={{marginRight:35,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <View >
+                    <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
+                        <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,padding:4,fontFamily:"American Typewriter", fontSize: 22}}></Text>
+                        <View
+                        style={{width:wp('7%'),paddingTop:8, color:'#fff'}}
+                    >
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}></Text>
+                        </View>
+                    </View>
+                    </View>
+            </View>
+            <View style={{backgroundColor:'#c3c3c4',marginRight:60,padding:4,flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Selectlist')}>
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
                         style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
                     >
-                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 22}}>{navigation.getParam('ct')}</Text>
+                        <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('ct')}</Text>
                         </View>
                     </View>
+                    </TouchableOpacity>
             </View>
         </View>
             ,
         headerStyle: {
             backgroundColor: 'black',
-            height:wp('11.5%'),
+            height:wp('15%'),
+            borderBottomColor:'transparent',borderBottomWidth: 0, shadowColor: 'transparent'
         },
     });
 
@@ -246,7 +264,7 @@ export default class Selectlist extends Component {
                             <View key={item.data.id} style={{borderColor:'#808080', borderBottomWidth: 0.6, marginTop:10}}>
                                 <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail', {
-                                        JSON_ListView_Clicked_Item: this.state.count, item: item.data, onGoBack: () => this.refresh()
+                                        JSON_ListView_Clicked_Item: this.state.count, item: item.data
                                     })}>
                                         <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                                             <View style={{
@@ -255,19 +273,17 @@ export default class Selectlist extends Component {
                                                 <View style={{paddingTop: 9, marginRight:1}}>
                                                     <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
-                                                    <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Arial"}}>
+                                                    <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
                                                     </Text>
-                                                    <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Arial"}}>
-                                                    {dm.regionById(item.data.region_id)} {item.data.vintage}
-                                                    </Text>
+                                                    <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
+                                                        <Text style={{color:'#ffffff',paddingLeft: 16,paddingTop: 8, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                                        {item.data.region} {item.data.vintage}
+                                                        </Text>
+                                                    </View>
                                                 </View>
 
-                            {item.type === 'byglass' ? <View style={{flexDirection:'row', marginTop:46, marginLeft:wp('75.5%'), position:"absolute"}}>
-                                                    <ImageBackground source={require('../img/new-glass.png')} style={{height: hp('3.1%'), width:wp('2%'),marginLeft:1, marginTop: 12, resizeMode: 'contain'}}>
-                                                    </ImageBackground>
-                                                </View>:null}
-                            {item.type === 'price1' ? <View style={styles.glassContainer}>
+                            {item.type === 'price2' ? <View style={styles.glassContainer}>
                                                 
                                                     <Text style={styles.glassVolume}>
                                                     7CL
@@ -275,7 +291,7 @@ export default class Selectlist extends Component {
                                                     <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                     </ImageBackground>
                                                 </View>:null}
-                            {item.type === 'price2' ? <View style={styles.glassContainer}>
+                            {item.type === 'price3' ? <View style={styles.glassContainer}>
                                                 
                                                 <Text style={styles.glassVolume}>
                                                 15CL
@@ -283,7 +299,7 @@ export default class Selectlist extends Component {
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
-                            {item.type === 'price3' ? <View style={styles.glassContainer}>
+                            {item.type === 'price4' ? <View style={styles.glassContainer}>
                                                 
                                                 <Text style={styles.glassVolume}>
                                                 25CL
@@ -291,11 +307,8 @@ export default class Selectlist extends Component {
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
-                            {item.type === 'price4' ? <View style={styles.glassContainer}>
-                                                
-                                                <Text style={styles.glassVolume}>
-                                                75CL
-                                                </Text>
+                            {item.type === 'price1' ? <View style={styles.glassContainer}>
+                                                               
                                                 <ImageBackground source={require('../img/new-glass.png')} style={styles.glassIcon}>
                                                 </ImageBackground>
                                             </View>:null}
@@ -306,14 +319,15 @@ export default class Selectlist extends Component {
                                     <View style={{backgroundColor:'#1c1c1c',width:wp('20%'),height:wp('12.2%'),marginLeft:5, marginBottom:4,marginRight: 10}}>
                                     
                                     <View style={{flexDirection: 'row',height:40, marginTop:10}}>
-                                            <Text style={{color:'#FFFFFF', marginLeft:15,marginTop:4, fontSize: 18}}>
-                                                {item.data.price}
+                                            <Text style={{color:'#FFFFFF', marginLeft:23,marginTop:4, fontSize: 18}}>
+                                                {this.getPrice(item)+' ¥'}
                                             </Text>
-                                            <ImageBackground source={require('../img/icon-rmb.png')} style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain'}}>
-                                            </ImageBackground>
+                                            <View style={{height: hp('1.5%'), width:wp('2.4%'),marginLeft:2, marginTop: 8, resizeMode: 'contain',
+                                             backgroundColor:'#1c1c1c'}}>
+                                            </View>
                                     </View>
 
-                                        <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('18%'),height:wp('8.5%'),paddingRight:wp('6.5%'),paddingTop:10}}>
+                                        <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('18%'),height:wp('8.5%'),paddingRight:wp('6.5%'),paddingTop:4}}>
                         
                                             
                                         {this.onPressMoinPlus2(item.id,item.type)}

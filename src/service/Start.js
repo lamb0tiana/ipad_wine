@@ -7,6 +7,13 @@ import {
 } from 'react-native';
 import DataManager  from './DataManager';
 let dm = DataManager.getInstance();
+global.Regions = [];
+global.Grapes = [];
+global.CountryIds = [];
+global.Countries = [];
+global.RegionIds = [];
+dm.setGlobals();
+
 import RNFetchBlob from 'rn-fetch-blob';
 
 import {heightPercentageToDP as hp,
@@ -19,22 +26,9 @@ export default class Start extends Component {
     constructor(props) {
         super(props);
         global.Selected = [];
-
-        global.CountryIds = [];
-        global.Countries =[];
-        global.RegionIds = [];
-        global.Regions = [];
-        global.Grapes = [];
-        global.All = [];
-        global.Referer = '';
-
-         dm.organizeData();
-         dm.setGlobals();
-         dm.filterDataViewByGlass();
-         dm.filterDataViewHalfOff();
-         dm.filterDataViewBestOf();
-      
+        
     }
+
     static navigationOptions =
     {
         header:null

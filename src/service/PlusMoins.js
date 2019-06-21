@@ -7,6 +7,9 @@ import {
     ImageBackground,
 
 } from 'react-native';
+import DataManager  from './DataManager';
+let dm = DataManager.getInstance();
+
 import {heightPercentageToDP as hp,
     widthPercentageToDP as wp,} from "react-native-responsive-screen";
 
@@ -15,11 +18,12 @@ import {heightPercentageToDP as hp,
             super(props)
             this.state = {
                 count: 0,
-                number:0
+                number:0,
+                refresh:0
             }
-
+           
+            dm._addPlusMoinsRef(this.props.id, this);
             this.init();
-            
         }
 
         init(){
@@ -34,10 +38,13 @@ import {heightPercentageToDP as hp,
             this.props.computeSelectionCount();
         }
 
-        
+        isMounted(){
+            return this._mounted;
+        }
 
         componentDidMount() {
             this.selected = this.getSelected(this.props.id);
+            this._mounted = true;
         }
 
         getSelected(id){
@@ -53,11 +60,14 @@ import {heightPercentageToDP as hp,
             this.setState({count: this.state.count + 1});
          }
 
+         componentWillUnmount() {
+            this._mounted = false;
+          }
 
          componentWillReceiveProps(nextProps){
-                if(this.props.refresh != nextProps.refresh)
+                if(this.props.id != nextProps.id)
                     {
-                        // console.log('making update');
+                      
                         this.init();
                     }             
          }   

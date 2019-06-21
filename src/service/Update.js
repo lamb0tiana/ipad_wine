@@ -7,7 +7,7 @@ import {
     FlatList,
     TouchableHighlight,
     ActivityIndicator,
-    Alert
+    Alert, AlertIOS
 } from 'react-native';
 import DataManager  from './DataManager';
 
@@ -19,17 +19,22 @@ export default class Update extends Component {
 constructor(props) {
     super();
     this.state = {
-        ActivityIndicator_Loading: false,
+        Updating: false,
         status:  [],
         count: 0
     }
+    this.scrollViewRef = null;
     this.dm = DataManager.getInstance();
+    this._isMounted = false;
+    
     this.dm.emitter.addListener('status', (e) =>{
-        this.updateUi(e)
+        this.updateUi(e);
+        if(this.scrollViewRef)
+            this.scrollViewRef.scrollToEnd();
     });
     // dm.update(status => {
     //     if(status){
-    //         this.setState({ActivityIndicator_Loading: false})
+    //         this.setState({Updating: false})
     //     }else{
     //         alert('An error occured');
     //     }
@@ -50,21 +55,37 @@ constructor(props) {
     };
 
     onPressUpdate = () =>{
-        if(this.state.ActivityIndicator_Loading == false)
-        { 
-           console.log('on press update');
-        this.state.status.push({id:0, text:'Initialization'});
-        this.setState({ActivityIndicator_Loading: true});
-        this.dm.update(e => {
-            this.setState({ActivityIndicator_Loading: false});  
+
+        AlertIOS.prompt('Enter your password', null, (text) =>{
+             if(text == 'mmbpad'){
+
+                this.state.status.push({id:0, text:'Initialization'});
+                this.setState({Updating: true});
+                this.dm._update().then(e =>{
+                    if(this._isMounted){
+                        this.setState({Updating: false});
+                        
+                    }
+                            
+                });
+                
+             }else{
+                 alert('wrong password');
+             }              
         });
-        }
-        
+
     }
 
+
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+
+
     onPressCancel = () => {
-      if(this.state.ActivityIndicator_Loading == false) 
-       { 
+      if(this.state.Updating == false) 
+       {
            this.props.navigation.navigate('Home');
         } else{
             Alert.alert(
@@ -73,10 +94,15 @@ constructor(props) {
                 [
                   {
                     text: 'yes',
-                    onPress: () => {this.props.navigation.navigate('Home');},
+                    onPress: () => {
+                        this.props.navigation.navigate('Home');
+                        this.dm.cancelUpdate();
+                    },
                     style: 'cancel',
                   },
-                  {text: 'no', onPress: () => { return;}},
+                  {text: 'no', onPress: () => { 
+                      return;             
+                    }},
                 ],
                 {cancelable: true},
               );
@@ -85,7 +111,13 @@ constructor(props) {
 
     componentWillUnmount(){
         this.dm.emitter.removeAllListeners();
+        this._isMounted = false;
+        this.scrollViewRef = null;
     }
+
+    setScrollViewRef = (element) => {
+        this.scrollViewRef = element;
+    };
 
     static navigationOptions =
     {
@@ -96,9 +128,13 @@ constructor(props) {
     return (
         <ScrollView style = { styles.MainContainer }>
         <View style = { styles.Header }>
+
+        { this.state.Updating ? null :
            <TouchableHighlight style = { styles.Button } onPress = {() => this.onPressUpdate()}>
            <Text style = { styles.Info }>Update</Text>
            </TouchableHighlight>
+        }
+
            <TouchableHighlight style = { styles.Button } onPress = {() => this.onPressCancel()}>
            <Text style = { styles.Info }>Cancel</Text>
            </TouchableHighlight>
@@ -109,6 +145,7 @@ constructor(props) {
             extraData = {this.state.count}
             keyExtractor={item => String(item.id)}
             style = { styles.FlatList }
+            ref={this.setScrollViewRef}
             />
 
         </ScrollView>
