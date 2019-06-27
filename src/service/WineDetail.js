@@ -242,7 +242,7 @@ export default class WineDetail extends Component {
                         <View style={styles.border_one}>
                             <ImageBackground source={this.dm.getImageSource(this.item.path)} style={{ height: (wp('43.16%') - 12)/ 0.71, width: wp('43.16%')-16}}>
                             </ImageBackground>
-                            {this.item.promotion ==1 ?<ImageBackground source={require('../img/icon-star.png')} style={{ height: 1.07* wp('6%'), width: wp('6%') , position:"absolute", bottom:-7, right:-wp('6%')-4 }}>
+                            {this.item.promotion ==1 ?<ImageBackground source={require('../img/icon-star.png')} style={{ height: 1.07* wp('6%'), width: wp('6%') , position:"absolute", bottom:-7.34, right:-wp('6%')-4 }}>
                             </ImageBackground>:null}
                            
                         </View>
@@ -369,8 +369,16 @@ export default class WineDetail extends Component {
                                 </View>}                                
                                 {this.item.byglass == 0 ? null:
                                 <View>
-                                    <ImageBackground source={require('../img/point-line-long.png')} style={{ height: 15, marginTop: hp('1.86%'), width:wp('47%') }}>
-                                    </ImageBackground>
+
+
+
+
+                                    <Dash style={{width:wp('34%'), height:15,marginTop: hp('1.86%')}} 
+                        dashGap={4}
+                        dashColor={'#a0a0a0'}
+                        dashThickness={5}
+                        dashLength={5}
+                        dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
 
                                     <View style={{height:hp('3%'),paddingTop:0,flexDirection: 'row'}}>
                                         <ImageBackground source={require('../img/new-glass.png')} style={{ height: 2.13*wp('1.89%')*0.94, width: wp('1.89%'), marginRight: 5}}>
