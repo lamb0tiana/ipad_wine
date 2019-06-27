@@ -7,6 +7,7 @@ import { isFor } from '@babel/types';
 
 
 
+
 export default class DataManager {
 
     static myInstance = null;
@@ -315,19 +316,26 @@ export default class DataManager {
 
 
     halfWeight(half, view=null){
+
         if(view != null && view !='half' ) return 'normal';
         return 'bold';
     }
 
     halfColor(half, view=null){
-        if(view != null && view !='half' ) return '#FFFFFF';
+        if(half == '0') return '#FFFFFF';
+        if(view != null && view !='half') return '#FFFFFF';
+   
         return '#54b84a';
     }
 
     ishalfof(price, half, view=null){
+        if(half == '0') return price;
         if(view != null && view !='half' ) return price;
-        if(view == null && half != '1') return price;
-        return price/2;
+        if(view == null && half == '0') return price;
+        if(view == null && half == '1') return price/2;
+        if(half == '1') return price/2;
+
+        return price;
         
     }
 
@@ -454,7 +462,7 @@ export default class DataManager {
                             main.push({type:'Row',data:row});
 
                             if(_.find(this._regionList[viewType], rg => rg.name == row.region) == undefined)
-                                this._regionList[viewType].push({id:row.region_id, name:row.region});
+                                this._regionList[viewType].push({id:row.region_id, name:row.region, countryId:row.country_id});
             
                             if(_.find(this._grapeList[viewType], gr => gr == row.grape) == undefined && row.grape && row.grape != '')
                                 this._grapeList[viewType].push(row.grape);

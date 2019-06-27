@@ -20,6 +20,7 @@ import {heightPercentageToDP as hp,
 
 import DataManager  from './DataManager';
 
+
 let dm = DataManager.getInstance();
 let _ = require('lodash');
 
@@ -171,6 +172,15 @@ export default class ModalSearch extends Component {
             btnSelected: 0
           })
         }
+    }
+
+    isRegionDisabled = (region) =>{
+
+        if(this.state.req.country_id.length == 0) return false;
+
+        if(this.state.req.country_id.indexOf(region.countryId) == -1) return true;
+
+        return false;
     }
 
     onReset(){
@@ -411,9 +421,9 @@ this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
                                 <CheckBox
                                     isChecked={this.state.checkbox[region.name.replace(/ /g, "")] }
                                     onClick={this.toggle.bind(this,'region_id',region.name.replace(/ /g, ""))} 
-                                                                        checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
+                                    disabled = {this.isRegionDisabled(region)}                                 checkedImage={<Image source={require('../img/selected.png')} style={{width:20,height:20}} />}
                                     unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
-
+                                    style={{opacity: this.isRegionDisabled(region)?0.1:1}}
                                     />
                                     <Text style={styles.RegionText}>{dm.lineBreak(region.name)}</Text>
                                 </View>

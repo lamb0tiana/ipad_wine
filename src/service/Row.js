@@ -49,7 +49,7 @@ setScrollViewRef = (element) => {
                             }}>
                             <View style={{paddingTop: 9, marginRight:1}}>
 
-                            <ImageBackground source={dm.resolveIconSourceForType(this.props.item.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
+                            <ImageBackground source={dm.resolveIconSourceForType(this.props.item.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('4%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
 
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>

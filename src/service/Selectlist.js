@@ -271,7 +271,7 @@ export default class Selectlist extends Component {
                                                     backgroundColor:'#333333',width:wp('80%'),height:wp('12.2%'),marginBottom:2, flexDirection:'row'
                                                 }}>
                                                 <View style={{paddingTop: 9, marginRight:1}}>
-                                                    <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3%'),resizeMode: 'contain'}}>
+                                                    <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3,1%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
                                                     <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
