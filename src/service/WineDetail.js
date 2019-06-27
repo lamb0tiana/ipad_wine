@@ -242,7 +242,7 @@ export default class WineDetail extends Component {
                         <View style={styles.border_one}>
                             <ImageBackground source={this.dm.getImageSource(this.item.path)} style={{ height: (wp('43.16%') - 12)/ 0.71, width: wp('43.16%')-16}}>
                             </ImageBackground>
-                            {this.item.promotion ==1 ?<ImageBackground source={require('../img/icon-star.png')} style={{ height: 1.07* wp('6%'), width: wp('6%') , position:"absolute", bottom:-7.34, right:-wp('6%')-4 }}>
+                            {this.item.promotion ==1 ?<ImageBackground source={require('../img/icon-star.png')} style={{ height: 1.07* wp('6%'), width: wp('6%') , position:"absolute", bottom:-7.5, right:-wp('6%')-4 }}>
                             </ImageBackground>:null}
                            
                         </View>

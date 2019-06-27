@@ -75,7 +75,7 @@ import {heightPercentageToDP as hp,
         onPressMoinView = (id) => {
             if (this.state.count >0) { 
                 return <TouchableOpacity onPress={this.onPressMoin.bind(this, id)}>
-                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('2%'),width:wp('2.6%'), marginLeft: 13}}>
+                    <ImageBackground source={require('../img/circle-moin.png')} style={{ height: hp('2%'),width:wp('2.6%'), marginLeft: 10}}>
                     </ImageBackground>
                 </TouchableOpacity>
             }
@@ -84,12 +84,12 @@ import {heightPercentageToDP as hp,
 
         onPressPlusView = (id) => {
             if (this.state.count == 0) {
-                return <TouchableOpacity style={{ paddingLeft: wp('5.5%'), paddingTop: -20}} onPress={this.onPressPlus.bind(this, id)} >
-                    <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('2%'),width:wp('2.6%'),marginRight: 13}}>
+                return <TouchableOpacity style={{ paddingLeft: wp('5%'), paddingTop: -20}} onPress={this.onPressPlus.bind(this, id)} >
+                    <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('2%'),width:wp('2.6%'),marginRight: 16}}>
                     </ImageBackground>
                 </TouchableOpacity>
             }
-            else return <TouchableOpacity style={{ paddingLeft: wp('1.5%')}} onPress={this.onPressPlus.bind(this, id)}>
+            else return <TouchableOpacity style={{ paddingLeft: wp('1,1%'), marginLeft:5, marginRight:0}} onPress={this.onPressPlus.bind(this, id)}>
                 <ImageBackground source={require('../img/circle-plus-gris.png')} style={{ height: hp('2%'),width:wp('2.6%')}}>
                 </ImageBackground>
             </TouchableOpacity>;
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color:"white",
-        fontSize:20,
+        fontSize:16,
         marginBottom: hp("2.8%"),
         letterSpacing: 1.6
     },
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingLeft:wp('1.5%'),
         marginTop: -3,
-        fontSize: 22
+        fontSize: 20
     }
 });
     

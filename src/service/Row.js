@@ -45,7 +45,7 @@ setScrollViewRef = (element) => {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('WineDetail',{item:this.props.item})}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
                         <View style={{
-                                backgroundColor:'#1c1c1c',width:wp('77%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
+                                backgroundColor:'#1c1c1c',width:wp('81%'),height:wp('11%'),marginBottom:2, flexDirection:'row'
                             }}>
                             <View style={{paddingTop: 9, marginRight:1}}>
 
@@ -55,7 +55,7 @@ setScrollViewRef = (element) => {
                                 <Text style={{color:'#f1592a',paddingLeft: 10,paddingTop: 10,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                 {this.props.item.nameOnRow}
                                 </Text>
-                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('77%')}}>
+                                <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('81%')}}>
                                     <Text style={{color:'#ffffff',paddingLeft: 10,paddingTop: 7, fontSize:16, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                     {this.props.item.topRegion == '' ||  this.props.item.topRegion ==  this.props.item.region ? '' : this.props.item.topRegion+', '} {this.props.item.region} {this.props.item.vintage}
                                     </Text>
@@ -68,15 +68,15 @@ setScrollViewRef = (element) => {
                               
                             </View>
 
-        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('71%'),  marginTop:-2, marginRight:1, position:"absolute", marginLeft:13}}>
+        {this.props.item.best == 1 ?<View style={{paddingLeft:wp('75%'),  marginTop:-2, marginRight:1, position:"absolute", marginLeft:13}}>
                                 <ImageBackground source={require('../img/icon-like.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:5, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.promotion == 1 ?<View style={{paddingTop: 9, paddingLeft:wp('73,8%'), marginTop:-10 ,marginRight:1, position:"absolute"}}>
+        {this.props.item.promotion == 1 ?<View style={{paddingTop: 9, paddingLeft:wp('77,99%')+1, marginTop:-10 ,marginRight:1, position:"absolute"}}>
                                 <ImageBackground source={require('../img/icon-etoil.png')} style={{height: hp('2.3%'), width:wp('3%'),marginLeft:1, marginTop: 15, resizeMode: 'contain'}}>
                                 </ImageBackground>
                             </View>:null}
-        {this.props.item.byglass == 1 && this.props.view != 'half' ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('48%'), position:"absolute"}}>
+        {this.props.item.byglass == 1 && this.props.view != 'half' ? <View style={{flexDirection:'row', marginTop:30, marginLeft:wp('52%'), position:"absolute"}}>
 
                                 <Text style={{color:'#FFFFFF', marginLeft:1, marginTop: 29, fontSize: 18}}>
                                 ¥:
@@ -106,7 +106,7 @@ setScrollViewRef = (element) => {
                         
                     </View>
                 </TouchableOpacity>
-                <View style={{backgroundColor:'#1c1c1c',width:wp('16%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 8, paddingLeft:10}}>
+                <View style={{backgroundColor:'#1c1c1c',width:0.156*wp('80%'),height:wp('11%'),marginLeft:5, marginBottom:4,marginRight: 8}}>
                     <View style={{flexDirection: 'row',justifyContent: 'space-between', width:wp('8%'),height:wp('7%')}}>
 
                     <PlusMoins id={this.props.item.id} ref={this.setScrollViewRef}
