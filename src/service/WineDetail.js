@@ -363,7 +363,7 @@ export default class WineDetail extends Component {
                                         </View>
                                         <View style={{ borderWidth: 4, borderColor:'#808080', marginLeft: 12, backgroundColor:'#4d4e4e',
                                         justifyContent: 'center', alignItems: 'center', height:  0.4*wp("17.1875%"), width: wp('22%')}}>
-                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 23}}>RMB {this.dm.ishalfof(this.item.price)}</Text>
+                                            <Text style={{ color:'#ffffff',padding: 5, fontSize: 23}}>RMB {this.dm.ishalfof(this.item.price, this.item.promotion)}</Text>
                                         </View>
                                     </View>
                                 </View>}                                
