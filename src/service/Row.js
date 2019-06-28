@@ -123,7 +123,7 @@ setScrollViewRef = (element) => {
                         </View>
                   }
                         
-                        <Text style={{color:dm.halfColor(this.props.item.promotion, this.props.view), marginLeft:0,marginTop:4, fontSize: 15,
+                        <Text style={{color:dm.halfColor(this.props.item.promotion, this.props.view), marginRight:6,marginTop:4, fontSize: 15,
                              fontWeight:dm.halfWeight(this.props.item.promotion, this.props.view)}}>
                             {dm.ishalfof(this.props.item.price, this.props.item.promotion, this.props.view)+' ¥'}
                         </Text>
