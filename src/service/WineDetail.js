@@ -169,7 +169,7 @@ export default class WineDetail extends Component {
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
-                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#ee4723',color:'#fff'}}
                     >
                         <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('ct')}</Text>
                         </View>
@@ -265,7 +265,7 @@ export default class WineDetail extends Component {
                                     }
                                     {this.item.type =='WHITE' ?<View style={{ borderWidth: 4, borderColor:'#808080', marginLeft:wp('1%'), backgroundColor:'black', width: wp('17.1875%'), 
                                     height: 0.46*wp('17.1875%'), justifyContent: 'center', alignItems: 'center'}}>
-                                    <ImageBackground source={require('../img/cone-white.png')} style={{ position:'absolute', height: 47, width: 47, top:-4, left:-4}}>
+                                    <ImageBackground source={require('../img/cone-white.png')} style={{ position:'absolute', height: 49, width: 49, top:-4, left:-4}}>
                                     </ImageBackground>                                   
                                         <Text style={{ fontSize: 18, fontFamily: "Helvetica Neue", color:'#ffffff',padding:4, paddingTop: 7}}>WHITE</Text>
                                     </View>:null
@@ -501,7 +501,7 @@ export default class WineDetail extends Component {
                             </View>
                         </View>
                         <View style={{marginTop:hp('1%')}}>
-                            <Text style={{color:'#f1592a', fontFamily: "American Typewriter", fontSize:27, marginBottom: 5}}>
+                            <Text style={{color:'#ee4723', fontFamily: "American Typewriter", fontSize:27, marginBottom: 5}}>
                                 DESCRIPTION
                             </Text>
                             <Text style={{ color:'#ffffff', fontFamily: "Helvetica Neue",fontSize: 17, textAlign:'auto', lineHeight: 20}}>
@@ -552,13 +552,13 @@ const styles = StyleSheet.create({
         height: wp('43,16%') / 0.71,
         borderColor:'#ed4622',
         borderWidth: 7,
-        color:'#f1592a',
+        color:'#ee4723',
         marginBottom: hp("2,25%")
 
     },
     border_two:{
         width: wp('60%'),
-        color:'#f1592a',
+        color:'#ee4723',
         marginLeft:5,
         marginRight:20,
         paddingRight:20,

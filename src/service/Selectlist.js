@@ -233,7 +233,7 @@ export default class Selectlist extends Component {
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
-                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#ee4723',color:'#fff'}}
                     >
                         <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('ct')}</Text>
                         </View>
@@ -273,7 +273,7 @@ export default class Selectlist extends Component {
                                                 <View style={{paddingTop: 9, marginRight:1}}>
                                                     <ImageBackground source={dm.resolveIconSourceForType(item.data.type)} style={{ position: 'absolute', height: hp('2.8%'),width:wp('3,1%'),resizeMode: 'contain'}}>
                                                     </ImageBackground>
-                                                    <Text style={{color:'#f1592a',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
+                                                    <Text style={{color:'#ee4723',paddingLeft: 16,paddingTop: 14,fontSize: 18, fontFamily: "Helvetica Neue", fontWeight:'500'}}>
                                                     {item.data.name.length >= 55 ? item.data.name.substring(0,55)+'...':item.data.name}
                                                     </Text>
                                                     <View style={{flexDirection:'row', justifyContent: 'space-between', width: wp('80%')}}>
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
         marginTop: -3
     },
     glassVolume:{
-        color:'#f1592a',
+        color:'#ee4723',
         textAlign:"right",
         marginTop: 20,
         fontSize: 18,

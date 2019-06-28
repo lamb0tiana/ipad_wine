@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         height: 1.08*wp('42,38%'),
         borderColor:'#54b84a',
         borderWidth: wp('1,40%'),
-        color:'#f1592a',
+        color:'#ee4723',
 
     },
     secondButton:{
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         height: 1.08*wp('42,38%'),
         borderColor:'#54b84a',
         borderWidth: wp('1,40%'),
-        color:'#f1592a',
+        color:'#ee4723',
     },
     second:{
         marginRight:20,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         height: 1.09*wp('42,38%'),
         borderColor:'#54b84a',
         borderWidth: wp('1,40%'),
-        color:'#f1592a',
+        color:'#ee4723',
     },
     fourthButton:{
         width: wp('42,38%'),

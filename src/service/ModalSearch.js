@@ -356,7 +356,7 @@ export default class ModalSearch extends Component {
                                             Grapes</Text>
                                         </TouchableOpacity>
                                         <View
-                                            style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
+                                            style={{width:wp('4%'),backgroundColor:'#ee4723',color:'#fff'}}
                                         >
                                             <Text style={{fontSize:15, color:'#fff',textAlign: 'center',
                                             marginTop:7
@@ -371,7 +371,7 @@ export default class ModalSearch extends Component {
                                         Regions</Text>
                                     </TouchableOpacity>
                                     <View
-                                        style={{width:wp('4%'),backgroundColor:'#f1592a',color:'#fff'}}
+                                        style={{width:wp('4%'),backgroundColor:'#ee4723',color:'#fff'}}
                                     >
                                         <Text style={{fontSize:15, color:'#808080',textAlign: 'center',  marginTop:7}}>
                                         {this.state.filterRegionCount}

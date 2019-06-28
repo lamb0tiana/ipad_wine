@@ -209,7 +209,7 @@ export default class TestRecyclerBest extends React.Component {
                     <View style={{width:wp('20%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('12.5%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>Filter</Text>
                         <View
-                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('7%'),paddingTop:8, backgroundColor:'#ee4723',color:'#fff'}}
                     >
                         <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('filterCount')}</Text>
                         </View>
@@ -221,7 +221,7 @@ export default class TestRecyclerBest extends React.Component {
                     <View style={{width:wp('25.5%'),flexDirection: 'row',justifyContent: 'space-between'}}>
                         <Text style={{height:wp('5%'), paddingTop:8, width:wp('19%'),textAlign: 'center',color:'#fff',marginRight:3,backgroundColor:'#54b84a',padding:4,fontFamily:"American Typewriter", fontSize: 22}}>My Selection</Text>
                         <View
-                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#f1592a',color:'#fff'}}
+                        style={{width:wp('6%'),paddingTop:8, backgroundColor:'#ee4723',color:'#fff'}}
                     >
                         <Text style={{fontWeight: "bold", color:'#fff',textAlign: 'center', fontSize: 20}}>{navigation.getParam('ct')}</Text>
                         </View>
