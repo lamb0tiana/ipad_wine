@@ -425,7 +425,7 @@ this.state.statusB ? <ScrollView style={{backgroundColor:'#444444', width:wp('92
                                     unCheckedImage={<Image source={require('../img/notselected.png')} style={{width:20,height:20}}/>}
                                     style={{opacity: this.isRegionDisabled(region)?0.1:1}}
                                     />
-                                    <Text style={styles.RegionText}>{dm.lineBreak(region.name)}</Text>
+                                    <Text style={[styles.RegionText, {opacity: this.isRegionDisabled(region)?0.1:1}]}>{dm.lineBreak(region.name)}</Text>
                                 </View>
                             ))
                         }
