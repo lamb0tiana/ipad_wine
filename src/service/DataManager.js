@@ -462,7 +462,8 @@ export default class DataManager {
                             main.push({type:'Row',data:row});
 
                             if(_.find(this._regionList[viewType], rg => rg.name == row.region) == undefined)
-                                this._regionList[viewType].push({id:row.region_id, name:row.region, countryId:row.country_id});
+                                this._regionList[viewType].push({id:row.region_id, name:row.region, countryId:row.country_id
+                                , nameBreaked: this.lineBreak(row.region)});
             
                             if(_.find(this._grapeList[viewType], gr => gr == row.grape) == undefined && row.grape && row.grape != '')
                                 this._grapeList[viewType].push(row.grape);
