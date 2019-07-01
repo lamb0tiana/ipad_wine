@@ -375,7 +375,7 @@ export default class WineDetail extends Component {
 
                                     <Dash style={{width:wp('34%'), height:15,marginTop: hp('1.86%')}} 
                         dashGap={4}
-                        dashColor={'#a0a0a0'}
+                        dashColor={'#686767'}
                         dashThickness={5}
                         dashLength={5}
                         dashStyle={{borderRadius: 100, overflow: 'hidden'}}/>
