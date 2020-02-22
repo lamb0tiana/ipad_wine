@@ -1,80 +1,122 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { GiftedChat } from 'react-native-gifted-chat'
 import {
-    StyleSheet,
-    TouchableOpacity,
-    View,
-    ImageBackground
-} from 'react-native';
-import DataManager  from './DataManager';
-let dm = DataManager.getInstance();
-import RNFetchBlob from 'rn-fetch-blob';
+    Text,
+    View
+} from 'react-native'
 
-import {heightPercentageToDP as hp,
-    widthPercentageToDP as wp,} from "react-native-responsive-screen";
+export default class Start extends React.Component {
+  state = {
+    messages: [],
+  }
 
-
-
-export default class Start extends Component {
-
-    constructor(props) {
-        super(props);
-        global.Selected = [];
-
-        global.CountryIds = [];
-        global.Countries =[];
-        global.RegionIds = [];
-        global.Regions = [];
-        global.Grapes = [];
-        global.All = [];
-        global.Referer = '';
-
-         dm.organizeData();
-         dm.setGlobals();
-         dm.filterDataViewByGlass();
-         dm.filterDataViewHalfOff();
-         dm.filterDataViewBestOf();
-      
-    }
-    static navigationOptions =
+  componentDidMount() {
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: 'Hello developer',
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: 'React Native',
+            avatar: 'https://placeimg.com/140/140/any',
+          },
+        },
+      ],
+    })
+  }
+data = [
+  {
+  "telephone": "044477889",
+  "dt_create": "2013-05-13",
+  "id_chatter": "2146033",
+  "nbMO": "0",
+  "dt_lastmsg": "2012-07-26 18:35:55"
+  },
     {
-        header:null
+    "telephone": "0440278921",
+    "dt_create": "2013-05-13",
+    "id_chatter": "2146033",
+    "nbMO": "0",
+    "dt_lastmsg": "2012-07-26 18:35:55"
+    },
+  
+    {
+    "telephone": "0677585999",
+    "dt_create": "2013-05-13",
+    "id_chatter": "2147138",
+    "nbMO": "0",
+    "dt_lastmsg": "2012-08-01 20:29:41"
+    },
+    {
+    "telephone": "0676194444",
+    "dt_create": "2013-05-13",
+    "id_chatter": "2146082",
+    "nbMO": "0",
+    "dt_lastmsg": "2012-08-02 19:45:00"
+    },
+    {
+    "telephone": "0683077889",
+    "dt_create": "2013-05-13",
+    "id_chatter": "2149004",
+    "nbMO": "0",
+    "dt_lastmsg": "2013-07-03 16:28:00"
     }
-  
-  
+    ];
+  fetchMessage = () => this.data[0].telephone
+
+   randomInt(min, max) {
+    return min + Math.floor((max - min) * Math.random());
+  }
+  onSend(messages = []) {
+    
+    console.log(messages);
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, messages),
+    }))
+
+    var newM =  {
+      _id: this.randomInt(2,444555),
+      text: 'response',
+      createdAt: new Date(),
+      user: {
+        _id: 8,
+        name: 'React Native',
+        avatar: 'https://placeimg.com/140/140/any',
+      },
+    }
+
+    //messages.push(newM);
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, newM),
+    }))
 
 
 
-    render() {
+  }
+
+  renderAvatar(){
         return (
-                <View style={styles.container}>
-                    <ImageBackground source={require('../img/Entete.png')} style={{ width: wp('34.77%'),height: 0.60* wp('34.77%')}}></ImageBackground>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Accueil', { transition: 'collapseExpand' })} onLongPress= {() => this.props.navigation.navigate('Update') }>
-                         <ImageBackground source={require('../img/start.png')} style={{ width: wp('20%'),height: 0.62* wp('40%'), marginTop: wp('5%')}}></ImageBackground>
-                    </TouchableOpacity>
-                </View>
-
+            <View>
+                <Text style={{color:'#808080', fontSize: 44,fontFamily:"American Typewriter"}}>
+                    Avatar1
+                </Text>   
+                <View style={{ height: 0.1, width: '100%', backgroundColor: 'black' }} />            
+            </View>
         );
-    }
+  }
 
-    componentWillUnmount(){
-
-      dm = null;
-      _ = null;
-    }
-
+  render() {
+    return (
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={messages => {this.onSend(messages)}}
+        
+        user={{
+          _id: 1,
+        }}
+      />
+    )
+  }
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'black',
-        width:wp('100%'),
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: wp('2.02%'),
-        borderColor: '#999999'
-    }
-
-});
